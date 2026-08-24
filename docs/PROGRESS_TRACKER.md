@@ -115,6 +115,7 @@
 | Solutions | 🟡 | Four differentiated role pages implemented; Solutions landing route and specialist approvals remain outstanding |
 | New Market | ⬜ | Direction is bold but supportable |
 | Security & Trust | ⬜ | All claims approved |
+| Resources (`/resources`, `/resources/[slug]`) | 🟡 | Built 2026-08-24 (D-027) — file-based Markdown pipeline (`lib/resources.ts`, `content/resources/*.md`), index + article pages, sitemap/robots wired to only index once real articles exist. Automated gates pass. No real articles published yet — user is writing them now |
 | Book a Demo form | ⬜ | Success/error journey verified |
 | Lead API, storage and outbox | ⬜ | Durable, idempotent and recoverable |
 | Acknowledgement and internal routing | ⬜ | Delivery, bounce and failure paths tested |

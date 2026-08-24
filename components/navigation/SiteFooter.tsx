@@ -8,6 +8,7 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string }[
       { href: "/platform", label: "Platform" },
       { href: "/how-it-works", label: "How It Works" },
       { href: "/solutions", label: "Solutions" },
+      { href: "/resources", label: "Resources" },
     ],
   },
   {

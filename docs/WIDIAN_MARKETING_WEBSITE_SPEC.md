@@ -37,12 +37,12 @@ Lead capture must create a durable, owned record before displaying success. Enqu
 | `/book-a-demo` | Book a Demo | Convert high-intent visitors (renamed from Book a Walkthrough, `DECISIONS.md` D-025) |
 | `/privacy` | Privacy | Explain personal-data handling |
 | `/cookies` | Cookies | Explain consent and analytics |
+| `/resources` (+ `/resources/[slug]`) | Resources | Articles and guides (un-deferred 2026-08-24 once real articles were in progress — see `DECISIONS.md`) |
 
 ### Defer until sufficient evidence exists
 
 - Case studies
 - Customer stories
-- Resource library
 - Partner directory
 - Integration directory
 - Certification centre

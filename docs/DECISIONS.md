@@ -50,6 +50,8 @@ Record decisions when made; do not silently convert assumptions into requirement
 
 | D-037 | Deploy the marketing site through Git-connected Vercel previews before attaching `widian.tech` | Accepted | Vercel matches the Next.js runtime, supplies isolated preview URLs and supports rollback and the planned server-side demo endpoint. Preview and local robots disallow crawling; production crawling remains controlled per route. FTP/static export is not selected because it would remove runtime support and require separate image/form infrastructure. |
 
+| D-027 | Resources section (`/resources`) un-deferred and built as file-based Markdown, no CMS | Accepted | User is actively writing articles (2026-08-24), removing the "no content/no owner" reason it was deferred in `WIDIAN_MARKETING_WEBSITE_SPEC.md` §2. Built per `ARCHITECTURE.md` §6's guidance (local content, no CMS until an editorial need justifies one): each article is a Markdown file with frontmatter in `content/resources/`, parsed with `gray-matter` + `marked` (new dependencies, justified per `AGENTS.md` rule 10 — both are small, single-purpose, widely-used libraries with no runtime services). Index and sitemap only include non-draft articles; empty state shown until the first real article lands. Article JSON-LD (`Article` schema) added per `SEO_STRATEGY_AND_TECHNICAL_PLAN.md`, now genuinely applicable |
+
 ## Decision entry template
 
 - ID and date
