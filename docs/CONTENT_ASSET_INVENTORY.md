@@ -13,8 +13,8 @@
 
 | Asset | Purpose | Requirement | Status |
 |---|---|---|---|
-| Master shield SVG | Header, favicon and verification moments | Approved vector with clear-space guidance | Locate/verify |
-| Master wordmark SVG | Header and footer | No reconstruction or typed substitute | Locate/verify |
+| Master shield SVG | Header, favicon and verification moments | Approved vector with clear-space guidance | Locate/verify — PNG interim staged (`public/brand/widian-mark-transparent.png`) |
+| Master wordmark SVG | Header and footer | No reconstruction or typed substitute | Locate/verify — PNG interim staged (`public/brand/widian-logo.png`, full shield+wordmark lock-up) |
 | Social-sharing artwork | Open Graph and launch sharing | 1200×630, truthful and legible | Create after direction approval |
 | Product captures | Platform and workflow explanation | Current, sanitised, readable and labelled | Capture/approve |
 | Mobile field capture sequence | Surveyor story | Real flow or clearly labelled prototype | Verify |
@@ -23,7 +23,7 @@
 | Team portraits and biographies | About page | Supplied and approved | Awaiting content |
 | Trust evidence | Trust page | Current facts with owners and dates | Awaiting confirmation |
 | Case-study material | Proof | Permission, methodology and review | Future |
-| Email sender identity | Enquiry acknowledgement | Approved name, address and reply route | Decide |
+| Email sender identity | Enquiry acknowledgement | Approved name, address and reply route via Resend (D-008), on a dedicated sending subdomain with SPF/DKIM/DMARC | Provider decided; sending subdomain and reply address still to configure |
 
 ## Asset rules
 

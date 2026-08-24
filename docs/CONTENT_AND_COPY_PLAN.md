@@ -22,8 +22,13 @@ Make Widian's category and value understandable before describing features: one 
 | How it works | How does an issue reach closure? | Interactive lifecycle with actors, gates and evidence | See Widian in context |
 | Solutions | What changes for my organisation and role? | Role switcher following one shared finding | Discuss your operating model |
 | Trust | Can we assess this responsibly? | Evidence room with confirmed, pending and not-yet-claimed states | Request trust information |
-| About | Why is Widian building this? | Category thesis, principles and supplied team facts | Speak with Widian |
 | Book a walkthrough | Is this relevant to our estate and process? | Focused qualification and clear next step | Submit request |
+
+### Deferred
+
+| Page | Visitor question | Distinctive narrative treatment | Primary CTA | Defer reason |
+|---|---|---|---|---|
+| About | Why is Widian building this? | Category thesis, principles and supplied team facts | Speak with Widian | Not in the release-one sitemap (`WIDIAN_MARKETING_WEBSITE_SPEC.md` §2) or route tree (`ARCHITECTURE.md` §4); team biographies and company facts are still "Awaiting content" per `CONTENT_ASSET_INVENTORY.md`. Revisit once supplied. |
 
 ## Copy rules
 

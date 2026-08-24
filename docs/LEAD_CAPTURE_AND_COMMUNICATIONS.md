@@ -135,15 +135,15 @@ Do not send names, emails, organisation names or free text to analytics.
 
 ## Decisions required
 
-- Canonical CRM/database and data region
+- ~~Canonical CRM/database and data region~~ — isolated marketing database (D-007); data region still to confirm
 - Named lead owner and backup owner
 - Response target and escalation path
-- Transactional email provider and sending subdomain
+- ~~Transactional email provider and sending subdomain~~ — Resend (D-008); subdomain and SPF/DKIM/DMARC configuration still to complete
 - Approved form fields and qualification bands
-- Privacy notice owner, lawful-basis assessment and marketing wording
-- Retention/review schedule and deletion owner
+- Privacy notice owner, lawful-basis assessment and marketing wording — blocked on privacy owner assignment (D-010, D-012)
+- Retention/review schedule and deletion owner — blocked on privacy owner assignment (D-010, D-012)
 - Whether chat notifications are needed and who may see them
-- Booking flow: immediate calendar selection or human qualification first
+- ~~Booking flow: immediate calendar selection or human qualification first~~ — immediate calendar selection (D-009); form still captures qualification fields so the walkthrough owner arrives prepared
 
 ## Acceptance criteria
 

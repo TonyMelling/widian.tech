@@ -14,7 +14,7 @@ The website must be credible to senior fire-safety, property and compliance prof
 
 Before changing code or public copy, read:
 
-1. `README_START_HERE.md`
+1. `docs/README.md`
 2. `WIDIAN_MARKETING_WEBSITE_CONTEXT.md`
 3. `WIDIAN_MARKETING_WEBSITE_SPEC.md`
 4. `ARCHITECTURE.md`
