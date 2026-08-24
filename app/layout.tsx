@@ -20,7 +20,9 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://widian.tech";
+// `||`, not `??` — an accidentally blank (but set) env var is still falsy
+// and must fall back too, not just an unset one.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://widian.tech";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://widian.tech";
+// `||`, not `??` — an accidentally blank (but set) env var must fall
+// back too, not just an unset one.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://widian.tech";
 
 // Only canonical, fully-built, indexable routes belong here — per
 // SEO_STRATEGY_AND_TECHNICAL_PLAN.md ("Sitemap contains only canonical
