@@ -7,6 +7,7 @@ describe("RecordNavigator", () => {
     render(<RecordNavigator />);
     expect(screen.getByText("Synthetic demonstration")).toBeInTheDocument();
     expect(screen.getByText(/not a live product screen/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Show more lifecycle stages" })).toBeInTheDocument();
   });
 
   it("moves through ten lifecycle stages while retaining the finding and building", () => {

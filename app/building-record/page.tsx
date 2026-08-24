@@ -22,7 +22,7 @@ export default function BuildingRecordPage() {
     <><SiteHeader /><main>
       <section className="px-4 pt-16 pb-14 md:px-16 md:pt-24 md:pb-20"><div className="mx-auto max-w-280">
         <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">Building Record</p>
-        <h1 className="mt-4 max-w-4xl font-display text-[32px] leading-[1.13] font-bold text-navy md:text-[54px]">From a portfolio to one finding. The building never drops out.</h1>
+        <h1 className="mt-4 max-w-4xl font-display text-[32px] leading-[1.13] font-bold text-navy md:text-[54px]">Follow every finding back to the building it belongs to.</h1>
         <div className="mt-6 grid gap-7 border-t border-hairline pt-6 md:grid-cols-[1fr_auto] md:items-end md:gap-12">
           <p className="max-w-2xl text-base leading-relaxed text-text-secondary md:text-[19px] md:leading-[1.55]">Move from the organisation responsible for an estate to a specific building, element, inspection and finding—without separating the evidence from where it belongs.</p>
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7"><Button href="/book-a-demo">Book a Demo</Button><Button href="/platform" variant="secondary">Explore the platform</Button></div>

@@ -14,7 +14,7 @@ How do you get from a whole portfolio down to one finding, without losing the bu
 
 **Eyebrow:** Building Record
 
-**Headline:** From a portfolio to one finding. The building never drops out.
+**Headline:** Follow every finding back to the building it belongs to.
 
 **Standfirst:** Move from the organisation responsible for an estate to a specific building, element, inspection and finding—without separating the evidence from where it belongs.
 

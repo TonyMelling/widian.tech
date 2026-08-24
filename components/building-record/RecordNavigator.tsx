@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useHorizontalRail } from "@/components/ui/useHorizontalRail";
 
 const LEVELS = [
   { type: "Stage 01", name: "Recorded", reference: "INS-081", description: "Inspection evidence is recorded against fire door FD-014 at Harbour Court.", context: "Surveyor · evidence saved" },
@@ -17,6 +18,8 @@ const LEVELS = [
 
 export function RecordNavigator() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const { railRef, atStart, atEnd, updateRailPosition, scrollRail } =
+    useHorizontalRail<HTMLOListElement>(192);
   const selected = LEVELS[selectedIndex];
 
   return (
@@ -26,11 +29,11 @@ export function RecordNavigator() {
         <p className="text-xs leading-relaxed text-on-navy-muted">Proposed target lifecycle · not a live product screen</p>
       </div>
       <div className="grid min-w-0 lg:grid-cols-[19rem_1fr]">
-        <nav className="min-w-0 overflow-hidden border-b border-navy-hairline lg:border-r lg:border-b-0" aria-label="Synthetic ten-stage building record lifecycle">
-          <ol className="flex max-w-full overflow-x-auto lg:block">
+        <nav className="relative min-w-0 overflow-hidden border-b border-navy-hairline lg:border-r lg:border-b-0" aria-label="Synthetic ten-stage building record lifecycle">
+          <ol ref={railRef} onScroll={updateRailPosition} className="flex max-w-full overflow-x-auto lg:block">
             {LEVELS.map((level, index) => {
               const active = index === selectedIndex;
-              return <li key={level.reference} className="min-w-48 border-r border-navy-hairline last:border-r-0 lg:min-w-0 lg:border-r-0 lg:border-b lg:last:border-b-0">
+              return <li key={`${level.type}-${level.reference}`} className="min-w-48 border-r border-navy-hairline last:border-r-0 lg:min-w-0 lg:border-r-0 lg:border-b lg:last:border-b-0">
                 <button type="button" onClick={() => setSelectedIndex(index)} aria-current={active ? "step" : undefined} className={`flex w-full items-center gap-3 px-4 py-4 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white md:px-5 ${active ? "bg-white text-navy" : "text-white hover:bg-navy-800"}`}>
                   <span className={`font-mono text-[10px] ${active ? "text-ember" : "text-on-navy-muted"}`}>{String(index + 1).padStart(2, "0")}</span>
                   <span><span className="block text-[11px] tracking-[0.08em] uppercase opacity-70">{level.type}</span><span className="mt-0.5 block text-sm font-semibold">{level.name}</span></span>
@@ -38,6 +41,8 @@ export function RecordNavigator() {
               </li>;
             })}
           </ol>
+          {!atStart ? <><div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-navy to-transparent lg:hidden" aria-hidden="true" /><button type="button" aria-label="Show previous lifecycle stages" onClick={()=>scrollRail(-1)} className="absolute top-1/2 left-1 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-navy-hairline bg-navy text-xl text-white shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden">‹</button></> : null}
+          {!atEnd ? <><div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-navy via-navy/90 to-transparent lg:hidden" aria-hidden="true" /><button type="button" aria-label="Show more lifecycle stages" onClick={()=>scrollRail(1)} className="absolute top-1/2 right-1 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-ember bg-navy text-xl text-white shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden">›</button></> : null}
         </nav>
         <div className="relative min-h-96 min-w-0 overflow-hidden px-5 py-8 md:px-10 md:py-12" aria-live="polite">
           <div className="absolute top-0 right-0 h-px w-1/3 bg-ember" aria-hidden="true" />

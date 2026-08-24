@@ -22,9 +22,11 @@ How can Widian become more than another software tool?
 
 ## 4. Primary headline
 
-> **From software tool to market infrastructure.**
+> **Responsibility is becoming harder to hand off.**
 
-*("Suggested headline" per `SPEC.md` §7.5 — not yet formally approved.)*
+This creates operational tension without forecasting a particular law, deadline or enforcement event. The pressure comes from fragmented evidence, decisions and organisational hand-offs, not fear of fire.
+
+*(Proposed replacement for the earlier `SPEC.md` §7.5 headline; Brand Strategist and Senior Copywriter approval remains required.)*
 
 ## 5. Short standfirst
 
@@ -80,6 +82,7 @@ Secondary: **See who contributes to the record** → `/solutions`.
 
 ## 12. Image/animation captions
 
+- Hero pressure field: *"Conceptual illustration · strategic direction, not a live product view or regulatory forecast."* The visual shows documentary and responsibility signals converging around a persistent building, with one Ember thread beginning to organise them.
 - System map: *"Every organisation changes. The building's record doesn't."* — caption must not depict fabricated participant logos, customer counts, or an active marketplace UI.
 
 ## 13. Accessible alternative text

@@ -33,6 +33,8 @@ Every material public claim must have an owner and evidence before release.
 - **Proposed future state:** visibly labelled as planned or being developed.
 - **Withhold:** not suitable for public use.
 
+| Marketing-site controller, storage and hosting direction | May state that Widian is intended to act as controller, marketing leads are to be kept in a separate Supabase database, and Vercel is to be configured for an EU AWS region. Do not state exact legal identity, exact data location, transfer compliance or operational implementation until contracts and deployed configuration are verified. Do not claim GDPR/DPA certification or guaranteed compliance | User direction 2026-08-24; `DECISIONS.md` D-034; deployment and processor evidence still required | Privacy/Security | Qualified — pre-publication verification required |
+
 ## Release rule
 
 No copy moves from draft to production while its supporting claim is “Verify” or “Withhold”. Screenshots and interface demonstrations are claims too; test data and future controls must be labelled.

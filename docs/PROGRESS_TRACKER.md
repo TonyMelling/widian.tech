@@ -353,6 +353,95 @@
 
 ## Update template
 
+### 2026-08-24 — Pre-Vercel codebase tidy
+
+**Completed**
+
+- Extracted duplicated mobile option-rail state and scrolling into `useHorizontalRail` without changing either interaction.
+- Added conservative response headers and removed the framework disclosure header.
+- Made local and Vercel Preview `robots.txt` disallow crawling; Production retains the route-level indexing policy.
+- Updated the stale root README and environment example with the Git-connected Vercel rollout model.
+
+**Checks**
+
+- `git diff --check` — pass (line-ending conversion warnings only).
+- `npm run lint` — pass.
+- `npm run typecheck` — pass.
+- `npm run test` — pass, 23/23 tests.
+- `npm run build` — pass, all 19 routes generated.
+- Local deployment checks — preview `robots.txt` returns `Disallow: /`; security, permissions, referrer and HSTS headers are present; `X-Powered-By` is absent.
+
+**Decision**
+
+- D-037: deploy protected Vercel previews before attaching the production domain; do not use FTP/static export for the planned runtime-backed site.
+
+### 2026-08-24 — Mobile option-rail affordances and Building Record clarity
+
+**Completed**
+
+- Added edge fades and explicit 44px previous/next controls to the two interactions whose options extend beyond the mobile viewport: Market Direction and Building Record.
+- Controls are labelled for assistive technology, appear only while more content exists in their direction and preserve native horizontal scrolling and the existing option buttons.
+- Replaced Building Record's abstract “The building never drops out” headline with “Follow every finding back to the building it belongs to.”
+- Left fully stacked/grid interactions unchanged so the site does not imply hidden options where none exist.
+
+**Reviews outstanding**
+
+- Brand Strategist and Senior Copywriter review of the revised primary headline; the route remains `noindex`.
+
+### 2026-08-24 — Market Direction pressure-field hero
+
+**Completed**
+
+- Added an original wide editorial hero showing fragmented records, decisions and responsibility signals converging around one persistent building.
+- Reworked the opening into a dark, image-led composition with a tension-first headline and Widian's continuous Ember thread as the resolving device.
+- Labelled the artwork as conceptual strategic direction, not a live product view or regulatory forecast.
+- Corrected the hero container so its text aligns to the same outer gutter and `max-w-280` grid as the roadmap below, while the artwork remains full bleed.
+
+**Checks**
+
+- Artwork inspected for brand palette, headline negative space and prohibited implications; no disaster imagery, legal seals, dates, statistics, customer data or marketplace-scale claims are present.
+- Automated and browser gates remain to be recorded after implementation validation.
+
+**Reviews outstanding**
+
+- Brand Strategist, Senior Copywriter, Creative Director, Product Truth and Accessibility review; the route remains `noindex`.
+
+### 2026-08-24 — Phase 1 trust evidence register
+
+**Completed**
+
+- Replaced the `/security-trust` construction stub with a documentary evidence register covering only the verified or qualified claims already controlled in `CLAIMS_REGISTER.md`.
+- Kept attribution, organisation/role boundaries, evidence hashing and issued-report controls individually scoped; added a prominent list of claims Widian does not make.
+- Expanded the hashing explanation into a three-step calculate/retain/compare model, stated the supported content types and made explicit what a digest mismatch cannot establish.
+- Kept the route `noindex` pending the required Security/Claims, Product Truth, Brand, Copy and Accessibility review.
+
+**Checks**
+
+- Added component coverage for hashing, issued-report scope, certification and statutory-compliance boundaries.
+- Automated and browser gates to be recorded after the complete implementation slice is run.
+
+**Open issues**
+
+- Phase 1 cannot be completed without Widian's controller/privacy contact, privacy owner, approved lawful bases and retention decisions, named demo owner, calendar provider, and isolated marketing-database connection.
+- Hosting/resilience and security-development-practice claims remain withheld; this page does not fill those gaps with generic reassurance.
+
+**Next**
+
+- Obtain the accountable-owner and provider decisions, then implement the durable booking flow and approved Privacy/Cookie notices.
+
+### 2026-08-24 — Privacy notice draft and security-policy template
+
+**Completed**
+
+- Replaced the `/privacy` stub with a structured visitor notice covering controller accountability, purposes, data, proposed lawful bases, processors, EU-region direction, transfers, retention criteria, rights, cookies and complaints.
+- Recorded Widian's controller direction, isolated Supabase marketing storage and Vercel EU AWS hosting direction as D-034 and a qualified claim requiring deployment and contract verification.
+- Added `docs/SECURITY_POLICY_TEMPLATE.md`, an internal control-and-evidence template that does not imply certification or completed implementation.
+
+**Open issues**
+
+- Legal entity/address/company number, monitored privacy contact, accountable owner, final lawful-basis assessment, retention schedule, exact regions, processor contracts/subprocessors and transfer safeguards remain required before publication.
+- The Privacy route remains marked draft and `noindex`; the security policy remains a template pending named owner and executive approval.
+
 ### 2026-08-24 — Solutions imagery, Market Direction roadmap and selective parallax
 
 **Completed**

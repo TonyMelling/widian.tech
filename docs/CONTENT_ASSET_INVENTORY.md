@@ -23,6 +23,7 @@
 | Role and lifecycle icon set | Navigation and explanation | Consistent, accessible and purposeful | Design |
 | Surveyor field-capture editorial image | Surveyor solution narrative | Conceptual only; no customer, readable UI or personal data | Added at `public/images/surveyor-field-capture.webp` (2026-08-24); generated and visibly labelled; Creative Director review required |
 | Contractor evidence editorial image | Contractor solution narrative | Conceptual only; no customer, readable UI or personal data | Added at `public/images/contractor-evidence.webp` (2026-08-24); generated and visibly labelled; Creative Director review required |
+| Market Direction pressure field | Strategic tension: fragmented evidence and responsibility converging around one persistent building | Conceptual only; no regulatory forecast, legal notice, customer data, marketplace scale or live product UI | Added at `public/images/market-direction-pressure-field.png` (2026-08-24); generated and visibly labelled; Brand, Creative Director, Product Truth and Accessibility review required |
 | Solutions role-switcher imagery | Role-specific context inside the interactive accordion | Reuse approved conceptual assets with an adjacent synthetic/not-product-evidence label | Implemented using the cutaway, surveyor and contractor WebP assets; Creative Director review required |
 | Team portraits and biographies | About page | Supplied and approved | Awaiting content |
 | Trust evidence | Trust page | Current facts with owners and dates | Awaiting confirmation |

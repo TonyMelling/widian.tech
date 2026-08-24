@@ -5,7 +5,8 @@ import { MarketRoadmap } from "./MarketRoadmap";
 describe("MarketRoadmap", () => {
   it("shows all six steps and preserves future-state qualifications", () => {
     render(<MarketRoadmap />);
-    expect(screen.getAllByRole("button")).toHaveLength(6);
+    expect(screen.getAllByRole("button").filter((button) => /^0\d/.test(button.textContent ?? ""))).toHaveLength(6);
+    expect(screen.getByRole("button", { name: "Show more market direction options" })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /potential network effects/i }));
     expect(screen.getByText("Strategic hypothesis")).toBeInTheDocument();
     expect(screen.getByText(/not a measured network effect/i)).toBeInTheDocument();
