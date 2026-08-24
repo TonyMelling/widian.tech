@@ -16,10 +16,14 @@
 | Master shield SVG | Header, favicon and verification moments | Approved vector with clear-space guidance | Locate/verify — PNG interim staged (`public/brand/widian-mark-transparent.png`) |
 | Master wordmark SVG | Header and footer | No reconstruction or typed substitute | Locate/verify — PNG interim staged (`public/brand/widian-logo.png`, full shield+wordmark lock-up) |
 | Social-sharing artwork | Open Graph and launch sharing | 1200×630, truthful and legible | Create after direction approval |
-| Product captures | Platform and workflow explanation | Current, sanitised, readable and labelled | Capture/approve |
+| Product captures | Platform and workflow explanation | Current, sanitised, readable and labelled | Still required for product evidence; current implementation uses visibly labelled synthetic/code-native demonstrations under D-021 |
+| Building Record drill-down | Portfolio-to-finding navigation explanation | Code-native, keyboard-operable, synthetic data clearly labelled | Implemented at `/building-record`; Product Truth, Creative Director and Accessibility review required |
 | Mobile field capture sequence | Surveyor story | Real flow or clearly labelled prototype | Verify |
-| Building/element visual model | Hero and platform narrative | Original, performant vector or justified WebGL | Design |
+| Building/element visual model | Hero and platform narrative | Original, performant vector or justified WebGL | Conceptual raster cutaway added at `public/images/building-record-cutaway.webp` (2026-08-24); generated, not product evidence; Creative Director review required |
 | Role and lifecycle icon set | Navigation and explanation | Consistent, accessible and purposeful | Design |
+| Surveyor field-capture editorial image | Surveyor solution narrative | Conceptual only; no customer, readable UI or personal data | Added at `public/images/surveyor-field-capture.webp` (2026-08-24); generated and visibly labelled; Creative Director review required |
+| Contractor evidence editorial image | Contractor solution narrative | Conceptual only; no customer, readable UI or personal data | Added at `public/images/contractor-evidence.webp` (2026-08-24); generated and visibly labelled; Creative Director review required |
+| Solutions role-switcher imagery | Role-specific context inside the interactive accordion | Reuse approved conceptual assets with an adjacent synthetic/not-product-evidence label | Implemented using the cutaway, surveyor and contractor WebP assets; Creative Director review required |
 | Team portraits and biographies | About page | Supplied and approved | Awaiting content |
 | Trust evidence | Trust page | Current facts with owners and dates | Awaiting confirmation |
 | Case-study material | Proof | Permission, methodology and review | Future |

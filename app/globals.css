@@ -27,42 +27,83 @@ body {
   color: var(--color-navy);
 }
 
-.ticker-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 3.5rem;
-  white-space: nowrap;
-  animation: ticker-scroll 20s linear infinite;
+.platform-motion-layer {
+  --layer-index: 0;
+  animation: platform-layer-in 7.2s ease-in-out infinite;
+  animation-delay: calc(var(--layer-index) * 130ms);
 }
 
-@keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.platform-motion-building {
+  animation: platform-building-breathe 7.2s ease-in-out infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
-    width: 100%;
-    justify-content: center;
-  }
+.platform-motion-thread {
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: platform-thread-x 7.2s ease-in-out infinite;
+}
 
-  /* The second span is a duplicate of the first, purely to make the
-     marquee loop seamlessly. Without the scroll, showing both renders
-     the message twice side by side — hide the duplicate. */
-  .ticker-track > [aria-hidden="true"] {
-    display: none;
-  }
+.platform-motion-thread-y {
+  transform: scaleY(0);
+  animation-name: platform-thread-y;
+}
+
+.platform-motion-verified {
+  animation: platform-verified-in 7.2s ease-in-out infinite;
+}
+
+.platform-motion-pulse > span {
+  animation: platform-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes platform-layer-in {
+  0%, 8% { opacity: 0.35; transform: translateY(5px); }
+  22%, 82% { opacity: 1; transform: translateY(0); }
+  94%, 100% { opacity: 0.35; transform: translateY(5px); }
+}
+
+@keyframes platform-building-breathe {
+  0%, 12%, 100% { box-shadow: 0 14px 40px rgb(20 29 43 / 0.12); }
+  35%, 82% { box-shadow: 0 18px 52px rgb(20 29 43 / 0.26); }
+}
+
+@keyframes platform-thread-x {
+  0%, 18% { transform: scaleX(0); }
+  38%, 88% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+@keyframes platform-thread-y {
+  0%, 24% { transform: scaleY(0); }
+  44%, 88% { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+
+@keyframes platform-verified-in {
+  0%, 48% { opacity: 0; transform: translateY(5px); }
+  62%, 88% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(5px); }
+}
+
+@keyframes platform-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
 }
 
 /* Global reduced-motion contract: any element opting into motion must
    respect this. Individual animated components additionally guard
    their own keyframes/transitions where finer control is needed. */
 @media (prefers-reduced-motion: reduce) {
+  .platform-motion-layer,
+  .platform-motion-building,
+  .platform-motion-thread,
+  .platform-motion-verified,
+  .platform-motion-pulse > span {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
   *,
   *::before,
   *::after {
@@ -70,5 +111,23 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .parallax-media {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes parallax-drift {
+  from { transform: scale(1.07) translateY(-2.5%); }
+  to { transform: scale(1.07) translateY(2.5%); }
+}
+
+@supports (animation-timeline: view()) {
+  .parallax-media {
+    animation: parallax-drift linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
   }
 }

@@ -104,7 +104,7 @@ Selecting each gate reveals: accountable role, input state, required evidence, p
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (per `SPEC.md` §19 acceptance criteria — primary CTA label is consistent sitewide; see D-016 in `DECISIONS.md`).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **See the record model** → `/platform` (page differentiation lives in the lead-in argument and this secondary link, not the primary button text).
 
 ## 10. SEO title and description

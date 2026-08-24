@@ -59,7 +59,7 @@ Reuses "Multi-organisation roles and permissions" (Verified) as the structural c
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (D-016).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: role-specific links (6.2) — the real navigational job of this page.
 
 ## 10. SEO title and description

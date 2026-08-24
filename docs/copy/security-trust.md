@@ -64,7 +64,7 @@ Can Widian be trusted with important building records?
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (D-016).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **Request trust information** (per `CONTENT_AND_COPY_PLAN.md` brief) — a contact path for procurement reviewers wanting detail beyond what's publishable, e.g. a direct email or the walkthrough form's "primary challenge" field.
 
 ## 10. SEO title and description

@@ -49,7 +49,7 @@ Story per `SPEC.md` §7.4: exact location and scope, required evidence, straight
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (D-016).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **See the responsibility gates** → `/how-it-works`.
 
 ## 10. SEO title and description

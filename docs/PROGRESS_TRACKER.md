@@ -60,7 +60,7 @@
 | Senior copywriter appointed | ⬜ | Required |
 | Homepage full copy | 🟡 | First draft complete at `docs/copy/home.md` (2026-08-24); pending Brand Strategist/Copywriter sign-off, Product Truth confirmation and asset approval for §6.6 |
 | Platform copy | 🟡 | First draft complete at `docs/copy/platform.md` (2026-08-24); all nine record layers blocked on approved anonymised product screenshots per `SPEC.md` §7.2's "required proof" standard |
-| How It Works copy | 🟡 | First draft complete at `docs/copy/how-it-works.md` (2026-08-24); highest product-truth risk of any page — stage-count contradiction (D-015) must be resolved before the interactive gate is built; two gate rows need Product Truth confirmation |
+| How It Works copy | 🟡 | First draft complete at `docs/copy/how-it-works.md`; D-023 resolves the canonical model to ten proposed stages. The implemented page labels this future state visibly; Product Truth confirmation and deployed-product re-verification remain required |
 | Solution-page copy | 🟡 | First drafts complete: `docs/copy/solutions.md` + four role pages (2026-08-24); contractor "cost and completion information" story item omitted pending confirmation |
 | New Market copy | 🟡 | First draft complete at `docs/copy/new-market.md` (2026-08-24); highest overclaim risk on the site — needs Brand Strategist + Product Truth joint review before publish; page is undocumented in `CONTENT_AND_COPY_PLAN.md`'s brief table (gap flagged) |
 | Security & Trust copy | 🔴 | Draft at `docs/copy/security-trust.md` (2026-08-24) shows only what's currently publishable — hosting, security-practice and assurance sections are Withhold and cannot be filled until Security/Legal produce approved facts; page may need to launch thin or be held back |
@@ -109,10 +109,10 @@
 | Tokens, fonts and approved logo | 🟡 | Design-system tokens implemented as Tailwind `@theme` values in `app/globals.css`; interim PNG logo wired via `components/brand/Logo.tsx`. Formal Brand review still pending |
 | Header, footer and navigation | 🟡 | Built and browser-tested at 320/390/768/1440px, keyboard and reduced-motion — see checks log. Formal Accessibility Specialist review still pending |
 | Homepage vertical slice | 🟡 | Full page built at `app/page.tsx` from `docs/copy/home.md`. All required gates run and passing. Section 6.6 still shows the asset-blocked placeholder; five-second-comprehension user testing not done (needs real users, not an automated check) |
-| Platform | 🟡 | Full page built at `app/platform/page.tsx` from `docs/copy/platform.md`. Automated gates run and passing; browser/visual QA not performed this slice (no browser-automation tool available in this session) |
+| Platform | 🟡 | Full page built at `app/platform/page.tsx`, including a CSS-only conceptual record-assembly hero and accessible record spine. Automated gates and desktop/mobile browser QA pass; Creative, Motion and Accessibility sign-off remain outstanding |
 | Building Record | ⬜ | New page (D-022), currently a routing stub only. Copy/data-model work needed before build — see `docs/copy/building-record.md` |
-| How It Works | ⬜ | Responsibility gates understood |
-| Solutions | ⬜ | Role stories remain connected |
+| How It Works | 🟡 | Ten-stage target interaction implemented with visible future-state qualification; Product Truth and accessibility review outstanding |
+| Solutions | 🟡 | Four differentiated role pages implemented; Solutions landing route and specialist approvals remain outstanding |
 | New Market | ⬜ | Direction is bold but supportable |
 | Security & Trust | ⬜ | All claims approved |
 | Book a Demo form | ⬜ | Success/error journey verified |
@@ -166,6 +166,46 @@
 5. Produce mobile-first wireframes and a page-differentiation storyboard before production UI implementation.
 
 ## Update log
+
+### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
+
+**Completed**
+
+- Added three optimised, generated WebP assets: architectural Building Record cutaway, surveyor field capture and contractor evidence capture. Every usage is visibly labelled conceptual; none is presented as a customer or product screenshot.
+- Replaced Home's public asset-blocker text with the cutaway and a code-native synthetic record demonstration.
+- Rebuilt Platform's record spine with inline mobile disclosures, visible claim scopes and conceptual per-layer relationship diagrams.
+- Added a CSS-only Platform hero animation in which nine record layers assemble around one persistent Building Record anchor; it is labelled conceptual and becomes a complete static diagram under reduced motion.
+- Implemented `/how-it-works` with the canonical ten-stage target lifecycle, a prominent proposed-state qualification, keyboard-operable controls and inline mobile disclosure.
+- Implemented distinct Building Owner, Compliance Team, Surveyor and Contractor solution compositions, with claim qualifications kept adjacent to the relevant narrative.
+- Replaced the automatic launch ticker with a static notice and standardised remaining public copy references to `Book a Demo` / `/book-a-demo`.
+- Removed invalid non-list children from lifecycle and record-spine ordered lists.
+
+**Checks**
+
+- `npm run lint` — pass.
+- `npm run typecheck` — pass.
+- `npm run test` — pass, 10/10.
+- `npm run build` — pass, 19 static pages generated.
+- Browser QA — mobile Home, mobile Platform disclosure, mobile ten-stage disclosure, desktop role pages and fresh-console check performed; no horizontal overflow or browser console warnings/errors remained after correction.
+- Platform hero browser QA — desktop and mobile compositions inspected with no horizontal overflow or console errors; reduced-motion static state is enforced in CSS and still needs formal assistive-technology review.
+- Keyboard behaviour — semantic buttons, `aria-expanded`/`aria-pressed`, associated control IDs and native mobile navigation dialog verified; full assistive-technology review remains outstanding.
+- Reduced motion — the continuously moving ticker was removed; existing global reduced-motion contract remains in place. Formal Motion Designer/Accessibility review remains outstanding.
+
+**Decisions**
+
+- D-027, D-028 and D-029 added as proposed decisions pending the required specialist perspectives.
+
+**Open issues**
+
+- Generated imagery and page art direction require Creative Director approval.
+- New and revised product-functionality wording requires Product Truth review before indexing or production release.
+- Real anonymised product captures remain outstanding; synthetic demonstrations do not replace product evidence.
+- The four role pages remain `noindex` until copy, claims, responsive design and final QA are approved.
+
+**Next**
+
+- Creative Director, Product Truth, Accessibility and Claims review.
+- Add focused browser tests for mobile disclosures and role-page headings before enabling indexing.
 
 ### 2026-08-24 — Discovery, decisions and Phase 1 copy drafts
 
@@ -312,6 +352,75 @@
 - Build `/how-it-works` (10-stage gate + Verified Closure section), then `/solutions` (role-switcher rework), per the agreed phased plan.
 
 ## Update template
+
+### 2026-08-24 — Solutions imagery, Market Direction roadmap and selective parallax
+
+**Completed**
+
+- Added visibly labelled conceptual imagery to every Solutions role-switcher panel using the existing approved cutaway, surveyor and contractor assets.
+- Renamed the public “The New Market” navigation label to “Market Direction” while retaining `/new-market` during `noindex` development.
+- Replaced the static market-transition list with a keyboard-operable six-step roadmap that distinguishes verified foundations, expected value, strategic hypotheses and future possibilities.
+- Clarified on Platform that its nine accordions are record layers, while the separate ten-stage model is a lifecycle; added a direct lifecycle link.
+- Added progressive CSS parallax to contained Home and Solutions imagery only, with a static reduced-motion state and no scroll listener.
+
+**Checks**
+
+- `git diff --check` — pass apart from repository line-ending conversion warnings.
+- `npm run lint` — pass.
+- `npm run typecheck` — pass.
+- `npm run test` — pass, 18/18 tests.
+- `npm run build` — pass, all 19 routes generated as static content.
+
+**Decisions**
+
+- D-032 and D-033; Brand, Creative, Product Truth, Motion and Accessibility review remain outstanding.
+
+### 2026-08-24 — Session-aware launch announcement
+
+**Completed**
+
+- Replaced Home’s first-load ticker with an accessible native-dialog launch announcement.
+- Recorded the appearance in session storage immediately; repeat Home visits in the same tab and all non-Home pages display the static ticker.
+- Added explicit close, Escape dismissal and Book a Demo paths; no animated entrance was introduced.
+
+**Checks**
+
+- Component tests cover first Home visit, repeat Home visit and non-Home behaviour.
+- Creative Director and Accessibility review remain outstanding.
+
+### 2026-08-24 — Building Record page
+
+**Completed**
+
+- Replaced the `/building-record` stub with a distinct portfolio-to-finding narrative and a keyboard-operable synthetic drill-down through the verified relationship chain: Organisation → Building → Element / asset → Inspection → Finding → Remedial work.
+- Extended the synthetic example with the approved ten-step target lifecycle, retaining the same P1 finding and building throughout all ten stages. The component carries the mandatory proposed-state and P1/P2 client-verification qualifications.
+- Kept Harbour Court visible as retained context at every level and explicitly separated evidence submission from verified closure.
+- Expanded `docs/copy/building-record.md` into the full page copy source, added the demonstration boundary to `CLAIMS_REGISTER.md`, recorded the art-direction decision as D-030, and updated the asset inventory.
+- Kept the route `noindex` pending required specialist approvals.
+
+**Checks**
+
+- Formatting — no formatter script is configured.
+- `git diff --check` — pass (line-ending conversion warnings only; no whitespace errors).
+- `npm run lint` — pass.
+- `npm run typecheck` — pass.
+- `npm run test` — pass, 12/12 tests.
+- `npm run build` — pass; `/building-record` prerendered as static content.
+- Browser QA — desktop interaction and synthetic labelling pass; mobile and tablet have no document-level horizontal overflow after a navigator containment fix; keyboard Tab advances between record-level buttons; no console errors found.
+- Reduced-motion inspection — global reduced-motion override is present and applies to all animation and transition durations; this slice adds no continuous motion.
+
+**Decisions**
+
+- D-030: a synthetic drill-down, not a second Platform anatomy view.
+
+**Open issues**
+
+- Product Truth, Brand Strategist, Senior Copywriter, Creative Director and Accessibility review remain required; this page cannot be self-approved.
+- The route remains excluded from indexing until those reviews are complete.
+
+**Next**
+
+- Collect the named review perspectives, then refine and approve the copy and interaction.
 
 ### YYYY-MM-DD — Short milestone name
 

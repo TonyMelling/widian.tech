@@ -51,7 +51,7 @@ Story per `SPEC.md` §7.4: portfolio truth, open risk/action visibility, account
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (D-016).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **See the record model** → `/platform`.
 
 ## 10. SEO title and description

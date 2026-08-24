@@ -11,7 +11,7 @@ describe("SiteHeader", () => {
       "Building Record",
       "How It Works",
       "Solutions",
-      "The New Market",
+      "Market Direction",
       "Security & Trust",
     ]) {
       expect(within(nav).getByRole("link", { name: label })).toBeInTheDocument();

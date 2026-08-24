@@ -40,8 +40,7 @@ export function LifecycleThread() {
   return (
     <div ref={ref}>
       {/* Desktop: horizontal thread */}
-      <div className="relative hidden px-5 md:block">
-        <div className="absolute top-[23px] right-15 left-15 h-0.5 bg-ember" />
+      <div className="relative hidden px-5 md:block before:absolute before:top-[23px] before:right-15 before:left-15 before:h-0.5 before:bg-ember">
         <ol className="relative grid grid-cols-6 gap-2">
           {STAGES.map((stage, i) => (
             <li key={stage.label} className="text-center">
@@ -62,8 +61,7 @@ export function LifecycleThread() {
       </div>
 
       {/* Mobile: vertical thread */}
-      <ol className="relative flex flex-col pl-7 md:hidden">
-        <div className="absolute top-1.5 bottom-1.5 left-2.5 w-0.5 bg-ember" />
+      <ol className="relative flex flex-col pl-7 before:absolute before:top-1.5 before:bottom-1.5 before:left-2.5 before:w-0.5 before:bg-ember md:hidden">
         {STAGES.map((stage, i) => (
           <li key={stage.label} className="relative flex items-center gap-4 pb-6 last:pb-0">
             <div
@@ -82,6 +80,9 @@ export function LifecycleThread() {
       <p className="mx-auto mt-9 max-w-md text-center text-sm text-text-secondary">
         * Verification by the client applies to priority findings. Lower-priority findings
         close once independently reviewed.
+      </p>
+      <p className="mx-auto mt-3 max-w-lg text-center font-mono text-[10px] leading-relaxed tracking-wide text-text-secondary uppercase">
+        Conceptual responsibility summary · the proposed product lifecycle uses ten explicit stages
       </p>
     </div>
   );

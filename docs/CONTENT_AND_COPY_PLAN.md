@@ -23,6 +23,7 @@ Make Widian's category and value understandable before describing features: one 
 | How it works | How does an issue reach closure? | Interactive lifecycle with actors, gates and evidence | See Widian in context |
 | Solutions | What changes for my organisation and role? | Role switcher following one shared finding | Discuss your operating model |
 | Trust | Can we assess this responsibly? | Evidence room with confirmed, pending and not-yet-claimed states | Request trust information |
+| Market Direction (`/new-market`) | What could shared Building Record infrastructure enable over time? | Interactive roadmap separating verified foundations, hypotheses and future possibilities | Book a Demo |
 | Book a Demo *(renamed from "Book a walkthrough" 2026-08-24, `DECISIONS.md` D-025)* | Is this relevant to our estate and process? | Focused qualification and clear next step | Submit request |
 
 ### Deferred

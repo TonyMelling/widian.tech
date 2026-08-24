@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { RecordSpine } from "@/components/platform/RecordSpine";
+import { PlatformHeroMotion } from "@/components/platform/PlatformHeroMotion";
 
 // Copy source: docs/copy/platform.md — draft, pending Brand Strategist /
 // Senior Copywriter / Product Truth review per that file's header.
@@ -41,28 +42,30 @@ export default function PlatformPage() {
     <>
       <SiteHeader />
       <main>
-        {/* Hero — deliberately light and typographic, no split image grid.
-            Home opens dark; Platform opens light and moves into a dark
-            centrepiece below, so the two pages don't read as the same
-            template (AGENTS.md "Page differentiation rule"). */}
+        {/* Hero pairs the category argument with a code-native conceptual
+            platform animation. It demonstrates record relationships, not
+            unverified product UI. */}
         <section className="px-4 pt-16 pb-14 md:px-16 md:pt-24 md:pb-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">
-              Building Record Platform
-            </p>
-            <h1 className="mt-4 font-display text-[26px] leading-[1.2] font-bold text-navy md:text-[44px] md:leading-[1.15]">
-              The building becomes the organising structure.
-            </h1>
-            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-text-secondary md:mt-6 md:text-[18px] md:leading-[1.55]">
-              Every inspection, finding, remedial action and piece of evidence is recorded
-              against the building it belongs to — and stays connected as the record grows.
-            </p>
-            <div className="mt-7 flex flex-col items-center gap-4 md:mt-9 md:flex-row md:justify-center md:gap-7">
-              <Button href="/book-a-demo">Book a Demo</Button>
-              <Button href="/how-it-works" variant="secondary">
-                Explore how it works
-              </Button>
+          <div className="mx-auto grid max-w-280 gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:gap-16">
+            <div>
+              <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">
+                Building Record Platform
+              </p>
+              <h1 className="mt-4 max-w-xl font-display text-[30px] leading-[1.16] font-bold text-navy md:text-[48px] md:leading-[1.12]">
+                The building becomes the organising structure.
+              </h1>
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-text-secondary md:mt-6 md:text-[18px] md:leading-[1.55]">
+                Every inspection, finding, remedial action and piece of evidence is recorded
+                against the building it belongs to—and stays connected as the record grows.
+              </p>
+              <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center md:mt-9 md:gap-7">
+                <Button href="/book-a-demo">Book a Demo</Button>
+                <Button href="/how-it-works" variant="secondary">
+                  Explore how it works
+                </Button>
+              </div>
             </div>
+            <PlatformHeroMotion />
           </div>
         </section>
 
@@ -73,15 +76,15 @@ export default function PlatformPage() {
           <section className="bg-navy px-4 py-14 md:px-16 md:py-24">
             <div className="mx-auto max-w-280">
               <h2 className="mx-auto max-w-xl text-center font-display text-2xl font-bold text-white md:text-[32px]">
-                Nine layers. One persistent record.
+                Nine record layers. Ten lifecycle stages.
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-center text-[15px] leading-relaxed text-on-navy-secondary md:text-base">
-                Select a layer to see what it records, why it persists, and how it
-                contributes to present truth.
+                These nine accordions describe what the record contains. The separate ten-stage lifecycle describes how one finding moves from recorded to closed.
               </p>
               <div className="mt-10 md:mt-16">
                 <RecordSpine />
               </div>
+              <div className="mt-8 text-center"><Button href="/how-it-works" variant="secondary-on-navy">Explore the ten lifecycle stages</Button></div>
             </div>
           </section>
         </ScrollReveal>

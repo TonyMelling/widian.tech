@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
-import { LaunchTicker } from "./LaunchTicker";
+import { LaunchAnnouncement } from "./LaunchAnnouncement";
 import { MobileNav } from "./MobileNav";
 import { NAV_LINKS } from "./nav-links";
 
 export function SiteHeader() {
   return (
     <div className="sticky top-0 z-20">
-      <LaunchTicker />
+      <LaunchAnnouncement />
       <header className="flex h-16 items-center justify-between border-b border-hairline bg-surface px-4 md:px-8 lg:h-20 lg:px-16">
         <Link href="/" aria-label="Widian home">
           <Logo variant="mark" className="h-11 lg:hidden" />

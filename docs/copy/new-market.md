@@ -65,7 +65,7 @@ Story, per `SPEC.md` §7.5 (six points, all framed as direction, none as current
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (D-016).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **See who contributes to the record** → `/solutions`.
 
 ## 10. SEO title and description

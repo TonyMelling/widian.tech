@@ -1,46 +1,99 @@
 # Building Record — Copy Draft
 
-**Status:** Skeleton only — not yet through `CONTENT_AND_COPY_PLAN.md`'s content workflow (no copywriter draft, no Product Truth or Brand Strategist review). This page did not exist in the original release-one sitemap (`WIDIAN_MARKETING_WEBSITE_SPEC.md` §2) — it was added 2026-08-24 as a separate page from `/platform`, per that day's redesign decision recorded in `DECISIONS.md`.
+**Status:** Draft for review — not approved. Requires Brand Strategist, Senior Copywriter, Product Truth, Creative Director and Accessibility review before publication.
 
-**Depends on:** `CLAIMS_REGISTER.md`, `docs/copy/platform.md` (this page must not duplicate Platform's nine-layer anatomy explainer).
+## Page objective
 
----
+Make “one building record” concrete as a navigable structure. The visitor moves from an organisation and its portfolio to one building, element, inspection, finding and remedial work item without losing the building context.
 
-## 1. Page objective
+## Visitor question
 
-Let a visitor move through the record the way a real user would — from a whole portfolio down to one specific finding — to make "one building record" concrete as a *navigable structure*, not just a list of layers (that's Platform's job).
+How do you get from a whole portfolio down to one finding, without losing the building it belongs to?
 
-## 2. Primary audience
+## Hero
 
-Same as Platform: compliance leaders and property/asset directors, plus procurement/IT reviewers who want to see the data model's shape.
+**Eyebrow:** Building Record
 
-## 3. Visitor question
+**Headline:** From a portfolio to one finding. The building never drops out.
 
-*Not yet finalised — candidate:* How do you get from a whole portfolio down to one finding, without losing the building it belongs to?
+**Standfirst:** Move from the organisation responsible for an estate to a specific building, element, inspection and finding—without separating the evidence from where it belongs.
 
-## 4. Drill-down levels — data-model correction needed before this page is written
+**Primary CTA:** Book a Demo
 
-The redesign brief that proposed this page described the drill-down as:
+**Secondary CTA:** Explore the platform
 
-> Portfolio → Building → Location → Asset → Inspection → Finding → Case → Closure
+## Dominant interaction
 
-**This does not match the verified schema.** A repository check on 2026-08-24 (same authorisation basis as `CLAIMS_REGISTER.md`) found no `location` or `case` entities in `scripts/sql/0000_base_schema.sql`. The actual FK-linked chain is:
+**Heading:** Ten steps from recording to closure.
 
-> Organisation → Building → Element/Asset → Inspection → Finding → Remedial Work (work order)
+**Introduction:** Follow the synthetic P1 finding through each responsibility gate. Harbour Court, fire door FD-014 and finding FND-207 remain attached throughout.
 
-with closure reached via the independent-checking / client-verification path already described in `docs/copy/platform.md` §6.7–6.9, not a distinct "Case" entity. Any copy for this page must use the real chain above, or be relabelled with Product Truth's confirmation if "Location" and "Case" turn out to describe something not yet surfaced in the schema I inspected.
+**Mandatory label:** Synthetic demonstration · Proposed target lifecycle · not a live product screen.
 
-## 5. Required interaction
+The contextual record follows the verified relationship chain:
 
-A portfolio-to-building-to-element-to-finding drill-down, per the approved 2026-08-24 decision to proceed with **synthetic/illustrative demonstration data**, clearly labelled as such (not real customer data) — this unblocks the interaction without waiting on real screenshot approval. Each level should show what it is, then let the visitor step to the next level down, ending at a finding and its route to closure (cross-reference `/how-it-works` rather than re-explaining the lifecycle here).
+> Organisation → Building → Element / asset → Inspection → Finding → Remedial work
 
-## 6. Relationship to Platform
+Synthetic dataset: Northline Property Management → Harbour Court → Fire door FD-014 → Inspection 24-081 → P1 excessive perimeter gap → Work order WO-031. Names, references, quantities and dates are invented for this demonstration.
 
-Platform explains *what each layer records and why it persists* (static anatomy). Building Record explains *how a user actually moves through the structure* (navigation/drill-down). Keep these distinct — do not let this page become a second copy of Platform's layer list.
+## Ten-step responsibility chain — dominant interaction
 
-## 7. Outstanding before this page can be built
+**Eyebrow:** The same finding over time
 
-- Visitor question, headline and full narrative sequence not yet drafted.
-- Synthetic demonstration dataset (portfolio/building/element/finding names and states) needs to be designed — illustrative, clearly labelled, not modelled on any real customer.
-- SEO title/description not yet drafted.
-- No claims-register row exists yet for "drill-down navigation" as a marketing demonstration — add one before publishing, scoped to "illustrative demonstration," not "live product view."
+The same synthetic P1 finding (`FND-207`) at Harbour Court (`BLD-012`) remains the context throughout:
+
+1. Recorded
+2. Submitted
+3. Reviewed
+4. Finding raised
+5. Assigned
+6. In progress
+7. Remediated
+8. Independently checked
+9. Client verified
+10. Closed
+
+**Mandatory qualification:** Proposed target lifecycle. The ten-stage model is planned for the product and must be re-verified before launch. Current client verification remains limited to P1/P2 findings.
+
+## Supporting argument
+
+**Heading:** Context travels with every step.
+
+- **Identity:** The building remains visible as you move from the portfolio to one element.
+- **Lineage:** The finding retains the inspection and element that gave rise to it.
+- **Responsibility:** Remedial work remains connected to the issue it is intended to address.
+
+## Route to closure
+
+**Eyebrow:** The route does not end at submission
+
+**Heading:** Closure has its own evidence path.
+
+**Body:** Contractor completion, independent checking, client verification and closure are distinct decisions. See how responsibility passes from one stage to the next.
+
+**CTA:** Follow the route to closure
+
+## Closing conversion
+
+**Heading:** See the structure against your own portfolio.
+
+**Body:** Book a time that works for you.
+
+**CTA:** Book a Demo
+
+## Metadata
+
+**Title:** Building Record Navigation | Widian
+
+**Description:** Follow a synthetic Widian Building Record from organisation and building to element, inspection, finding and remedial work.
+
+Keep `noindex` until the required review perspectives approve the page and its claims.
+
+## Claim boundaries
+
+- The interaction demonstrates verified schema relationships; it is not evidence of a current unified Building Record view or API.
+- Do not add “Location” or “Case” as entities without Product Truth evidence.
+- Evidence submission is not closure.
+- The ten-step chain is a proposed target lifecycle until it ships and passes pre-launch re-verification.
+- Contractor completion, independent checking, client verification and closure remain distinct.
+- The synthetic organisation, building, element, inspection, finding and work order must never be presented as customer data.

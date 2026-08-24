@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { AssetPlaceholder } from "@/components/ui/AssetPlaceholder";
 import { LifecycleThread } from "@/components/home/LifecycleThread";
 import { RoleCards } from "@/components/home/RoleCards";
 import { FragmentDiagram } from "@/components/home/FragmentDiagram";
+import { SyntheticRecordDemo } from "@/components/home/SyntheticRecordDemo";
+import { ConceptLabel } from "@/components/ui/ConceptLabel";
 
 // Copy source: docs/copy/home.md — draft, pending Brand Strategist /
 // Senior Copywriter / Product Truth review per that file's header.
@@ -48,11 +50,21 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <AssetPlaceholder
-              dark
-              className="h-52 md:h-105"
-              caption="Hero visual — building record assembling as evidence & decisions are added. Asset pending: docs/CONTENT_ASSET_INVENTORY.md"
-            />
+            <figure>
+              <div className="parallax-frame relative aspect-[3/2] overflow-hidden border border-navy-hairline bg-navy-800">
+                <Image
+                  src="/images/building-record-cutaway.webp"
+                  alt="Conceptual cutaway of a residential building connected by one evidence thread from inspection to closure."
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 46vw, 100vw"
+                  className="parallax-media object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 [&_p]:text-on-navy-muted">
+                <ConceptLabel>the thread represents connected evidence and decisions</ConceptLabel>
+              </figcaption>
+            </figure>
           </div>
         </section>
 
@@ -99,7 +111,7 @@ export default function HomePage() {
           <section className="px-4 py-14 md:px-16 md:py-24">
             <div className="mx-auto max-w-280">
               <h2 className="text-center font-display text-2xl font-bold text-navy md:text-[32px]">
-                Every issue moves through the same accountable path.
+                Six responsibility moments shape the path to closure.
               </h2>
               <div className="mt-8 md:mt-16">
                 <LifecycleThread />
@@ -127,16 +139,15 @@ export default function HomePage() {
           </section>
         </ScrollReveal>
 
-        {/* 6.6 Authentic product evidence — blocked on asset approval */}
+        {/* 6.6 Clearly-labelled synthetic demonstration. */}
         <section className="px-4 py-14 md:px-16 md:py-24">
           <div className="mx-auto max-w-280">
             <h2 className="text-center font-display text-2xl font-bold text-navy md:text-[32px]">
-              See it inside a real building record.
+              See how one record retains the next action.
             </h2>
-            <AssetPlaceholder
-              className="mt-8 h-64 md:mt-12 md:h-110"
-              caption="BLOCKED — anonymised product screenshot pending approval. See docs/copy/home.md §6.6."
-            />
+            <div className="mt-8 md:mt-12">
+              <SyntheticRecordDemo />
+            </div>
           </div>
         </section>
 

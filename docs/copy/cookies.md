@@ -20,7 +20,7 @@ What is this site tracking, and can I control it?
 |---|---|---|
 | Google Analytics 4 (Consent Mode) | Non-essential — analytics | Decided (D-011); requires consent before loading, with equally prominent accept/reject choices per `PRIVACY_AND_UK_GDPR_PLAN.md` §Cookies and analytics |
 | Any session/auth cookie | N/A | The marketing site has no visitor accounts or authentication (`ARCHITECTURE.md` §18 non-goals) — none expected |
-| Calendar/scheduling embed (Book a Walkthrough) | Potentially non-essential, provider-dependent | Provider not yet selected (see `docs/copy/book-a-walkthrough.md` §14) — must be scanned once chosen, per `PRIVACY_AND_UK_GDPR_PLAN.md` "re-scan staging and production after supplier or code changes" |
+| Calendar/scheduling embed (Book a Demo) | Potentially non-essential, provider-dependent | Provider not yet selected (see `docs/copy/book-a-demo.md` §14) — must be scanned once chosen, per `PRIVACY_AND_UK_GDPR_PLAN.md` "re-scan staging and production after supplier or code changes" |
 
 This inventory must be re-scanned against the actual deployed site before publish — a documentation-derived list is a starting point, not a substitute for the required technical cookie scan (`PRIVACY_AND_UK_GDPR_PLAN.md` §Cookies and analytics, item 1).
 

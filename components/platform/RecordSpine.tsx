@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AssetPlaceholder } from "@/components/ui/AssetPlaceholder";
 
 type ClaimStatus = "Verified" | "Qualified";
 
@@ -114,6 +113,57 @@ function ClaimBadge({ claim }: { claim: NonNullable<Layer["claim"]> }) {
   );
 }
 
+function LayerVisual({ layer, index }: { layer: Layer; index: number }) {
+  return (
+    <div
+      className="mt-6 border border-navy-hairline bg-navy-800 p-5"
+      role="img"
+      aria-label={`Conceptual diagram showing ${layer.title} connected to the persistent building record.`}
+    >
+      <div className="flex items-center gap-3" aria-hidden="true">
+        <span className="flex h-11 w-11 items-center justify-center border border-ember font-mono text-xs text-white">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="h-px flex-1 bg-ember" />
+        <span className="border border-navy-hairline bg-navy px-3 py-2 font-mono text-[10px] text-on-navy-secondary uppercase">
+          Building record
+        </span>
+      </div>
+      <p className="mt-4 font-mono text-[10px] tracking-[0.08em] text-on-navy-muted uppercase">
+        Conceptual record relationship · not a product screen
+      </p>
+    </div>
+  );
+}
+
+function LayerDetail({ layer, index }: { layer: Layer; index: number }) {
+  return (
+    <div>
+      <h3 className="font-display text-xl font-bold text-white md:text-2xl">{layer.title}</h3>
+      <dl className="mt-6 space-y-5">
+        <div>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">Records</dt>
+          <dd className="mt-1.5 text-[15px] leading-relaxed text-white">{layer.records}</dd>
+        </div>
+        <div>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">Persists because</dt>
+          <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">{layer.persistsBecause}</dd>
+        </div>
+        <div>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">Contributes to present truth</dt>
+          <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">{layer.contributesToTruth}</dd>
+        </div>
+      </dl>
+      {layer.claim ? (
+        <div className="mt-6 border-t border-navy-hairline pt-5">
+          <ClaimBadge claim={layer.claim} />
+        </div>
+      ) : null}
+      <LayerVisual layer={layer} index={index} />
+    </div>
+  );
+}
+
 /** Platform's dominant interaction (SPEC §7.2, "architectural cutaway /
  * vertical record spine — not marketing cards"): select one of nine
  * record layers to reveal what it records, why it persists, and how it
@@ -128,9 +178,46 @@ export function RecordSpine() {
   const panelId = "record-spine-detail";
 
   return (
-    <div className="grid gap-8 md:grid-cols-[340px_1fr] md:gap-14">
-      <ol className="relative flex flex-col pl-7 md:pl-8">
-        <div className="absolute top-1.5 bottom-1.5 left-2.5 w-0.5 bg-navy-hairline md:left-3" />
+    <>
+      <ol data-testid="record-spine-mobile" className="relative flex flex-col pl-7 md:hidden before:absolute before:top-6 before:bottom-6 before:left-2.5 before:w-0.5 before:bg-navy-hairline">
+        {LAYERS.map((layer, i) => {
+          const isActive = i === selected;
+          const mobilePanelId = `record-layer-${i}`;
+          return (
+            <li key={layer.title} className="relative pb-3">
+              <span
+                className={`absolute top-6 -left-7 h-3 w-3 rounded-full ${isActive ? "bg-ember" : "bg-navy-hairline"}`}
+                aria-hidden="true"
+              />
+              <button
+                type="button"
+                aria-expanded={isActive}
+                aria-controls={mobilePanelId}
+                onClick={() => setSelected(i)}
+                className={`w-full rounded-sm px-4 py-3 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                  isActive ? "bg-white text-navy" : "text-on-navy-secondary hover:bg-navy-800 hover:text-white"
+                }`}
+              >
+                <span className="font-mono text-[11px] tracking-wide">{String(i + 1).padStart(2, "0")}</span>
+                <span className="mt-0.5 block text-[15px] font-semibold">{layer.title}</span>
+                {layer.claim?.scope ? (
+                  <span className={`mt-1 block text-xs ${isActive ? "text-text-secondary" : "text-on-navy-muted"}`}>
+                    {layer.claim.scope}
+                  </span>
+                ) : null}
+              </button>
+              {isActive ? (
+                <div id={mobilePanelId} className="border-x border-b border-navy-hairline bg-navy-800 p-5">
+                  <LayerDetail layer={layer} index={i} />
+                </div>
+              ) : null}
+            </li>
+          );
+        })}
+      </ol>
+
+      <div data-testid="record-spine-desktop" className="hidden gap-14 md:grid md:grid-cols-[340px_1fr]">
+      <ol className="relative flex flex-col pl-8 before:absolute before:top-1.5 before:bottom-1.5 before:left-3 before:w-0.5 before:bg-navy-hairline">
         {LAYERS.map((layer, i) => {
           const isActive = i === selected;
           return (
@@ -156,6 +243,11 @@ export function RecordSpine() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="mt-0.5 block text-[15px] font-semibold">{layer.title}</span>
+                {layer.claim?.scope ? (
+                  <span className={`mt-1 block text-xs ${isActive ? "text-text-secondary" : "text-on-navy-muted"}`}>
+                    {layer.claim.scope}
+                  </span>
+                ) : null}
               </button>
             </li>
           );
@@ -163,47 +255,9 @@ export function RecordSpine() {
       </ol>
 
       <div id={panelId} aria-live="polite" className="min-w-0">
-        <h3 className="font-display text-xl font-bold text-white md:text-2xl">
-          {active.title}
-        </h3>
-
-        <dl className="mt-6 space-y-5">
-          <div>
-            <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">
-              Records
-            </dt>
-            <dd className="mt-1.5 text-[15px] leading-relaxed text-white">{active.records}</dd>
-          </div>
-          <div>
-            <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">
-              Persists because
-            </dt>
-            <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">
-              {active.persistsBecause}
-            </dd>
-          </div>
-          <div>
-            <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">
-              Contributes to present truth
-            </dt>
-            <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">
-              {active.contributesToTruth}
-            </dd>
-          </div>
-        </dl>
-
-        {active.claim ? (
-          <div className="mt-6 border-t border-navy-hairline pt-5">
-            <ClaimBadge claim={active.claim} />
-          </div>
-        ) : null}
-
-        <AssetPlaceholder
-          dark
-          className="mt-6 h-40"
-          caption={`BLOCKED — anonymised product screenshot pending approval for "${active.title}". See docs/CONTENT_ASSET_INVENTORY.md.`}
-        />
+        <LayerDetail layer={active} index={selected} />
       </div>
-    </div>
+      </div>
+    </>
   );
 }

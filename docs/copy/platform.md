@@ -112,7 +112,7 @@ Layout grammar: architectural cutaway / vertical record spine — not marketing 
 
 ## 10. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough` (per `SPEC.md` §19 acceptance criteria — primary CTA label is consistent sitewide; see D-016 in `DECISIONS.md`).
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **Explore how it works** → `/how-it-works` (page differentiation lives in the lead-in argument and this secondary link, not the primary button text).
 
 ## 11. SEO title and description
@@ -129,6 +129,7 @@ Secondary: **Explore how it works** → `/how-it-works` (page differentiation li
 
 ## 13. Image/animation captions
 
+- Hero animation: *"Conceptual platform model showing nine record layers connecting to one persistent Building Record; not a product screen."*
 One caption per layer, following the "why it persists" line above, e.g.:
 - Building identity: *"Every layer below attaches permanently to this building."*
 - Evidence: *"Evidence stays attached to the exact finding it was submitted against."*
@@ -136,6 +137,7 @@ One caption per layer, following the "why it persists" line above, e.g.:
 
 ## 14. Accessible alternative text
 
+- Hero animation: `Conceptual animation showing nine kinds of building information connecting to one persistent Building Record.` Under reduced motion, show the same complete relationship as a static diagram.
 - Record-spine diagram: `Vertical diagram of nine connected record layers, from building identity through to issued records, each selectable for detail.`
 - Per-layer icons: individual descriptive alt text per layer (e.g. `Element register icon`, `Evidence icon`).
 - Keyboard requirement: each layer must be selectable and its detail revealable via keyboard, with visible focus, per `SPEC.md` §16.

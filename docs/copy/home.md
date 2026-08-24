@@ -32,7 +32,7 @@ What is Widian, and why should I care?
 
 ### 6.1 Category-defining hero
 
-Headline and standfirst as above. Primary CTA: **Book a Widian walkthrough**. Secondary CTA: **See how it works** (links to `/how-it-works`).
+Headline and standfirst as above. Primary CTA: **Book a Demo**. Secondary CTA: **See how it works** (links to `/how-it-works`).
 
 Dominant visual: a building identity surrounded by responsible parties and lifecycle gates, becoming visibly more complete as the visitor scrolls. *(Asset dependency — see `CONTENT_ASSET_INVENTORY.md`, "Building/element visual model", currently "Design".)*
 
@@ -88,7 +88,7 @@ Secondary CTA under this section: **See the full lifecycle** (links to `/how-it-
 
 **Headline:** See Widian against your own buildings.
 
-**Body:** Book a time that works for you. *(Reflects D-009 — immediate calendar booking, not a qualification-first flow.)* Primary CTA: **Book a Widian walkthrough.**
+**Body:** Book a time that works for you. *(Reflects D-009 — immediate calendar booking, not a qualification-first flow.)* Primary CTA: **Book a Demo.**
 
 ## 7. Proof points used (all traceable to `CLAIMS_REGISTER.md`)
 
@@ -110,7 +110,7 @@ No hashing, immutability, certification, security-programme or customer-outcome 
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** → `/book-a-walkthrough`.
+Primary: **Book a Demo** → `/book-a-demo` (D-025).
 Secondary: **See how it works** → `/how-it-works`.
 
 ## 10. SEO title and description
