@@ -14,6 +14,10 @@ Define how enquiries from `widian.tech` become owned, traceable sales activity w
 
 Email is a notification channel, not the canonical lead database. Do not place leads in the operational Widian Supabase project unless a documented data-boundary decision approves it.
 
+## Ownership
+
+Named lead owner: Tony Melling. Backup owners: Ricky, Priya (D-038). Internal notifications and unowned-lead alerts route to the owner, with backups covering absence/overflow. Ownership can be reassigned at any time by updating this section and `DECISIONS.md`'s D-038 row — no code or schema change is required, since the owner is operational configuration, not a build dependency.
+
 ## Canonical storage decision
 
 | Option | Best when | Advantages | Risks |
@@ -136,7 +140,7 @@ Do not send names, emails, organisation names or free text to analytics.
 ## Decisions required
 
 - ~~Canonical CRM/database and data region~~ — isolated marketing database (D-007); data region still to confirm
-- Named lead owner and backup owner
+- ~~Named lead owner and backup owner~~ — Tony Melling (owner), Ricky and Priya (backup owners) (D-038)
 - Response target and escalation path
 - ~~Transactional email provider and sending subdomain~~ — Resend (D-008); subdomain and SPF/DKIM/DMARC configuration still to complete
 - Approved form fields and qualification bands
@@ -144,6 +148,7 @@ Do not send names, emails, organisation names or free text to analytics.
 - Retention/review schedule and deletion owner — blocked on privacy owner assignment (D-010, D-012)
 - Whether chat notifications are needed and who may see them
 - ~~Booking flow: immediate calendar selection or human qualification first~~ — immediate calendar selection (D-009); form still captures qualification fields so the walkthrough owner arrives prepared
+- ~~Calendar provider~~ — Cal.com (D-039); self-hosted vs. Cal.com Cloud, API key/webhook configuration and booking-to-lead-transaction wiring still to complete
 
 ## Acceptance criteria
 

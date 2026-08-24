@@ -64,9 +64,9 @@
 | Solution-page copy | 🟡 | First drafts complete: `docs/copy/solutions.md` + four role pages (2026-08-24); contractor "cost and completion information" story item omitted pending confirmation |
 | New Market copy | 🟡 | First draft complete at `docs/copy/new-market.md` (2026-08-24); highest overclaim risk on the site — needs Brand Strategist + Product Truth joint review before publish; page is undocumented in `CONTENT_AND_COPY_PLAN.md`'s brief table (gap flagged) |
 | Security & Trust copy | 🔴 | Draft at `docs/copy/security-trust.md` (2026-08-24) shows only what's currently publishable — hosting, security-practice and assurance sections are Withhold and cannot be filled until Security/Legal produce approved facts; page may need to launch thin or be held back |
-| Book a Demo form copy | 🟡 | First draft complete at `docs/copy/book-a-demo.md` (renamed 2026-08-24 from `book-a-walkthrough.md`, `DECISIONS.md` D-025), reconciled to D-009 immediate-booking flow; calendar provider and named lead owner still unresolved |
+| Book a Demo form copy | 🟡 | First draft complete at `docs/copy/book-a-demo.md` (renamed 2026-08-24 from `book-a-walkthrough.md`, `DECISIONS.md` D-025), reconciled to D-009 immediate-booking flow; named lead owner (D-038) and calendar provider (Cal.com, D-039) both resolved |
 | Building Record page copy | ⬜ | New page added 2026-08-24 (D-022) — skeleton only at `docs/copy/building-record.md`; not yet through the content workflow, and the proposed drill-down levels need a data-model correction before drafting (see that file §4) |
-| Lead storage and communications design | 🟡 | Store: isolated marketing database (D-007). Email: Resend (D-008). Booking: immediate calendar selection (D-009). Named lead owner and retention/privacy basis (D-010, D-012) remain open pending privacy owner assignment |
+| Lead storage and communications design | 🟡 | Store: isolated marketing database (D-007). Email: Resend (D-008). Booking: immediate calendar selection (D-009) via Cal.com (D-039). Named lead owner: Tony Melling, backups Ricky and Priya (D-038). Retention/privacy basis (D-010, D-012) remains open pending privacy owner assignment |
 | Privacy/cookie copy | 🔴 | Skeleton drafts only at `docs/copy/privacy.md` and `docs/copy/cookies.md` (2026-08-24) — structurally blocked on privacy owner assignment (D-010, D-012), parked at user's direction; no legal content written |
 | Metadata matrix | ⬜ | Copywriter + SEO |
 | Search-intent and keyword research | ⬜ | Owner: user, to be completed separately outside this session (D-013); release-one sitemap stands as working URL set meanwhile |
@@ -149,7 +149,7 @@
 
 1. Approved SVG logo lock-ups are not yet available (interim PNGs staged at `public/brand/`; no reversed variant).
 2. Senior copywriter has not yet developed full page narratives.
-3. Walkthrough destination and operational owner are undecided; named lead owner still required despite booking flow being decided (D-009).
+3. Named lead owner (Tony Melling, backups Ricky and Priya — D-038) and calendar provider (Cal.com — D-039) are now both resolved; self-hosted vs. Cal.com Cloud and the API/webhook build remain implementation work.
 4. Production application domain must move to `app.widian.tech` before apex migration.
 5. Final product claims need deployed-staging re-verification (code-evidence pass completed 2026-08-24; see `CLAIMS_REGISTER.md`). Lifecycle copy (D-015) additionally depends on the 10-stage build shipping before launch.
 6. Authentic anonymised product demonstrations are not selected.

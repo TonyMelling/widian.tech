@@ -31,6 +31,10 @@ staging.widian.tech
 
 Never reverse this order; replacing the apex site first could break staging authentication.
 
+### Fasthosts DNS nag (ignore it)
+
+Fasthosts' DNS dashboard flags the `widian.tech` and `staging.widian.tech` apex/subdomain A records (`76.76.21.21`, Vercel's anycast IP) as "manually changed" and offers to "restore automatic updates" to `88.208.252.9`. **Do not accept that offer.** `88.208.252.9` is Fasthosts' own default parking/hosting IP; reverting to it would repoint those records away from the live, Vercel-hosted production/staging application and break it. The "manual change" is the correct, intentional configuration — verified 2026-08-24 by resolving both hostnames and fetching `https://widian.tech`, which confirmed the live application (not the marketing site) is still being served, matching the not-yet-started status of step 5 above. This warning is expected to keep reappearing in the Fasthosts UI and can be dismissed each time.
+
 ## 3. Recommended stack
 
 - Next.js App Router
