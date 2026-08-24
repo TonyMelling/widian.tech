@@ -7,10 +7,10 @@
 function TickerContent() {
   return (
     <span className="inline-flex items-center gap-4 font-mono">
-      <span className="rounded-sm bg-ember px-2 py-0.5 text-[10px] tracking-wider text-white">
+      <span className="rounded-sm bg-ember px-2.5 py-1 text-xs tracking-wider text-white">
         LAUNCHING SOON
       </span>
-      <span className="text-xs text-on-navy-secondary">
+      <span className="text-sm text-on-navy-secondary">
         Widian is launching soon — book a walkthrough to be among the first.
       </span>
     </span>
@@ -19,7 +19,7 @@ function TickerContent() {
 
 export function LaunchTicker() {
   return (
-    <div className="flex h-9 items-center overflow-hidden border-b border-navy-hairline bg-navy">
+    <div className="flex h-11 items-center overflow-hidden border-b border-navy-hairline bg-navy">
       <div className="ticker-track">
         <TickerContent />
         <span aria-hidden="true">

@@ -32,7 +32,7 @@ export function SiteFooter() {
     <footer className="bg-navy px-4 py-12 md:px-16 md:py-16">
       <div className="mx-auto max-w-280 md:grid md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10">
         <div>
-          <Logo variant="full" reversed className="h-6" />
+          <Logo variant="full" reversed className="h-8" />
           <div className="mt-3.5 font-mono text-xs text-on-navy-muted">
             Clarity Through Compliance
           </div>
