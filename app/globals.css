@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #141d2b;
+  --color-navy-800: #1b2534;
+  --color-navy-hairline: #2a3648;
+  --color-ember: #e8431a;
+  --color-ember-hover: #c93a17;
+  --color-surface: #ffffff;
+  --color-grey: #f0f2f5;
+  --color-text-secondary: #5b6675;
+  --color-hairline: #dce0e7;
+  --color-verified: #1f7a4c;
+  --color-amber: #a8630b;
+  --color-priority: #fceae4;
+  --color-on-navy: #ffffff;
+  --color-on-navy-secondary: #b7bfcc;
+  --color-on-navy-muted: #8a93a3;
+
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-navy);
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5rem;
+  white-space: nowrap;
+  animation: ticker-scroll 20s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* The second span is a duplicate of the first, purely to make the
+     marquee loop seamlessly. Without the scroll, showing both renders
+     the message twice side by side — hide the duplicate. */
+  .ticker-track > [aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Global reduced-motion contract: any element opting into motion must
+   respect this. Individual animated components additionally guard
+   their own keyframes/transitions where finer control is needed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

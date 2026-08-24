@@ -25,6 +25,10 @@ Record decisions when made; do not silently convert assumptions into requirement
 
 | D-017 | Site-wide "launching soon" ticker banner added above the header, per user direction (2026-08-24) | Accepted | Wording deliberately generic ("Widian is launching soon — book a walkthrough to be among the first") since exact launch status (available product / pilot / early-access programme) is still an open input per `SPEC.md` §20. Revisit wording once that's confirmed. Implemented with a `prefers-reduced-motion` static fallback; Ember used only on the small label chip to stay scarce per the brand invariant. See Home wireframe artifact. |
 
+| D-018 | Styling approach is Tailwind CSS 4 (CSS-based `@theme` tokens), not hand-written token CSS | Accepted | Both were permitted by `ARCHITECTURE.md` §3. Tailwind's v4 `@theme` block maps directly onto the documented design tokens (Navy, Ember, spacing/radius scale) without inventing a parallel system, and speeds implementation for the vertical slice. Reason logged per `AGENTS.md` rule 10 (dependency additions must be documented) |
+| D-019 | Test tooling is Vitest 4 + Testing Library + jsdom for component tests | Accepted | Matches `ARCHITECTURE.md` §3's recommendation ("Vitest or equivalent"). Added 2026-08-24 alongside the Home vertical slice so the "unit/component tests" gate in `AGENTS.md` is genuinely run, not skipped. Playwright (browser journeys) not yet added — manual Playwright-driven checks were run instead for this slice; formal Playwright test files are a follow-up |
+| D-020 | Header/footer nav breakpoint set at `lg` (1024px), not `md` (768px) | Accepted | Found during browser testing 2026-08-24: at 768px the full desktop nav (5 links + Sign in + CTA) doesn't fit and wraps onto the launch ticker. Tablet widths now get the mobile hamburger nav instead |
+
 ## Decision entry template
 
 - ID and date

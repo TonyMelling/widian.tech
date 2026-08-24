@@ -104,10 +104,10 @@
 
 | Slice | Status | Acceptance gate |
 |---|---|---|
-| Project foundation | ⬜ | Build, lint, type-check |
-| Tokens, fonts and approved logo | ⬜ | Brand review |
-| Header, footer and navigation | ⬜ | Mobile/keyboard review |
-| Homepage vertical slice | ⬜ | Five-second comprehension |
+| Project foundation | 🟢 | Next.js 16.3 / React 19 / TypeScript strict / Tailwind CSS 4, scaffolded 2026-08-24. Build, lint, typecheck and unit tests all pass — see checks log below |
+| Tokens, fonts and approved logo | 🟡 | Design-system tokens implemented as Tailwind `@theme` values in `app/globals.css`; interim PNG logo wired via `components/brand/Logo.tsx`. Formal Brand review still pending |
+| Header, footer and navigation | 🟡 | Built and browser-tested at 320/390/768/1440px, keyboard and reduced-motion — see checks log. Formal Accessibility Specialist review still pending |
+| Homepage vertical slice | 🟡 | Full page built at `app/page.tsx` from `docs/copy/home.md`. All required gates run and passing. Section 6.6 still shows the asset-blocked placeholder; five-second-comprehension user testing not done (needs real users, not an automated check) |
 | Platform | ⬜ | Record anatomy understood |
 | How It Works | ⬜ | Responsibility gates understood |
 | Solutions | ⬜ | Role stories remain connected |
@@ -201,6 +201,43 @@
 - Assign a privacy owner to unblock D-010/D-012.
 - Resolve outstanding product-truth confirmations flagged inline (e.g. "Action assigned" gate role, P3–P5 reinspection actor, contractor cost/completion data).
 - Move to Phase 2 (experience architecture / wireframes) once copy is reviewed, per `WIDIAN_MARKETING_WEBSITE_SPEC.md` §18.
+
+### 2026-08-24 — Phase 4: Home vertical slice implementation
+
+**Completed**
+
+- Scaffolded the Next.js 16.3 / React 19 / TypeScript strict / Tailwind CSS 4 project (D-018).
+- Built the production header (sticky, launch ticker, desktop nav, accessible mobile menu via native `<dialog>`), footer, and the full Home page (`app/page.tsx`) from `docs/copy/home.md`, the wireframe canvas and `docs/DESIGN_SYSTEM.md`.
+- Implemented the six-stage lifecycle thread, role cards, fragment diagram, scroll-reveal (progressive-enhancement safe — visible without JS), and the reduced-motion-safe launch ticker.
+- Added routing stub pages for all twelve other release-one routes (`robots: noindex`) so navigation resolves without building ahead of scope; `/sign-in` correctly points external to `app.widian.tech`, not an internal route.
+- Added `sitemap.ts` / `robots.ts` (Home only, by design — stubs excluded).
+- Added minimal Vitest + Testing Library component tests (D-019), including a regression guard against the blocked 10-stage lifecycle chain reappearing (D-015).
+
+**Checks** (all run, not assumed)
+
+- `npm run typecheck` — pass
+- `npm run lint` — pass (one real issue caught and fixed: `setState` called synchronously in a `useEffect` body in `ScrollReveal`)
+- `npm run test` — 6/6 pass
+- `npm run build` — pass, 18/18 routes prerendered as static
+- Browser checks via Playwright: no horizontal overflow at 320/390/768/1440px; no console errors; keyboard Tab order reaches nav links with visible focus; native `<dialog>` mobile menu opens/closes correctly including Escape; `prefers-reduced-motion: reduce` verified
+- Two real bugs found and fixed during browser checks: (1) reduced-motion left the launch ticker's duplicate marquee copy visible instead of collapsing to one static line; (2) tablet width (768px) broke the header — desktop nav didn't fit and wrapped onto the ticker, fixed by moving the nav breakpoint to `lg` (1024px) — see D-020
+
+**Decisions**
+
+- D-018 (Tailwind CSS 4), D-019 (Vitest test tooling), D-020 (nav breakpoint)
+
+**Open issues**
+
+- Home §6.6 still shows the asset-blocked placeholder — unchanged, pending screenshot approval.
+- Five-second-comprehension testing needs real users, not an automated check.
+- Playwright test files not yet added to the repo (manual Playwright-driven checks were run for this slice instead).
+- Formal Brand/Accessibility Specialist sign-off on the built page still outstanding, per `AGENTS.md`'s specialist review table.
+- Twelve other pages remain routing stubs only.
+
+**Next**
+
+- User review of the built Home page (`npm run dev`).
+- Decide whether to continue implementing the remaining pages in the same pattern, or hold for review first.
 
 ## Update template
 
