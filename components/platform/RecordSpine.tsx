@@ -94,10 +94,11 @@ const LAYERS: Layer[] = [
 ];
 
 function ClaimBadge({ claim }: { claim: NonNullable<Layer["claim"]> }) {
-  const pillClasses =
-    claim.status === "Verified"
-      ? "bg-verified text-white"
-      : "border border-amber text-amber";
+  // Both states use a filled pill (bg + white text), not amber-outline
+  // text-on-navy — that combination was 3.59:1, failing WCAG AA's 4.5:1
+  // for normal text (2026-08-24 accessibility review). Filled amber +
+  // white text passes at 5.32:1, matching how "Verified" already works.
+  const pillClasses = claim.status === "Verified" ? "bg-verified text-white" : "bg-amber text-white";
   return (
     <div>
       <span

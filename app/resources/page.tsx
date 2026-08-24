@@ -60,7 +60,7 @@ export default function ResourcesPage() {
                     <h2 className="mt-2 font-display text-lg font-bold text-navy">
                       <Link
                         href={`/resources/${article.slug}`}
-                        className="hover:text-ember"
+                        className="hover:text-ember-hover"
                       >
                         {article.title}
                       </Link>

@@ -74,7 +74,7 @@ export default async function ResourceArticlePage({
               {article.description}
             </p>
             <div
-              className="prose prose-navy mt-10 max-w-none text-[16px] leading-relaxed text-navy [&_a]:text-navy [&_a]:underline [&_a]:decoration-hairline [&_a]:underline-offset-2 [&_a:hover]:text-ember [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h3]:mt-8 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-bold [&_li]:mt-1 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6"
+              className="prose prose-navy mt-10 max-w-none text-[16px] leading-relaxed text-navy [&_a]:text-navy [&_a]:underline [&_a]:decoration-hairline [&_a]:underline-offset-2 [&_a:hover]:text-ember-hover [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h3]:mt-8 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-bold [&_li]:mt-1 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6"
               dangerouslySetInnerHTML={{ __html: article.html }}
             />
           </div>

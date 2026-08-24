@@ -29,8 +29,8 @@
 | Token | Value | Role |
 |---|---:|---|
 | On-navy primary text | `#FFFFFF` | Headings on Navy backgrounds |
-| On-navy secondary text | `#B7BFCC` | Body copy on Navy — **contrast unverified, flagged in the wireframe canvas; check WCAG 2.2 AA before build** |
-| On-navy muted text | `#8A93A3` | Least-emphasis text/placeholder captions on Navy |
+| On-navy secondary text | `#B7BFCC` | Body copy on Navy — confirmed 2026-08-24 at 9.14:1, passes WCAG AA |
+| On-navy muted text | `#8A93A3` | Least-emphasis text/placeholder captions on Navy — confirmed 2026-08-24 at 4.98–5.47:1 depending on exact navy shade, passes WCAG AA |
 | On-navy hairline | `#2A3648` | Rules/boundaries on Navy |
 | Navy-800 | `#1B2534` | Deeper fill for placeholder/recessed surfaces on Navy |
 
@@ -75,10 +75,10 @@ Minimum clear space and minimum size rules are not yet defined — no approved b
 | Element | Spec |
 |---|---|
 | Primary button | Ember `#E8431A` bg, white text, 2px radius, 600 weight Plex Sans, 14px 28px padding (desktop), full-width 15px 20px (mobile) |
-| Primary button hover | Darken to `#C93A17` (proposed — not yet tested for contrast) |
-| Secondary/text link (on white/grey) | Navy text, 600 weight, 1px bottom border in Navy, hover shifts text+border to Ember |
+| Primary button hover | Darken to `#C93A17` (`ember-hover`) — confirmed 2026-08-24: white text on this background is 5.12:1, passes WCAG AA |
+| Secondary/text link (on white/grey) | Navy text, 600 weight, 1px bottom border in Navy, hover shifts text+border to **`ember-hover` (`#C93A17`), not `ember` (`#E8431A`)** — corrected 2026-08-24: ember-on-white was 4.00:1, failing AA's 4.5:1; ember-hover passes at 5.12:1. Same rule applies everywhere ember is used as a *text* colour on a light background (nav links, resource links) — ember itself is unchanged for backgrounds/icons/priority markers, where it already passed |
 | Link on Navy background | White text, 1px bottom border in on-navy hairline `#2A3648`, hover — **undefined, needs a decision**: an Ember hover here risks looking like a second, competing CTA; a lighter white/grey shift is likely safer but wasn't tested in the wireframes |
-| Nav link (default) | Navy text, 500 weight, hover to Ember |
+| Nav link (default) | Navy text, 500 weight, hover to **`ember-hover`** (see correction above) |
 
 ## 7. Status system
 
@@ -127,7 +127,8 @@ Minimum clear space and minimum size rules are not yet defined — no approved b
 
 ## 11. Open items before this system is approved
 
-- On-Navy secondary text contrast (`#B7BFCC` on `#141D2B`) needs formal WCAG 2.2 AA verification.
+- **New 2026-08-24 — not yet fixed, needs a decision:** the ember `text-ember uppercase` "eyebrow label" pattern used at the top of nearly every page (11px/10px mono, e.g. "Building Record", "Responsibility gates") is the *same* failing ember-on-white pairing (4.00:1) as the link-hover issue above, just not yet corrected — it wasn't caught in the original accessibility review, only found while fixing the link/badge instances. Unlike the link-hover fix, this is a much larger, visual-identity-level change (it's a core recurring brand device per this doc), so it wasn't changed without a separate decision. Options: switch these labels to `ember-hover` too (same fix, on-brand, minimal visual difference), increase their size/weight to qualify as "large text" (3:1 threshold instead of 4.5:1 — unlikely to suit the compact eyebrow style), or accept the fail as within Ember's established "scarce emphasis" brand risk tolerance (not recommended — this is a genuine, easily reproducible AA failure, not a borderline judgement call).
+- On-Navy secondary text contrast (`#B7BFCC` on `#141D2B`) — **resolved 2026-08-24**: computed at 9.14:1, passes WCAG AA comfortably. No longer an open item.
 - Reversed logo lock-up doesn't exist — current dark-background usage is a CSS-filter stopgap, not production-ready.
 - Link-on-Navy hover state undefined.
 - All motion timing values are proposed defaults, not yet reviewed by a Motion Designer.
