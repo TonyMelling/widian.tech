@@ -12,7 +12,7 @@ export function StubPage({ title, question }: { title: string; question: string 
       <SiteHeader />
       <main className="flex flex-grow items-center justify-center px-4 py-24 text-center md:px-16">
         <div className="max-w-lg">
-          <p className="font-mono text-xs tracking-wider text-ember uppercase">
+          <p className="font-mono text-xs tracking-wider text-ember-hover uppercase">
             In development
           </p>
           <h1 className="mt-3 font-display text-3xl font-bold text-navy">{title}</h1>

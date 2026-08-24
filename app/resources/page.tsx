@@ -24,7 +24,7 @@ export default function ResourcesPage() {
       <main>
         <section className="px-4 pt-14 pb-10 md:px-16 md:pt-20 md:pb-14">
           <div className="mx-auto max-w-280">
-            <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">
+            <p className="font-mono text-[11px] tracking-[0.12em] text-ember-hover uppercase md:text-xs">
               Resources
             </p>
             <h1 className="mt-3.5 font-display text-[28px] leading-tight font-bold text-navy md:mt-5 md:text-[42px]">

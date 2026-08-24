@@ -55,7 +55,7 @@ export function LaunchAnnouncement() {
         >
           <div className="border-t-[3px] border-ember p-6 md:p-9">
             <div className="flex items-start justify-between gap-6">
-              <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase">Launching soon</p>
+              <p className="font-mono text-[11px] tracking-[0.12em] text-ember-hover uppercase">Launching soon</p>
               <button type="button" aria-label="Close launch announcement" onClick={() => dialogRef.current?.close()} className="-mt-2 -mr-2 flex h-11 w-11 items-center justify-center text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" /></svg>
               </button>

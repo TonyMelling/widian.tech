@@ -48,7 +48,7 @@ export default function PlatformPage() {
         <section className="px-4 pt-16 pb-14 md:px-16 md:pt-24 md:pb-20">
           <div className="mx-auto grid max-w-280 gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:gap-16">
             <div>
-              <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">
+              <p className="font-mono text-[11px] tracking-[0.12em] text-ember-hover uppercase md:text-xs">
                 Building Record Platform
               </p>
               <h1 className="mt-4 max-w-xl font-display text-[30px] leading-[1.16] font-bold text-navy md:text-[48px] md:leading-[1.12]">

@@ -19,7 +19,7 @@ function StageDetail({ index }: { index: number }) {
   const [title, role, body] = STAGES[index];
   return (
     <div>
-      <p className="font-mono text-[10px] tracking-[0.12em] text-ember uppercase">Stage {String(index + 1).padStart(2, "0")}</p>
+      <p className="font-mono text-[10px] tracking-[0.12em] text-ember-hover uppercase">Stage {String(index + 1).padStart(2, "0")}</p>
       <h3 className="mt-2 font-display text-xl font-bold text-navy">{title}</h3>
       <dl className="mt-5 space-y-4">
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">Accountable role</dt><dd className="mt-1 text-sm font-semibold text-navy">{role}</dd></div>

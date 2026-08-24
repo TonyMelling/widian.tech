@@ -21,7 +21,7 @@ export default function BuildingRecordPage() {
   return (
     <><SiteHeader /><main>
       <section className="px-4 pt-16 pb-14 md:px-16 md:pt-24 md:pb-20"><div className="mx-auto max-w-280">
-        <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">Building Record</p>
+        <p className="font-mono text-[11px] tracking-[0.12em] text-ember-hover uppercase md:text-xs">Building Record</p>
         <h1 className="mt-4 max-w-4xl font-display text-[32px] leading-[1.13] font-bold text-navy md:text-[54px]">Follow every finding back to the building it belongs to.</h1>
         <div className="mt-6 grid gap-7 border-t border-hairline pt-6 md:grid-cols-[1fr_auto] md:items-end md:gap-12">
           <p className="max-w-2xl text-base leading-relaxed text-text-secondary md:text-[19px] md:leading-[1.55]">Move from the organisation responsible for an estate to a specific building, element, inspection and finding—without separating the evidence from where it belongs.</p>
@@ -29,11 +29,11 @@ export default function BuildingRecordPage() {
         </div>
       </div></section>
       <section className="bg-grey px-4 py-14 md:px-16 md:py-24"><div className="mx-auto max-w-280">
-        <div className="grid gap-5 md:grid-cols-[0.75fr_1.25fr] md:items-end"><div><p className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">The same finding over time</p><h2 className="mt-3 font-display text-2xl leading-tight font-bold text-navy md:text-[34px]">Ten steps from recording to closure.</h2></div><p className="max-w-2xl text-[15px] leading-relaxed text-text-secondary md:justify-self-end md:text-base">Follow the synthetic P1 finding through each responsibility gate. Harbour Court, fire door FD-014 and finding FND-207 remain attached throughout.</p></div>
+        <div className="grid gap-5 md:grid-cols-[0.75fr_1.25fr] md:items-end"><div><p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">The same finding over time</p><h2 className="mt-3 font-display text-2xl leading-tight font-bold text-navy md:text-[34px]">Ten steps from recording to closure.</h2></div><p className="max-w-2xl text-[15px] leading-relaxed text-text-secondary md:justify-self-end md:text-base">Follow the synthetic P1 finding through each responsibility gate. Harbour Court, fire door FD-014 and finding FND-207 remain attached throughout.</p></div>
         <div className="mt-8 md:mt-12"><RecordNavigator /></div>
       </div></section>
       <ScrollReveal><section className="px-4 py-14 md:px-16 md:py-24"><div className="mx-auto max-w-280"><div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-20">
-        <div><p className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">What stays attached</p><h2 className="mt-3 font-display text-2xl leading-tight font-bold text-navy md:text-[34px]">Context travels with every step.</h2></div>
+        <div><p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">What stays attached</p><h2 className="mt-3 font-display text-2xl leading-tight font-bold text-navy md:text-[34px]">Context travels with every step.</h2></div>
         <dl className="divide-y divide-hairline border-y border-hairline">{CONTEXT_POINTS.map(([term, detail]) => <div key={term} className="grid gap-2 py-5 sm:grid-cols-[8rem_1fr] sm:gap-6"><dt className="font-mono text-xs font-semibold tracking-wide text-navy uppercase">{term}</dt><dd className="text-[15px] leading-relaxed text-text-secondary">{detail}</dd></div>)}</dl>
       </div></div></section></ScrollReveal>
       <section className="bg-navy px-4 py-14 md:px-16 md:py-20"><div className="mx-auto grid max-w-280 gap-8 md:grid-cols-[1fr_auto] md:items-center md:gap-16">

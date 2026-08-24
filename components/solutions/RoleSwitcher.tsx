@@ -20,7 +20,7 @@ export function RoleSwitcher() {
     </div>
     <div id="role-perspective" role="tabpanel" className="relative min-h-80 p-6 md:p-10">
       <div className="grid gap-7 xl:grid-cols-[0.9fr_1.1fr] xl:items-center">
-        <div><p className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">The record stays fixed · Harbour Court · BLD-012</p>
+        <div><p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">The record stays fixed · Harbour Court · BLD-012</p>
         <h3 className="mt-5 font-display text-2xl font-bold text-navy md:text-[34px]">{role.question}</h3>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-text-secondary md:text-base">{role.focus}. The underlying building, finding and evidence do not change when the responsibility changes.</p>
         <Link href={role.href} className="mt-8 inline-flex border-b border-ember pb-1 text-sm font-semibold text-navy focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy">{role.action} →</Link></div>

@@ -29,7 +29,7 @@ const RIGHTS = [
 export default function PrivacyPage() {
   return <><SiteHeader /><main>
     <header className="bg-grey px-4 pt-16 pb-14 md:px-16 md:pt-24 md:pb-20"><div className="mx-auto max-w-280">
-      <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase">Privacy notice · draft for approval</p>
+      <p className="font-mono text-[11px] tracking-[0.12em] text-ember-hover uppercase">Privacy notice · draft for approval</p>
       <h1 className="mt-4 max-w-3xl font-display text-[32px] leading-tight font-bold text-navy md:text-[52px]">How Widian uses personal data.</h1>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-text-secondary md:text-lg">This notice explains the personal data collected through widian.tech, why it is used, where it is stored and the choices available to you.</p>
       <p className="mt-5 font-mono text-xs text-text-secondary">Version: draft 0.1 · 24 August 2026</p>

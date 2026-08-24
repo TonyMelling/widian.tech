@@ -76,7 +76,7 @@ export default function SecurityTrustPage() {
           <div className="mx-auto max-w-280">
             <div className="grid gap-6 border-b border-hairline pb-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
               <div>
-                <p className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">
+                <p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">
                   Evidence register
                 </p>
                 <h2 id="assurance-register" className="mt-3 font-display text-2xl font-bold text-navy md:text-[34px]">
@@ -113,7 +113,7 @@ export default function SecurityTrustPage() {
         <section className="bg-grey px-4 py-14 md:px-16 md:py-24" aria-labelledby="not-claimed">
           <div className="mx-auto grid max-w-280 gap-10 md:grid-cols-[0.75fr_1.25fr] md:gap-20">
             <div>
-              <p className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">
+              <p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">
                 Limits kept visible
               </p>
               <h2 id="not-claimed" className="mt-3 font-display text-2xl font-bold text-navy md:text-[34px]">
@@ -123,7 +123,7 @@ export default function SecurityTrustPage() {
             <ul className="divide-y divide-hairline border-y border-hairline">
               {NOT_CLAIMED.map((item) => (
                 <li key={item} className="grid grid-cols-[1.5rem_1fr] gap-4 py-5 text-[15px] leading-relaxed text-text-secondary md:text-base">
-                  <span aria-hidden="true" className="font-mono text-ember">—</span>
+                  <span aria-hidden="true" className="font-mono text-ember-hover">—</span>
                   {item}
                 </li>
               ))}
