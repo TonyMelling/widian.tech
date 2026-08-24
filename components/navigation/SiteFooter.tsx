@@ -14,7 +14,7 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string }[
     heading: "Company",
     links: [
       { href: "/security-trust", label: "Security & Trust" },
-      { href: "/book-a-walkthrough", label: "Book a Walkthrough" },
+      { href: "/book-a-demo", label: "Book a Demo" },
       { href: "https://app.widian.tech/sign-in", label: "Sign in" },
     ],
   },

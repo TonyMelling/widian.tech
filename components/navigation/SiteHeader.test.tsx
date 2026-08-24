@@ -8,6 +8,7 @@ describe("SiteHeader", () => {
     const nav = screen.getByRole("navigation", { name: "Primary" });
     for (const label of [
       "Platform",
+      "Building Record",
       "How It Works",
       "Solutions",
       "The New Market",
@@ -25,10 +26,8 @@ describe("SiteHeader", () => {
     }
   });
 
-  it("uses the standardised primary CTA label (D-016)", () => {
+  it("uses the standardised primary CTA label (see DECISIONS.md, supersedes D-016)", () => {
     render(<SiteHeader />);
-    expect(screen.getAllByRole("link", { name: "Book a walkthrough" }).length).toBeGreaterThan(
-      0,
-    );
+    expect(screen.getAllByRole("link", { name: "Book a Demo" }).length).toBeGreaterThan(0);
   });
 });

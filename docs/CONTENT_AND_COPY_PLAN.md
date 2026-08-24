@@ -11,7 +11,7 @@ Make Widian's category and value understandable before describing features: one 
 3. **Mechanism:** controlled lifecycle, accountable roles and evidence-backed transitions.
 4. **Differentiation:** operational coordination rather than disconnected reports or passive storage.
 5. **Proof:** only verified product behaviour, demonstrations and approved customer evidence.
-6. **Action:** book a Widian walkthrough.
+6. **Action:** book a demo.
 
 ## First-release page briefs
 
@@ -19,10 +19,11 @@ Make Widian's category and value understandable before describing features: one 
 |---|---|---|---|
 | Home | What is Widian and why does it matter? | The golden thread assembles one building record from fragmented events | Book a walkthrough |
 | Platform | What is the product model? | Layered building, element and evidence record | Explore how it works |
+| Building Record *(added 2026-08-24, `DECISIONS.md` D-022 — not yet drafted)* | How do you get from a portfolio to one finding? | Portfolio → building → element → finding drill-down, synthetic data | Explore how it works |
 | How it works | How does an issue reach closure? | Interactive lifecycle with actors, gates and evidence | See Widian in context |
 | Solutions | What changes for my organisation and role? | Role switcher following one shared finding | Discuss your operating model |
 | Trust | Can we assess this responsibly? | Evidence room with confirmed, pending and not-yet-claimed states | Request trust information |
-| Book a walkthrough | Is this relevant to our estate and process? | Focused qualification and clear next step | Submit request |
+| Book a Demo *(renamed from "Book a walkthrough" 2026-08-24, `DECISIONS.md` D-025)* | Is this relevant to our estate and process? | Focused qualification and clear next step | Submit request |
 
 ### Deferred
 

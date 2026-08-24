@@ -17,9 +17,10 @@ const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
     "inline-flex items-center gap-1 border-b border-navy-hairline pb-0.5 text-[15px] font-semibold text-white transition-colors hover:border-on-navy-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
 };
 
-/** Primary CTA label is standardised sitewide as "Book a Widian
- * walkthrough" per D-016 in docs/DECISIONS.md — page differentiation
- * comes from surrounding copy and secondary CTAs, not this label. */
+/** Primary CTA label is standardised sitewide as "Book a Demo" — see
+ * DECISIONS.md (supersedes D-016, which used "Book a Widian
+ * walkthrough"). Page differentiation comes from surrounding copy and
+ * secondary CTAs, not this label. */
 export function Button({ href, children, variant = "primary", className }: ButtonProps) {
   return (
     <Link href={href} className={`${VARIANT_CLASSES[variant]} ${className ?? ""}`.trim()}>

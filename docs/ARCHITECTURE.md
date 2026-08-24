@@ -52,6 +52,7 @@ app/
 ├── layout.tsx
 ├── page.tsx
 ├── platform/page.tsx
+├── building-record/page.tsx
 ├── how-it-works/page.tsx
 ├── new-market/page.tsx
 ├── solutions/
@@ -61,13 +62,13 @@ app/
 │   ├── surveyors/page.tsx
 │   └── contractors/page.tsx
 ├── security-trust/page.tsx
-├── book-a-walkthrough/page.tsx
+├── book-a-demo/page.tsx
 ├── privacy/page.tsx
 ├── cookies/page.tsx
 ├── sitemap.ts
 ├── robots.ts
 └── api/
-    └── walkthrough/route.ts
+    └── walkthrough/route.ts   # internal name kept — see DECISIONS.md D-025
 ```
 
 Final routing may vary, but every change must preserve clear public URLs and unique metadata.

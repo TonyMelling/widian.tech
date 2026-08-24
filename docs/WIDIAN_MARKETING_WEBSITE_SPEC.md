@@ -25,7 +25,8 @@ Lead capture must create a durable, owned record before displaying success. Enqu
 |---|---|---|
 | `/` | Home | Establish the category and secure interest |
 | `/platform` | Platform | Make the Building Record tangible |
-| `/how-it-works` | How It Works | Explain responsibility gates and verified closure |
+| `/building-record` | Building Record | Navigate the record: portfolio → building → element → finding (added 2026-08-24, `DECISIONS.md` D-022) |
+| `/how-it-works` | How It Works | Explain responsibility gates and verified closure (Verified Closure lives here as a section, `DECISIONS.md` D-024) |
 | `/solutions` | Solutions | Route audiences into relevant value stories |
 | `/solutions/building-owners` | Building Owners | Portfolio truth, assurance and accountability |
 | `/solutions/compliance-teams` | Compliance Teams | Attention, action ownership and evidence |
@@ -33,7 +34,7 @@ Lead capture must create a durable, owned record before displaying success. Enqu
 | `/solutions/contractors` | Contractors | Clear scope, evidence and handover |
 | `/new-market` | The New Market | Explain network and marketplace-infrastructure strategy |
 | `/security-trust` | Security & Trust | Publish substantiated controls and limitations |
-| `/book-a-walkthrough` | Book a Walkthrough | Convert high-intent visitors |
+| `/book-a-demo` | Book a Demo | Convert high-intent visitors (renamed from Book a Walkthrough, `DECISIONS.md` D-025) |
 | `/privacy` | Privacy | Explain personal-data handling |
 | `/cookies` | Cookies | Explain consent and analytics |
 
@@ -54,24 +55,26 @@ Desktop:
 
 - Widian logo
 - Platform
+- Building Record
 - How It Works
 - Solutions
 - The New Market
 - Security & Trust
 - Sign in
-- Book a walkthrough
+- Book a Demo
 
 Mobile:
 
 - approved compact Widian logo;
 - accessible menu trigger;
 - Platform;
+- Building Record;
 - How It Works;
 - Solutions;
 - The New Market;
 - Security & Trust;
 - Sign in;
-- persistent or contextually repeated walkthrough CTA.
+- persistent or contextually repeated Book a Demo CTA.
 
 Footer:
 
@@ -80,7 +83,7 @@ Footer:
 - How It Works
 - Solutions
 - Security & Trust
-- Book a Walkthrough
+- Book a Demo
 - Sign in
 - Staging login
 - Privacy
@@ -230,9 +233,9 @@ Shared navigation, typography, tokens and controls should create consistency. Pa
 6. Authentic product evidence
 7. Difference from reports and repositories
 8. Trust preview
-9. Walkthrough CTA
+9. Demo CTA
 
-**Conversion:** Book a Widian walkthrough
+**Conversion:** Book a Demo
 
 ### 7.2 Platform — Anatomy of the Building Record
 
@@ -260,6 +263,18 @@ Shared navigation, typography, tokens and controls should create consistency. Pa
 
 **Required proof:** Authentic, anonymised product views or faithful demonstrations. Clearly mark proposed experiences.
 
+### 7.2a Building Record — Portfolio-to-finding navigation
+
+**Added 2026-08-24** (`DECISIONS.md` D-022) as a separate page from Platform, not in the original release-one sitemap.
+
+**Visitor question:** How do you get from a whole portfolio down to one finding, without losing the building it belongs to?
+
+**Layout grammar:** drill-down navigation (portfolio → building → element → inspection → finding), distinct from Platform's static layer anatomy.
+
+**Required proof:** synthetic/illustrative demonstration data, clearly labelled as such (`DECISIONS.md` D-021) — not a live product view.
+
+Full brief and an open data-model correction (the drill-down levels must follow the verified schema chain, not the "Location"/"Case" terms first proposed) are at `docs/copy/building-record.md`. This page is a skeleton only; do not treat this entry as approved copy.
+
 ### 7.3 How It Works — Responsibility Gates
 
 **Visitor question:** What prevents an issue from being marked complete prematurely?
@@ -270,7 +285,9 @@ Shared navigation, typography, tokens and controls should create consistency. Pa
 
 **Layout grammar:** Controlled sequence, closer to a decision instrument than a timeline.
 
-**Dominant interaction:** Seven-stage responsibility gate. Selecting a stage reveals:
+**Resolved 2026-08-24 (`DECISIONS.md` D-023, D-024):** the interactive gate uses the ten-stage canonical lifecycle (`Recorded → Submitted → Reviewed → Finding raised → Assigned → In progress → Remediated → Independently checked → Client verified → Closed`), not "seven-stage" as below — this text predates that resolution. This remains a "Proposed future state" claim until the underlying build ships (see `CLAIMS_REGISTER.md`). This page must also include a Verified Closure section (D-024: not a separate page) covering the finding → approved scope → work → required evidence → independent verification → client acceptance → verified closure journey, why completed work is not automatically closure, and how reopening preserves historical truth.
+
+**Dominant interaction:** Ten-stage responsibility gate. Selecting a stage reveals:
 
 - accountable role;
 - input state;
@@ -383,7 +400,7 @@ Only publish evidence-backed statements.
 
 Include dated, maintained assurance information rather than timeless unsupported claims.
 
-### 7.7 Book a Walkthrough — High-intent conversion
+### 7.7 Book a Demo — High-intent conversion
 
 **Visitor question:** Is Widian relevant to my buildings and operating model?
 
@@ -533,7 +550,7 @@ Rules:
 
 - Responsive navigation
 - Accessible mobile menu
-- Book-a-walkthrough form
+- Book-a-demo form
 - Client and server-side validation
 - Loading, success and error states
 - Role-based content exploration
@@ -820,7 +837,7 @@ Target:
 
 ### Conversion
 
-- Primary CTA is consistently “Book a Widian walkthrough”.
+- Primary CTA is consistently “Book a Demo” (see `DECISIONS.md` D-025, supersedes D-016's wording).
 - Form validation and feedback are clear.
 - Success state explains next steps.
 - Analytics measure the journey without collecting form contents.

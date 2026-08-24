@@ -34,8 +34,8 @@ export function SiteHeader() {
           >
             Sign in
           </a>
-          <Button href="/book-a-walkthrough" className="!px-5.5 !py-2.5 !text-sm">
-            Book a walkthrough
+          <Button href="/book-a-demo" className="!px-5.5 !py-2.5 !text-sm">
+            Book a Demo
           </Button>
         </nav>
 

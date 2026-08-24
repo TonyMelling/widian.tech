@@ -13,7 +13,7 @@ import { FragmentDiagram } from "@/components/home/FragmentDiagram";
 export const metadata: Metadata = {
   title: "Widian — One Building Record for Passive Fire",
   description:
-    "Widian connects inspections, findings, remedial work, evidence and verification in one accountable building record. Book a walkthrough.",
+    "Widian connects inspections, findings, remedial work, evidence and verification in one accountable building record. Book a demo.",
   openGraph: {
     title: "One building record. Every responsible party. Verified from inspection to closure.",
     description:
@@ -42,7 +42,7 @@ export default function HomePage() {
                 verification in one accountable operational record for every building.
               </p>
               <div className="mt-7 flex flex-col gap-4 md:mt-10 md:flex-row md:items-center md:gap-7">
-                <Button href="/book-a-walkthrough">Book a Widian walkthrough</Button>
+                <Button href="/book-a-demo">Book a Demo</Button>
                 <Button href="/how-it-works" variant="secondary-on-navy">
                   See how it works
                 </Button>
@@ -197,8 +197,8 @@ export default function HomePage() {
             <p className="mt-2.5 text-[15px] text-text-secondary md:text-base">
               Book a time that works for you.
             </p>
-            <Button href="/book-a-walkthrough" className="mt-5 md:mt-6">
-              Book a Widian walkthrough
+            <Button href="/book-a-demo" className="mt-5 md:mt-6">
+              Book a Demo
             </Button>
           </div>
         </section>

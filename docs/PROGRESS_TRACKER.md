@@ -64,7 +64,8 @@
 | Solution-page copy | 🟡 | First drafts complete: `docs/copy/solutions.md` + four role pages (2026-08-24); contractor "cost and completion information" story item omitted pending confirmation |
 | New Market copy | 🟡 | First draft complete at `docs/copy/new-market.md` (2026-08-24); highest overclaim risk on the site — needs Brand Strategist + Product Truth joint review before publish; page is undocumented in `CONTENT_AND_COPY_PLAN.md`'s brief table (gap flagged) |
 | Security & Trust copy | 🔴 | Draft at `docs/copy/security-trust.md` (2026-08-24) shows only what's currently publishable — hosting, security-practice and assurance sections are Withhold and cannot be filled until Security/Legal produce approved facts; page may need to launch thin or be held back |
-| Walkthrough form copy | 🟡 | First draft complete at `docs/copy/book-a-walkthrough.md` (2026-08-24), reconciled to D-009 immediate-booking flow; calendar provider and named lead owner still unresolved |
+| Book a Demo form copy | 🟡 | First draft complete at `docs/copy/book-a-demo.md` (renamed 2026-08-24 from `book-a-walkthrough.md`, `DECISIONS.md` D-025), reconciled to D-009 immediate-booking flow; calendar provider and named lead owner still unresolved |
+| Building Record page copy | ⬜ | New page added 2026-08-24 (D-022) — skeleton only at `docs/copy/building-record.md`; not yet through the content workflow, and the proposed drill-down levels need a data-model correction before drafting (see that file §4) |
 | Lead storage and communications design | 🟡 | Store: isolated marketing database (D-007). Email: Resend (D-008). Booking: immediate calendar selection (D-009). Named lead owner and retention/privacy basis (D-010, D-012) remain open pending privacy owner assignment |
 | Privacy/cookie copy | 🔴 | Skeleton drafts only at `docs/copy/privacy.md` and `docs/copy/cookies.md` (2026-08-24) — structurally blocked on privacy owner assignment (D-010, D-012), parked at user's direction; no legal content written |
 | Metadata matrix | ⬜ | Copywriter + SEO |
@@ -108,12 +109,13 @@
 | Tokens, fonts and approved logo | 🟡 | Design-system tokens implemented as Tailwind `@theme` values in `app/globals.css`; interim PNG logo wired via `components/brand/Logo.tsx`. Formal Brand review still pending |
 | Header, footer and navigation | 🟡 | Built and browser-tested at 320/390/768/1440px, keyboard and reduced-motion — see checks log. Formal Accessibility Specialist review still pending |
 | Homepage vertical slice | 🟡 | Full page built at `app/page.tsx` from `docs/copy/home.md`. All required gates run and passing. Section 6.6 still shows the asset-blocked placeholder; five-second-comprehension user testing not done (needs real users, not an automated check) |
-| Platform | ⬜ | Record anatomy understood |
+| Platform | 🟡 | Full page built at `app/platform/page.tsx` from `docs/copy/platform.md`. Automated gates run and passing; browser/visual QA not performed this slice (no browser-automation tool available in this session) |
+| Building Record | ⬜ | New page (D-022), currently a routing stub only. Copy/data-model work needed before build — see `docs/copy/building-record.md` |
 | How It Works | ⬜ | Responsibility gates understood |
 | Solutions | ⬜ | Role stories remain connected |
 | New Market | ⬜ | Direction is bold but supportable |
 | Security & Trust | ⬜ | All claims approved |
-| Walkthrough form | ⬜ | Success/error journey verified |
+| Book a Demo form | ⬜ | Success/error journey verified |
 | Lead API, storage and outbox | ⬜ | Durable, idempotent and recoverable |
 | Acknowledgement and internal routing | ⬜ | Delivery, bounce and failure paths tested |
 | Privacy/cookies/analytics | ⬜ | Privacy approval |
@@ -238,6 +240,76 @@
 
 - User review of the built Home page (`npm run dev`).
 - Decide whether to continue implementing the remaining pages in the same pattern, or hold for review first.
+
+### 2026-08-24 — Phase 5: Platform vertical slice implementation
+
+**Completed**
+
+- Built the full Platform page (`app/platform/page.tsx`) from `docs/copy/platform.md`: a light, typographic hero (deliberately no split image, to differentiate from Home's dark hero), a dark "record spine" centrepiece with the nine record layers, a stacked Q&A objections section, and a closing CTA.
+- Built `components/platform/RecordSpine.tsx` — the page's dominant interaction (`SPEC.md` §7.2's "architectural cutaway / vertical record spine"): a keyboard-accessible, selectable list of nine layers with a live detail panel (Records / Persists because / Contributes to present truth), a claim-status pill (Verified/Qualified, with scope caveats such as "P1/P2 findings only") sourced from `CLAIMS_REGISTER.md` via `docs/copy/platform.md` §8, and a per-layer blocked-asset placeholder using the established dashed-border convention (`DESIGN_SYSTEM.md` §8).
+- Added `/platform` to `sitemap.ts` (previously excluded as a stub).
+- Added Vitest component tests for `RecordSpine` (layer count, default selection, selection switching, and a guard against the blocked 10-stage lifecycle language leaking into the Inspections layer).
+
+**Checks**
+
+- `npm run typecheck` — pass
+- `npm run lint` — pass
+- `npm run test` — 10/10 pass (6 pre-existing + 4 new)
+- `npm run build` — pass, all routes prerendered as static
+- Browser/visual QA (mobile/tablet/desktop widths, keyboard, reduced-motion) — **not performed this slice**: no browser-automation tool (Playwright/chromium-cli) was available in this session. This is a real gap, not an assumed pass — flagging per `AGENTS.md` ("do not report a gate as passing if it was not run").
+
+**Decisions**
+
+- No new `DECISIONS.md` entries; layout choices (light hero, dark record-spine centrepiece, Q&A objections list instead of Home's 3-column grid) follow directly from `AGENTS.md`'s page differentiation rule and are documented inline as code comments.
+
+**Open issues**
+
+- Browser/visual/keyboard/reduced-motion QA still needs a real run once a browser-automation tool is available, or manually by a reviewer with `npm run dev`.
+- All nine record-spine layers still show the blocked-asset placeholder pending anonymised product screenshots (same dependency as Home §6.6).
+- Formal Brand/Accessibility Specialist sign-off on the built page still outstanding.
+
+**Next**
+
+- User review of the built Platform page.
+- Run the deferred browser/visual QA pass.
+- Decide whether to continue to How It Works next (blocked on D-015 stage-count resolution) or another page.
+
+### 2026-08-24 — Redesign brief audit and reconciliation
+
+**Completed**
+
+- Ran a full read-only Stage 1/2 audit against a comprehensive redesign brief: re-read every `docs/` file, `AGENTS.md`, all routes/components, re-ran lint/typecheck/test/build (all pass, 10/10 tests, 18/18 routes). Delivered an 11-part audit + proposal (sitemap reconciliation, homepage story, visual direction, interactions, pages needing most rework, components, SEO/conversion, accessibility/performance risks, phased plan, open decisions) without changing code, per instruction.
+- User resolved the 8 flagged decisions; implemented the ones requiring immediate code/doc changes:
+  - **D-021:** synthetic/illustrative demonstration data approved as a direction (unblocks interactive builds without waiting on real screenshots).
+  - **D-022:** added `/building-record` as a separate page from `/platform` — routing stub + `docs/copy/building-record.md` skeleton created. A repository check found the brief's proposed drill-down levels ("Location", "Case") don't match the verified schema; corrected to the real chain (Organisation → Building → Element → Inspection → Finding → Remedial Work) in that file.
+  - **D-023:** resolved D-015's stage-count contradiction — the 10-stage chain is now canonical, still labelled "Proposed future state" until the build ships. Updated `WIDIAN_MARKETING_WEBSITE_CONTEXT.md` §5 and `WIDIAN_MARKETING_WEBSITE_SPEC.md` §7.3 accordingly.
+  - **D-024:** Verified Closure will be a section within `/how-it-works`, not a separate page — noted in `SPEC.md` §7.3.
+  - **D-025:** primary CTA renamed "Book a Widian walkthrough" → "Book a Demo" sitewide; route renamed `/book-a-walkthrough` → `/book-a-demo`. Updated `Button.tsx`, `SiteHeader.tsx`, `MobileNav.tsx`, `SiteFooter.tsx`, `app/page.tsx`, `app/platform/page.tsx`, their tests, `docs/copy/book-a-demo.md` (renamed), and every visitor-facing reference in `SPEC.md`/`CONTENT_AND_COPY_PLAN.md`. Internal-only naming (`/api/walkthrough` route sketch, `walkthrough_*` analytics events, "Walkthrough booked" lead-lifecycle status) deliberately left unchanged — not visitor-facing, not worth the rework.
+  - **D-026:** performed the requested Product Truth repository check for Fire Risk Assessment capability (same one-time authorisation basis as the original `CLAIMS_REGISTER.md` pass). Finding: FRA is currently only an expiry-date/status field plus generic checklist paths inside the existing inspection UI — no dedicated FRA workflow exists. Added a new `CLAIMS_REGISTER.md` row scoped accordingly; the "Fire Risk Assessments" page from the brief is blocked from being drafted until Product Truth confirms a fuller scope, to avoid overclaiming.
+  - **Nav gap correction:** the previous session's audit incorrectly claimed The New Market and Security & Trust were missing from the header nav — re-checked `nav-links.ts` directly this time and found both were already present. No fix was needed; flagging the correction for the record rather than silently dropping it.
+  - Resources, Integrations and About confirmed to stay deferred (unchanged from `CONTENT_AND_COPY_PLAN.md`).
+
+**Checks**
+
+- `npm run lint` — pass
+- `npm run typecheck` — pass
+- `npm run test` — pass (counts updated for the CTA rename and nav addition — see test files touched above)
+- `npm run build` — pass, all routes (including new `/building-record`, renamed `/book-a-demo`) prerendered as static
+
+**Decisions**
+
+- D-021 through D-026 (see `DECISIONS.md`); D-016 marked superseded by D-025.
+
+**Open issues**
+
+- Building Record has no drafted copy yet — see `docs/copy/building-record.md` for what's still needed.
+- Fire Risk Assessments page remains blocked pending a fuller Product Truth scope confirmation (D-026).
+- How It Works build is now unblocked on stage count (D-023) but still not started — still the next page in the implementation order.
+- Browser/visual QA tooling gap (flagged in the Platform slice) remains unresolved.
+
+**Next**
+
+- Build `/how-it-works` (10-stage gate + Verified Closure section), then `/solutions` (role-switcher rework), per the agreed phased plan.
 
 ## Update template
 

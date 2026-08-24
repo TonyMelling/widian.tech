@@ -66,10 +66,10 @@ export function MobileNav() {
 
           <div className="p-5">
             <a
-              href="/book-a-walkthrough"
+              href="/book-a-demo"
               className="block rounded-sm bg-ember px-4 py-4 text-center text-[15px] font-semibold text-white"
             >
-              Book a walkthrough
+              Book a Demo
             </a>
           </div>
         </div>

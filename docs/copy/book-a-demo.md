@@ -1,4 +1,4 @@
-# Book a Walkthrough — Copy Draft
+# Book a Demo — Copy Draft
 
 **Status:** Draft for review — not approved. This draft adjusts `SPEC.md` §7.7's response-time framing to match D-009 (immediate calendar booking, not human-qualification-first) — see note in §6 below.
 
@@ -8,7 +8,7 @@
 
 ## 1. Page objective
 
-Convert high-intent visitors into a booked walkthrough with minimal friction, while still capturing enough qualification detail that the walkthrough owner arrives prepared.
+Convert high-intent visitors into a booked demo with minimal friction, while still capturing enough qualification detail that the demo owner arrives prepared.
 
 ## 2. Primary audience
 
@@ -20,13 +20,13 @@ Is Widian relevant to my buildings and operating model?
 
 ## 4. Primary headline
 
-> **Book a Widian walkthrough.**
+> **Book a Widian demo.**
 
 *(Plain and direct, matching the "calm, focused, low-distraction" layout grammar required by `SPEC.md` §7.7 — this is not a page for a clever headline.)*
 
 ## 5. Short standfirst
 
-> Pick a time that works for you. Tell us a little about your buildings first, so the walkthrough is worth your time.
+> Pick a time that works for you. Tell us a little about your buildings first, so the demo is worth your time.
 
 ## 6. Form and flow
 
@@ -52,7 +52,7 @@ Is Widian relevant to my buildings and operating model?
 
 **Headline:** You're booked.
 
-**Body:** *"Thanks, [Name]. Your walkthrough is confirmed for [date/time]. We've sent a confirmation to [email] — check your calendar invite for the link. If anything's changed by then, you can reschedule from that email."*
+**Body:** *"Thanks, [Name]. Your demo is confirmed for [date/time]. We've sent a confirmation to [email] — check your calendar invite for the link. If anything's changed by then, you can reschedule from that email."*
 
 No unsupported compliance, security or availability claims (per `LEAD_CAPTURE_AND_COMMUNICATIONS.md` §Enquirer acknowledgement).
 
@@ -73,17 +73,17 @@ This page doesn't need product proof points — it's a conversion page, not a pe
 
 ## 9. Primary / secondary CTA
 
-Primary: **Book a Widian walkthrough** (the page itself is the destination — the CTA here is the submit button, e.g. **Confirm booking**).
+Primary: **Book a Widian demo** (the page itself is the destination — the CTA here is the submit button, e.g. **Confirm booking**).
 No secondary CTA — this page should not distract from the booking action (per its own layout grammar).
 
 ## 10. SEO title and description
 
-**Title:** `Book a Widian Walkthrough`
-**Description:** `Pick a time and see Widian against your own buildings — a focused walkthrough, not a sales pitch.`
+**Title:** `Book a Widian Demo`
+**Description:** `Pick a time and see Widian against your own buildings — a focused demo, not a sales pitch.`
 
 ## 11. Social title and description
 
-**Social title:** `Book a Widian walkthrough.`
+**Social title:** `Book a Widian demo.`
 **Social description:** `See Widian against your own buildings. Pick a time that works for you.`
 
 ## 12. Image/animation captions
@@ -98,4 +98,4 @@ None recommended — `SPEC.md` §7.7 calls for a low-distraction layout; avoid d
 ## 14. Claims requiring further evidence before publish
 
 - Calendar/scheduling provider is not yet selected (still open under D-007/D-008's broader lead-infrastructure decisions) — copy assumes a slot-confirmation flow but the actual provider (e.g. Cal.com, Calendly) affects exact wording (e.g. reschedule mechanics) and needs to be finalised before this copy is locked.
-- Named lead owner (who the walkthrough goes to/who follows up if something goes wrong) is still unresolved per `PROGRESS_TRACKER.md` blocker #3 — needed for the error-state contact address.
+- Named lead owner (who the demo goes to/who follows up if something goes wrong) is still unresolved per `PROGRESS_TRACKER.md` blocker #3 — needed for the error-state contact address.
