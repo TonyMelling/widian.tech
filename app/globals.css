@@ -6,6 +6,13 @@
   --color-navy-hairline: #2a3648;
   --color-ember: #e8431a;
   --color-ember-hover: #c93a17;
+  /* Lighter ember tint reserved for ember-as-text on Navy backgrounds —
+     #e8431a itself is 4.23:1 on Navy (fails WCAG AA's 4.5:1), and
+     ember-hover is the wrong direction there (darker, so it drops to
+     3.31:1). This tint is 4.94:1 on Navy. Not for backgrounds/icons —
+     ember/ember-hover are unchanged and already pass in those roles.
+     See DECISIONS.md D-030. */
+  --color-ember-on-navy: #ee5a28;
   --color-surface: #ffffff;
   --color-grey: #f0f2f5;
   --color-text-secondary: #5b6675;

@@ -12,7 +12,7 @@ export function SyntheticRecordDemo() {
     <figure className="border border-hairline bg-white shadow-[0_18px_60px_rgba(20,29,43,0.08)]">
       <div className="grid border-b border-hairline md:grid-cols-[0.72fr_1.28fr]">
         <div className="bg-navy p-6 text-white md:p-8">
-          <p className="font-mono text-[10px] tracking-[0.12em] text-ember uppercase">
+          <p className="font-mono text-[10px] tracking-[0.12em] text-ember-on-navy uppercase">
             Synthetic demonstration
           </p>
           <p className="mt-5 font-display text-2xl font-bold">Harbour Court</p>

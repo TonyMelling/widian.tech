@@ -59,7 +59,7 @@ export default function SecurityTrustPage() {
       <main>
         <section className="bg-navy px-4 pt-16 pb-14 md:px-16 md:pt-24 md:pb-20">
           <div className="mx-auto max-w-280">
-            <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase">
+            <p className="font-mono text-[11px] tracking-[0.12em] text-ember-on-navy uppercase">
               Security &amp; Trust
             </p>
             <h1 className="mt-4 max-w-4xl font-display text-[32px] leading-[1.13] font-bold text-white md:text-[54px]">
@@ -135,7 +135,7 @@ export default function SecurityTrustPage() {
           <div className="mx-auto max-w-280">
             <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:gap-20">
               <div>
-                <p className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">
+                <p className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">
                   Integrity checking
                 </p>
                 <h2 id="hashing-explained" className="mt-3 font-display text-2xl font-bold text-white md:text-[34px]">
@@ -155,7 +155,7 @@ export default function SecurityTrustPage() {
                     ["03", "Compare", "A later calculation can be compared with the retained digest to detect a mismatch."],
                   ].map(([number, title, detail]) => (
                     <li key={number} className="bg-navy p-5">
-                      <span className="font-mono text-[11px] text-ember">{number}</span>
+                      <span className="font-mono text-[11px] text-ember-on-navy">{number}</span>
                       <h3 className="mt-4 font-display text-lg font-bold text-white">{title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-on-navy-secondary">{detail}</p>
                     </li>

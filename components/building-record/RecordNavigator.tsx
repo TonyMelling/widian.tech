@@ -25,7 +25,7 @@ export function RecordNavigator() {
   return (
     <div className="border border-navy-hairline bg-navy text-white">
       <div className="flex flex-col gap-2 border-b border-navy-hairline px-5 py-4 sm:flex-row sm:items-center sm:justify-between md:px-7">
-        <p className="font-mono text-[11px] tracking-[0.09em] text-ember uppercase">Synthetic demonstration</p>
+        <p className="font-mono text-[11px] tracking-[0.09em] text-ember-on-navy uppercase">Synthetic demonstration</p>
         <p className="text-xs leading-relaxed text-on-navy-muted">Proposed target lifecycle · not a live product screen</p>
       </div>
       <div className="grid min-w-0 lg:grid-cols-[19rem_1fr]">

@@ -19,7 +19,7 @@ export default function NewMarketPage() {
       <div className="relative mx-auto flex min-h-[36rem] max-w-280 items-end py-14 md:min-h-[44rem] md:items-center md:py-24">
         <div className="max-w-2xl">
           <span className="mb-5 block h-0.5 w-12 bg-ember" aria-hidden="true" />
-          <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase">Market direction · not an existing marketplace</p>
+          <p className="font-mono text-[11px] tracking-[0.12em] text-ember-on-navy uppercase">Market direction · not an existing marketplace</p>
           <h1 className="mt-4 font-display text-[32px] leading-tight font-bold text-white md:text-[54px]">Responsibility is becoming harder to hand off.</h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-on-navy-secondary md:text-xl">More evidence. More decisions. More parties expected to show what happened next. A fragmented record makes every change harder to absorb.</p>
           <p className="mt-7 max-w-xl border-t border-navy-hairline pt-5 text-[15px] leading-relaxed font-semibold text-white md:text-base">Widian&rsquo;s direction starts with one persistent Building Record: a place for responsibility to remain visible as the market around it changes.</p>

@@ -143,15 +143,15 @@ function LayerDetail({ layer, index }: { layer: Layer; index: number }) {
       <h3 className="font-display text-xl font-bold text-white md:text-2xl">{layer.title}</h3>
       <dl className="mt-6 space-y-5">
         <div>
-          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">Records</dt>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Records</dt>
           <dd className="mt-1.5 text-[15px] leading-relaxed text-white">{layer.records}</dd>
         </div>
         <div>
-          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">Persists because</dt>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Persists because</dt>
           <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">{layer.persistsBecause}</dd>
         </div>
         <div>
-          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember uppercase">Contributes to present truth</dt>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Contributes to present truth</dt>
           <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">{layer.contributesToTruth}</dd>
         </div>
       </dl>

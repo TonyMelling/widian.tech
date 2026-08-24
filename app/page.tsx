@@ -32,7 +32,7 @@ export default function HomePage() {
         <section className="bg-navy px-4 pt-14 pb-16 md:px-16 md:pt-22 md:pb-20">
           <div className="mx-auto grid max-w-280 gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-center md:gap-16">
             <div>
-              <p className="font-mono text-[11px] tracking-[0.12em] text-ember uppercase md:text-xs">
+              <p className="font-mono text-[11px] tracking-[0.12em] text-ember-on-navy uppercase md:text-xs">
                 Building Record Platform
               </p>
               <h1 className="mt-3.5 font-display text-[30px] leading-[1.18] font-bold text-white md:mt-5 md:text-[52px] md:leading-[1.12]">
