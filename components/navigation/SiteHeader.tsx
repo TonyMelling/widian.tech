@@ -11,8 +11,8 @@ export function SiteHeader() {
       <LaunchTicker />
       <header className="flex h-16 items-center justify-between border-b border-hairline bg-surface px-4 md:px-8 lg:h-20 lg:px-16">
         <Link href="/" aria-label="Widian home">
-          <Logo variant="mark" className="h-9 lg:hidden" />
-          <Logo variant="full" className="hidden h-9 lg:block" />
+          <Logo variant="mark" className="h-11 lg:hidden" />
+          <Logo variant="full" className="hidden h-12 lg:block" />
         </Link>
 
         {/* Cuts over at lg (1024px), not md (768px) — at 768px the full
