@@ -5,40 +5,47 @@
 - Application: `TonyMelling/widian`
 - Public website: `TonyMelling/widian.tech`
 
-They are separate deployments with different operational risks, but they express one Widian product and brand.
+They remain separate Git repositories/deployments with different operational risks, but express one Widian product and brand.
+
+## Recommended Local Workspace
+
+Use a VS Code multi-root workspace containing both local repository folders. This provides one working environment without creating a monorepo.
+
+Visibility is not authority. Claude Code must determine one of three modes before substantive work:
+
+- **APP** — edit `widian` only.
+- **WEBSITE** — edit `widian.tech` only.
+- **CROSS-WIDIAN** — coordinated change; edit both only when explicitly in scope, and preserve separate branches/commits/PRs.
+
+Each repository's own `CLAUDE.md`, `.claude/agents/`, context/specs and verification gates remain authoritative for its implementation.
 
 ## Shared Contract
 
-The following concepts must remain aligned:
-
-- Widian category and positioning;
-- Building Record definition;
-- verified-closure semantics;
-- Circular Compliance definition;
-- Widian Thread experience meaning;
-- approved brand assets/tokens;
-- product terminology;
-- public product/security/assurance claims;
-- `widian.tech`, `app.widian.tech` and `staging.widian.tech` domain responsibilities.
+Keep aligned: Widian category/positioning; Building Record; verified closure; Circular Compliance; Widian Thread; approved brand assets/tokens; product terminology; public product/security/assurance claims; and `widian.tech`, `app.widian.tech`, `staging.widian.tech` responsibilities.
 
 ## Product → Website Change
 
-When application work materially changes a public capability or limitation:
+When application work materially changes a public capability/limitation:
 
 1. verify the application change has landed;
-2. assess website pages/copy/claims affected;
-3. update the website Claims Register before or with public copy;
-4. update screenshots/product evidence where necessary;
-5. do not publish until deployment reality supports the claim.
+2. emit `WEBSITE SYNC REQUIRED` with affected claim/journey/visual;
+3. assess affected website pages/copy/claims;
+4. update Claims Register before/with public copy;
+5. update screenshots/evidence where necessary;
+6. do not publish dependent present-tense claims until deployment reality supports them.
 
 ## Website → Product Change
 
 When marketing proposes a new promise, terminology or experience concept:
 
-1. Product Truth checks whether the application supports it;
-2. Product Guardian checks strategic alignment;
-3. unsupported functionality remains future/vision language;
-4. if the proposal requires product change, create/approve a product spec in the application repository rather than coding around the gap in marketing.
+1. Product Truth checks application support;
+2. unsupported functionality remains clearly future/vision language;
+3. if product change is required, establish CROSS-WIDIAN scope and create/approve the product spec in the application repository;
+4. never code around a product gap in marketing or make the website the source of implementation truth.
+
+## CROSS-WIDIAN Delivery
+
+Plan the shared outcome once, then split into explicit APP and WEBSITE slices. Application-dependent claims should normally follow verified application delivery. Each repo runs its own QA/release gate. Completion requires reconciliation of terminology, claims, screenshots and any shared design meaning.
 
 ## Brand Change
 
@@ -46,24 +53,16 @@ Changes to logo, typography, primary colour tokens, status semantics or Widian T
 
 ## Domain/Auth Change
 
-Any change involving `widian.tech`, `app.widian.tech`, `staging.widian.tech`, Clerk/auth redirects, cookies or cross-domain hand-off is HIGH risk and requires architecture + security review in the affected repository/repositories.
+Any change involving public/app/staging domains, Clerk/auth redirects, cookies or cross-domain hand-off is HIGH risk and requires architecture + security review in affected repositories.
 
 ## Source of Truth
 
-The website must never become the source of truth for application functionality. Deployed/current application evidence remains authoritative for capability claims.
+The website never becomes source of truth for application functionality. Deployed/current application evidence is authoritative for capability claims. The application does not become source of truth for marketing editorial content, SEO or conversion architecture. Shared doctrine is intentionally mirrored; implementation detail remains local.
 
-The application should not become the source of truth for marketing editorial content, SEO strategy or conversion architecture.
+## Codex
 
-Shared doctrine should be intentionally mirrored/linked in both repositories. Implementation-specific detail remains local.
+Claude Code is the primary harness. Codex may be used as an independent architecture/security/debugging/review specialist. Its output is advisory until reconciled by the relevant repository's Claude workflow and verification.
 
 ## Release Check
 
-For material cross-repository changes, the Release Guardian must answer:
-
-- Did application behaviour change?
-- Did public claims need changing?
-- Did terminology or design tokens change?
-- Did domain/auth relationships change?
-- Is the other repository now stale?
-
-If yes, record the required companion change before declaring the joined-up work complete.
+For material cross-repository changes ask: Did application behaviour change? Do public claims/screenshots need changing? Did terminology/design tokens change? Did domain/auth relationships change? Is either repository now stale? If yes, record and complete the companion work before declaring the joined-up initiative complete.
