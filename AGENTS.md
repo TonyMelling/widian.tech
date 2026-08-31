@@ -1,14 +1,12 @@
 # AGENTS.md — Widian Marketing Website
 
-These instructions apply to the entire marketing-website repository.
+These cross-harness instructions apply to the entire marketing-website repository. **Claude Code in VS Code is the primary harness**; read `CLAUDE.md` first when operating through Claude Code. Codex may support selected work. GitHub/Copilot custom agents are not part of the operating model.
 
 ## Mission
 
-Build a distinctive, mobile-first public website for Widian that establishes the category:
+Build a distinctive, mobile-first public website for Widian around:
 
 > **One building record. Every responsible party. Verified from inspection to closure.**
-
-The website must be credible to senior fire-safety, property and compliance professionals while feeling like a technically advanced product.
 
 ## One Widian
 
@@ -16,7 +14,7 @@ The website must be credible to senior fire-safety, property and compliance prof
 
 Shared doctrine is defined in `docs/WIDIAN_JOINED_UP_BRAND_PRODUCT_DOCTRINE.md`. Cross-repository impact is governed by `docs/CROSS_REPOSITORY_GOVERNANCE.md`.
 
-Circular Compliance extends, rather than replaces, the Building Record strategy:
+Circular Compliance extends rather than replaces the Building Record strategy:
 
 `Know → Inspect → Act → Verify → Prove → Monitor → repeat`.
 
@@ -24,106 +22,72 @@ Individual findings/Compliance Cases can close; the Building Record persists. Ci
 
 ## Mandatory source order
 
-Before changing code or public copy, read:
+Before changing code or public copy, read the smallest relevant set from:
 
-1. `docs/README.md`
-2. `docs/WIDIAN_MARKETING_WEBSITE_CONTEXT.md`
-3. `docs/WIDIAN_MARKETING_WEBSITE_SPEC.md`
-4. `docs/WIDIAN_JOINED_UP_BRAND_PRODUCT_DOCTRINE.md`
-5. `docs/CIRCULAR_COMPLIANCE_WEBSITE_SPEC.md` when lifecycle/ecosystem positioning is relevant
-6. `docs/ARCHITECTURE.md`
-7. `docs/CLAIMS_REGISTER.md`
-8. `docs/PROGRESS_TRACKER.md`
+1. `CLAUDE.md` when using Claude Code
+2. `docs/README.md`
+3. `docs/WIDIAN_MARKETING_WEBSITE_CONTEXT.md`
+4. `docs/WIDIAN_MARKETING_WEBSITE_SPEC.md`
+5. `docs/WIDIAN_JOINED_UP_BRAND_PRODUCT_DOCTRINE.md`
+6. `docs/CIRCULAR_COMPLIANCE_WEBSITE_SPEC.md` when lifecycle/ecosystem positioning is relevant
+7. `docs/ARCHITECTURE.md`
+8. `docs/CLAIMS_REGISTER.md`
+9. `docs/PROGRESS_TRACKER.md`
 
-Read additional role-specific documents as directed by `docs/AGENT_ROLES_AND_HANDOFFS.md` and the custom agent profiles under `.github/agents/`.
+Claude Code specialist subagents live under `.claude/agents/`. `docs/AGENT_ROLES_AND_HANDOFFS.md` defines review perspectives and handoffs.
 
 ## Core invariants
 
 1. The marketing site is a separate repository and deployment.
-2. The public domain is `widian.tech`.
-3. The production application belongs at `app.widian.tech`.
-4. The staging application remains at `staging.widian.tech`.
+2. Public domain: `widian.tech`.
+3. Production application: `app.widian.tech`.
+4. Staging application: `staging.widian.tech`.
 5. Do not expose application credentials, service-role keys or staging data.
 6. Do not introduce a direct production-database dependency for normal marketing pages.
 7. Do not invent product functionality, users, customers, statistics, testimonials, certifications or awards.
-8. Do not imply that Widian certifies statutory compliance.
+8. Do not imply Widian certifies statutory compliance.
 9. Contractor completion, independent checking, client verification and closure remain distinct.
 10. Hashing must not be described as making all information legally tamper-proof.
 11. Future functionality must be visibly labelled.
 12. Preserve WCAG 2.2 AA and reduced-motion requirements.
 13. Material shared positioning, terminology, lifecycle, brand-token, domain/auth or capability-claim changes require a cross-repository impact check.
 
-## Brand invariants
+## Brand and copy invariants
 
-- Use the approved Widian shield and wordmark.
-- Do not recreate the wordmark as live text.
-- Use Archivo, IBM Plex Sans and IBM Plex Mono unless a documented decision supersedes them.
-- Use Navy `#141D2B` and Ember `#E8431A`.
-- Ember is scarce emphasis, not a general decoration colour.
-- The experience principle is **quiet authority**.
-- The Widian Thread represents continuity of identity, evidence, responsibility and verification; it is not decoration.
-- Do not use generic SaaS styling, purple glows, meaningless gradients, glassmorphism, generic AI-brain/control-room imagery or excessive rounded cards.
+Use the approved Widian shield/wordmark, Archivo, IBM Plex Sans and IBM Plex Mono unless a documented decision supersedes them. Navy is `#141D2B`; Ember is `#E8431A` and must remain scarce. Experience principle: **quiet authority**. The Widian Thread represents continuity of identity, evidence, responsibility and verification; it is not decoration.
 
-## Copy invariants
+Use British English. Be direct, specific, unhurried, evidenced and plain. Avoid generic SaaS filler, fearmongering and faux-regulatory language. Preserve the narrative hierarchy: Building Record first, verified closure as differentiation, Circular Compliance as the continuing model. Material public claims require Claims Register/Product Truth review.
 
-- British English.
-- Direct, specific, unhurried, evidenced and plain.
-- Headlines may be bold; supporting copy must substantiate them.
-- Avoid fearmongering and faux-regulatory language.
-- Avoid “all-in-one”, “seamless”, “world-class”, “streamline your workflow” and similar filler.
-- Every material public claim must be recorded/reviewed through `docs/CLAIMS_REGISTER.md`.
-- Copy changes affecting product or security claims require Product Truth and Claims Review.
-- Preserve the narrative hierarchy: Building Record first, verified closure as differentiation, Circular Compliance as the continuing model.
+## Page differentiation
 
-## Page differentiation rule
-
-Shared components must not make all pages look alike. Each page requires a distinct visitor question, narrative sequence, layout grammar, meaningful dominant interaction, page-specific motion and conversion argument.
-
-Do not implement every page as a dark hero followed by a feature grid and CTA.
+Shared components must not make all pages look alike. Each page needs its own visitor question, narrative sequence, layout grammar, meaningful interaction and conversion argument. Do not reduce every page to a dark hero, feature grid and CTA.
 
 ## Agent Council
 
-Use the Website Orchestrator for broad or ambiguous work. Relevant specialist perspectives include Brand & Creative, Senior Copywriter, Product Truth & Claims, SEO & Content, Conversion & Journey, Privacy & Analytics, Website Engineer and Website QA & Release.
+In Claude Code, use `.claude/agents/website-orchestrator.md` for broad or ambiguous work and selectively delegate to Brand & Creative, Senior Copywriter, Product Truth & Claims, SEO & Content, Conversion & Journey, Privacy & Analytics, Website Engineer and Website QA & Release subagents.
 
 Do not require every specialist for trivial edits. Product/security claims, positioning, material art direction, analytics/privacy, domain/auth and cross-repository changes require independent review.
 
 ## Implementation approach
 
-1. Work in small, reviewable slices.
-2. State intended files and behaviour before each major slice.
-3. Inspect current working-tree changes before editing.
-4. Preserve unrelated work.
-5. Use reusable components without flattening page art direction.
-6. Prefer server-rendered content.
-7. Add client JavaScript only for purposeful interaction.
-8. Prefer CSS/Web Animations API over a large animation dependency.
-9. Reserve dimensions for images/media.
-10. Do not add dependencies without documenting the reason in `docs/DECISIONS.md`.
+Work in small reviewable slices; inspect current changes before editing; preserve unrelated work; prefer server rendering; add client JavaScript only for purposeful interaction; maintain accessibility and reduced motion; avoid unnecessary dependencies; and document consequential decisions.
 
 ## Required gates
 
-Use the repository’s actual commands. A normal implementation gate must include formatting if configured; lint; TypeScript; unit/component tests; production build; relevant browser tests; mobile/tablet/desktop inspection; keyboard inspection; reduced-motion inspection; and claims review for changed public copy.
+Use the repository's actual commands. Relevant work should cover formatting if configured, lint, TypeScript, tests, production build, appropriate browser checks, responsive inspection, keyboard/reduced-motion inspection and claims review where applicable. Never report a gate as passing unless it actually ran.
 
-Do not report a gate as passing if it was not run.
+## Progress and stop conditions
 
-## Progress updates
-
-After every implementation slice update `docs/PROGRESS_TRACKER.md`; record architectural/creative decisions in `docs/DECISIONS.md`; update `docs/CLAIMS_REGISTER.md` when claims change; update `docs/CONTENT_ASSET_INVENTORY.md` when assets change; and record checks actually run/results.
-
-## Stop conditions
-
-Stop and request a decision when the branch/environment is unclear; approved logo asset is missing; a claim cannot be substantiated; application authentication/DNS would change; a third-party service requires credentials/contract; a visual implies unavailable functionality; a destructive operation is required; user data could be exposed; copy conflicts with product truth; or shared cross-repository doctrine would diverge.
+Update `docs/PROGRESS_TRACKER.md` after implementation slices and update Decisions, Claims Register and Content Asset Inventory when relevant. Stop for owner input when environment/branch is unclear, claims cannot be substantiated, authentication/DNS would change, credentials/contracts are required, a visual implies unavailable functionality, destructive operations are needed, user data could be exposed, or shared doctrine would diverge.
 
 ## Definition of done
 
-A page is complete only when copy is developed; product claims are approved; mobile/desktop composition is intentional; animation has reduced-motion equivalent; keyboard/screen-reader behaviour is acceptable; metadata is unique; imagery is licensed/approved; analytics are appropriate; relevant automated/manual checks pass; documentation is updated; and any material cross-repository impact has been recorded/resolved.
+Work is complete only when its acceptance criteria are met, product claims are supportable, mobile/desktop behaviour is intentional, accessibility/reduced-motion implications are addressed, relevant checks pass, documentation is updated and material cross-repository impacts are resolved.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing code. Heed deprecation notices.
 
 <!-- END:nextjs-agent-rules -->
