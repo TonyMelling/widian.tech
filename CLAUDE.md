@@ -4,6 +4,16 @@
 
 This repository is operated primarily through **Claude Code in VS Code**. Claude Code is the default implementation and orchestration harness. Codex may be used as a secondary reviewer or specialist when explicitly useful. GitHub Copilot agents and GitHub custom agents are not part of the operating model.
 
+## Working modes
+
+Determine scope before acting:
+
+- **WEBSITE** — work is confined to `widian.tech`; this is the default here.
+- **APP** — work belongs only in the `widian` application; do not implement it from this repository.
+- **CROSS-WIDIAN** — coordinated work affects both repositories. Plan the shared outcome, then split APP and WEBSITE implementation into their own branches/commits/PRs and use each repository's own Claude agents and gates.
+
+If both repositories are visible in a VS Code multi-root workspace, visibility is not authority. Do not edit the sibling repository unless the user/task explicitly establishes CROSS-WIDIAN scope.
+
 ## Mission
 
 Build and maintain a distinctive, mobile-first public website for Widian that remains joined to the actual Widian product and its verified product truth.
@@ -40,7 +50,7 @@ Use subagents selectively when a task benefits from isolated specialist context,
 
 Available project subagents are defined in `.claude/agents/`:
 
-- `website-orchestrator` — complex cross-discipline website work.
+- `website-orchestrator` — complex/cross-discipline website work.
 - `brand-creative-director` — brand, visual language and page art direction.
 - `senior-copywriter` — website copy and messaging.
 - `product-truth-claims` — product claims and application-truth review.
@@ -50,19 +60,22 @@ Available project subagents are defined in `.claude/agents/`:
 - `website-engineer` — implementation specialist.
 - `website-qa-release` — final quality/release review.
 
-For a substantial feature or redesign, the normal flow is:
+For a substantial feature/redesign: `orchestrator → relevant specialists → website-engineer → website-qa-release`. Use the minimum set needed.
 
-`orchestrator → relevant specialists → website-engineer → website-qa-release`
-
-Do not invoke every specialist automatically. Use the minimum set needed.
-
-## Cross-repository rule
+## Cross-repository contract
 
 The Widian application is the authority for implemented product behaviour. The marketing website must never turn strategy, mock-ups or planned functionality into present-tense claims.
 
-When website work depends on application behaviour that cannot be verified from this repository, mark it as requiring application-product verification rather than guessing.
+For WEBSITE work, if application truth cannot be verified, mark `APP VERIFICATION REQUIRED` rather than guessing.
 
-When a website change exposes a credible product requirement, record it as a cross-repository implication rather than silently redefining the application.
+For CROSS-WIDIAN work:
+
+1. define the shared outcome and terminology;
+2. separate APP and WEBSITE acceptance criteria;
+3. implement/verify application-dependent capability before publishing dependent present-tense claims;
+4. run each repository's own QA/release gates;
+5. preserve separate Git branches/commits/PRs;
+6. reconcile claims, screenshots and terminology before completion.
 
 ## Core invariants
 
@@ -86,18 +99,8 @@ The Widian Thread must communicate genuine continuity in the record; it is not m
 
 ## Working method
 
-Before a substantial change:
-
-1. inspect relevant code and docs;
-2. identify the user/business outcome;
-3. identify affected product claims and cross-repository implications;
-4. make the smallest coherent change;
-5. run the repository's real validation commands;
-6. review the result against accessibility, responsive behaviour, claims and product truth;
-7. update `docs/PROGRESS_TRACKER.md`, `docs/DECISIONS.md`, `docs/CLAIMS_REGISTER.md` and asset documentation when relevant.
-
-Do not claim a test or gate passed unless it was actually run.
+Before a substantial change: inspect relevant code/docs; identify the user/business outcome; identify claims and cross-repo implications; make the smallest coherent change; run real validation; review accessibility/responsive/claims/product truth; update progress/decisions/claims/assets where relevant. Never claim a test passed unless it ran.
 
 ## Codex support
 
-Codex is secondary. Claude Code may recommend a Codex review for unusually difficult architecture, security, debugging or independent-review work, but do not assume Codex is available and do not block normal work on it. Any Codex output is advisory until reconciled with this repository's authoritative documentation and tested implementation.
+Codex is secondary and advisory. It is useful for unusually difficult architecture, security, debugging or independent review, but Claude Code remains the primary orchestrator and must reconcile any Codex findings with authoritative docs and tested implementation.
