@@ -127,6 +127,8 @@ Do not collapse these into “Complete”.
 
 **Resolved 2026-08-24 (`DECISIONS.md` D-023):** the ten "Required status distinctions" above are the canonical lifecycle model for marketing copy, resolving the stage-count contradiction previously flagged across this document, `WIDIAN_MARKETING_WEBSITE_SPEC.md` and `docs/copy/how-it-works.md` (D-015). This remains a "Proposed future state" claim per `CLAIMS_REGISTER.md` until the product build ships and is re-verified against deployed staging — copy must carry a visible future/in-progress label until then.
 
+**Resolved 1 September 2026 (`DECISIONS.md` D-046):** this ten-stage model is now mapped beneath the five-stage Circular Compliance narrative (`Establish → Identify → Remediate → Verify → Return`, D-041) — see `CIRCULAR_COMPLIANCE_CONTEXT.md` for the full mapping. The "Customer-facing action loop" line above, in this same section, is the current simplified public bridge to that same structure (matching `WIDIAN_MARKETING_WEBSITE_SPEC.md` §4's "Mechanism" line), not a separate model. This cross-reference is structural only and does not change this section's claim status.
+
 ## 6. Audience hierarchy
 
 ### Primary economic and accountable buyers

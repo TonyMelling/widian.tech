@@ -71,6 +71,20 @@ Circular Compliance keeps the building and asset record persistent while activit
 
 `Carry forward` is a rule across the lifecycle, not a substitute for remediation or verification.
 
+### Relationship to the ten-stage operational model
+
+See `DECISIONS.md` D-046 for the full resolution. In summary:
+
+- **Establish** is a precondition, not an operational chain stage — the ten-stage model (`DECISIONS.md` D-023) presupposes a building/element identity already exists rather than including its creation as a stage.
+- **Identify** contains Recorded → Submitted → Reviewed → Finding raised.
+- **Remediate** contains Assigned → In progress → Remediated, ending with the contractor's completion **submission** — not acceptance or closure.
+- **Verify** begins with Independently checked, then Client verified, then Closed — three distinct decisions, none collapsed.
+- **Return** is not a stage of the same case; it is re-entry into a new Recorded event against the same persistent identity for the next survey.
+
+The six-gate "Mechanism" line in `WIDIAN_MARKETING_WEBSITE_SPEC.md` §4 (`Issue identified → Action assigned → Work evidenced → Independently checked → Client verified → Closed`), already in live use on `/how-it-works`, is the current simplified public bridge to this same structure — not a third canonical model requiring separate reconciliation.
+
+This mapping is structural only. It does not change the claim status of either the ten-stage chain or the Circular Compliance claim in `CLAIMS_REGISTER.md`.
+
 ## 5. Message architecture
 
 | Layer | Approved direction |

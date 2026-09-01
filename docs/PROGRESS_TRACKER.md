@@ -183,6 +183,29 @@
 
 ## Update log
 
+### 1 September 2026 — D-041 resolved: ten-stage/five-stage lifecycle mapping
+
+**Completed**
+
+- Resolved D-041 (`DECISIONS.md` D-046): mapped the existing D-023 ten-stage operational chain beneath the approved five-stage Circular Compliance narrative. Establish recorded as a precondition (not an invented chain stage); Identify = Recorded → Submitted → Reviewed → Finding raised; Remediate = Assigned → In progress → Remediated (contractor submission, not acceptance/closure); Verify begins with Independently checked, then Client verified, then Closed — all three kept distinct; Return recorded as re-entry into a new Recorded event against the same persistent identity, not a stage of the same case.
+- Recorded the existing six-gate "Mechanism" line (`WIDIAN_MARKETING_WEBSITE_SPEC.md` §4) as the current simplified public bridge to this structure, not a third canonical model.
+- Updated `CIRCULAR_COMPLIANCE_CONTEXT.md` (new mapping subsection), `DECISIONS.md` (D-046), `CLAIMS_REGISTER.md` (cross-reference only, no status change) and `WIDIAN_MARKETING_WEBSITE_CONTEXT.md` §5 (cross-reference only, no status change).
+- `docs/copy/how-it-works.md` deliberately not touched — page copy is out of scope for this documentation-only pass.
+
+**Checks**
+
+- No production or website code changed.
+- No claim status changed in `CLAIMS_REGISTER.md`.
+
+**Open issues**
+
+- Website implementation of the Circular Compliance homepage/scene story (`CIRCULAR_COMPLIANCE_WEBSITE_SPEC.md` Slices A–E) remains unstarted.
+- Eventual reconciliation of `docs/copy/how-it-works.md` against this mapping is a known follow-on, not done here.
+
+**Next**
+
+- Resume page/motion implementation only once explicitly approved.
+
 ### 1 September 2026 — Circular Compliance agent foundation
 
 **Completed**
