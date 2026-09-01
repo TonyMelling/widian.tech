@@ -7,7 +7,7 @@
 
 ## 1. Purpose
 
-Create a distinctive, mobile-first marketing website that establishes Widian as the **verified Building Record platform for passive fire**.
+Create a distinctive, mobile-first marketing website that establishes **Circular Compliance** as Widian's category proposition and Widian as the **verified Building Record platform for passive fire**.
 
 The website must persuade senior property, fire-safety and compliance decision-makers while remaining credible to surveyors, contractors, independent inspectors and operational teams.
 
@@ -46,7 +46,9 @@ Use primarily with the logo, footer and corporate material.
 
 ### Approved category
 
-**Building Record platform**
+**Circular Compliance**, delivered through Widian's Building Record platform.
+
+Circular Compliance does not replace the Building Record proposition. The Building Record is the persistent product subject; verified closure is its controlled outcome; Circular Compliance is the operating model that connects activity and evidence over time. See `CIRCULAR_COMPLIANCE_CONTEXT.md`.
 
 ### Initial wedge
 
@@ -101,6 +103,12 @@ Target lifecycle:
 Customer-facing action loop:
 
 `Issue identified → action assigned → work evidenced → independently checked → client verified → closed`
+
+Circular Compliance presentation:
+
+`Establish → Identify → Remediate → Verify → Return`
+
+`Carry forward` is a rule throughout the lifecycle. It does not replace the remediation or verification stages.
 
 Required status distinctions:
 
@@ -320,6 +328,8 @@ Do not claim:
 
 > **One Record, Unbroken**
 
+This creative platform now expresses the Circular Compliance category. The Ember thread represents the digital chain of custody through the five-move lifecycle.
+
 The visual story uses:
 
 - a persistent building identity;
@@ -389,4 +399,3 @@ When information conflicts, use this order:
 6. Assumptions
 
 Never elevate a proposed feature into current public functionality.
-

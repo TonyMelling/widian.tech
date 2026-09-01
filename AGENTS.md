@@ -15,11 +15,14 @@ The website must be credible to senior fire-safety, property and compliance prof
 Before changing code or public copy, read:
 
 1. `docs/README.md`
-2. `WIDIAN_MARKETING_WEBSITE_CONTEXT.md`
-3. `WIDIAN_MARKETING_WEBSITE_SPEC.md`
-4. `ARCHITECTURE.md`
-5. `CLAIMS_REGISTER.md`
-6. `PROGRESS_TRACKER.md`
+2. `docs/WIDIAN_MARKETING_WEBSITE_CONTEXT.md`
+3. `docs/CIRCULAR_COMPLIANCE_CONTEXT.md`
+4. `docs/WIDIAN_MARKETING_WEBSITE_SPEC.md`
+5. `docs/CIRCULAR_COMPLIANCE_WEBSITE_SPEC.md`
+6. `docs/PARALLAX_MOTION_AND_INTERACTION_SPEC.md`
+7. `docs/ARCHITECTURE.md`
+8. `docs/CLAIMS_REGISTER.md`
+9. `docs/PROGRESS_TRACKER.md`
 
 Read additional role-specific documents as directed by `AGENT_ROLES_AND_HANDOFFS.md`.
 
@@ -37,6 +40,10 @@ Read additional role-specific documents as directed by `AGENT_ROLES_AND_HANDOFFS
 10. Hashing must not be described as making all information legally tamper-proof.
 11. Future functionality must be visibly labelled.
 12. Preserve WCAG 2.2 AA and reduced-motion requirements.
+13. Circular Compliance is the category proposition; the Building Record remains the persistent product subject.
+14. The public lifecycle is `Establish → Identify → Remediate → Verify → Return`.
+15. Scroll storytelling must remain progressive enhancement: readable without JavaScript and complete in reduced-motion mode.
+16. Arc'teryx System 0 is a behavioural reference only; never copy its source, assets, copy or composition.
 
 ## Brand invariants
 
@@ -47,6 +54,8 @@ Read additional role-specific documents as directed by `AGENT_ROLES_AND_HANDOFFS
 - Ember is scarce emphasis, not a general decoration colour.
 - The experience principle is **quiet authority**.
 - Do not use generic SaaS styling, purple glows, meaningless gradients, glassmorphism or excessive rounded cards.
+- Do not use glowing AI brains, fictional control rooms or generated product screens as evidence.
+- Use the restrained Ember Widian Thread to represent continuity, evidence and responsibility-not decoration.
 
 ## Copy invariants
 

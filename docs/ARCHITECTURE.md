@@ -55,6 +55,7 @@ Use versions supported by the new repository at creation time. Do not copy appli
 app/
 ├── layout.tsx
 ├── page.tsx
+├── circular-compliance/page.tsx
 ├── platform/page.tsx
 ├── building-record/page.tsx
 ├── how-it-works/page.tsx
@@ -93,6 +94,14 @@ components/
 │   ├── fragmentation-story.tsx
 │   ├── responsibility-gates.tsx
 │   └── market-network.tsx
+├── circular-compliance/
+│   ├── circular-story.tsx
+│   ├── story-chapter.tsx
+│   ├── thread-canvas.tsx
+│   ├── lifecycle-progress.tsx
+│   ├── remediation-route.tsx
+│   ├── verification-gate.tsx
+│   └── return-to-record.tsx
 ├── product/
 │   ├── product-demonstration.tsx
 │   └── record-view.tsx
@@ -212,6 +221,11 @@ Default to:
 - Intersection Observer;
 - Web Animations API;
 - SVG path animation where appropriate.
+- native scrolling with semantic server-rendered chapters;
+- CSS scroll-driven animation where supported and maintainable;
+- Intersection Observer as a progressive enhancement and fallback.
+
+Do not introduce scroll-jacking, mandatory scroll snap or a smooth-scroll interception layer by default. The complete experience must remain readable without JavaScript and equivalent with reduced motion. See `PARALLAX_MOTION_AND_INTERACTION_SPEC.md`.
 
 Add a motion library only when:
 

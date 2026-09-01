@@ -289,6 +289,19 @@ Every delegated agent task must include:
 - completion criteria;
 - handoff recipient.
 
+## Claude Code role prompts
+
+Use the repository-scoped prompts in `.claude/agents/` for the Circular Compliance workstream:
+
+- `circular-compliance-brand-strategist.md`
+- `circular-compliance-creative-director.md`
+- `circular-compliance-copywriter.md`
+- `circular-compliance-product-truth.md`
+- `parallax-motion-accessibility.md`
+- `circular-compliance-frontend.md`
+
+These prompts narrow the existing roles; they do not supersede this file, `AGENTS.md` or the source-of-truth documents.
+
 ## Recommended parallel work
 
 Safe parallel streams:
@@ -308,4 +321,3 @@ Avoid parallel changes to:
 - shared header/footer;
 - domain and authentication configuration;
 - the same page component.
-

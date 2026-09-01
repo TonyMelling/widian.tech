@@ -8,12 +8,13 @@
 
 Design and build a production-quality, mobile-first, multi-page marketing website that:
 
-1. establishes Widian’s Building Record category;
-2. explains why accountable closure is different from contractor completion;
-3. demonstrates how every responsible party works through one record;
-4. reframes Widian as future marketplace infrastructure;
-5. earns trust through specificity rather than fear or exaggerated claims;
-6. converts appropriate visitors into booked walkthroughs.
+1. establishes Circular Compliance as Widian's category proposition;
+2. makes the Building Record the persistent mechanism behind it;
+3. explains why accountable closure is different from contractor completion;
+4. demonstrates how every responsible party works through one record;
+5. reframes Widian as future marketplace infrastructure;
+6. earns trust through specificity rather than fear or exaggerated claims;
+7. converts appropriate visitors into booked walkthroughs.
 
 Lead capture must create a durable, owned record before displaying success. Enquiry acknowledgement and internal routing must be recoverable, and promotional marketing permission must remain separate and optional. See `LEAD_CAPTURE_AND_COMMUNICATIONS.md`.
 
@@ -24,6 +25,7 @@ Lead capture must create a durable, owned record before displaying success. Enqu
 | Route | Page | Primary job |
 |---|---|---|
 | `/` | Home | Establish the category and secure interest |
+| `/circular-compliance` | Circular Compliance | Define the category and five-move lifecycle |
 | `/platform` | Platform | Make the Building Record tangible |
 | `/building-record` | Building Record | Navigate the record: portfolio → building → element → finding (added 2026-08-24, `DECISIONS.md` D-022) |
 | `/how-it-works` | How It Works | Explain responsibility gates and verified closure (Verified Closure lives here as a section, `DECISIONS.md` D-024) |
@@ -54,6 +56,7 @@ Lead capture must create a durable, owned record before displaying success. Enqu
 Desktop:
 
 - Widian logo
+- Circular Compliance
 - Platform
 - Building Record
 - How It Works
@@ -93,6 +96,10 @@ Footer:
 ## 4. Global message hierarchy
 
 ### Primary
+
+> **Close the loop on compliance.**
+
+### Core proposition
 
 > **One building record. Every responsible party. Verified from inspection to closure.**
 
@@ -211,29 +218,36 @@ Shared navigation, typography, tokens and controls should create consistency. Pa
 
 **Visitor question:** What is Widian, and why should I care?
 
-**Hero headline:**
+**Hero headline direction:**
 
-> **One building record. Every responsible party. Verified from inspection to closure.**
+> **Close the loop on compliance.**
 
 **Standfirst:**
 
-> Widian connects inspections, findings, remedial work, evidence and verification in one accountable operational record for every building.
+> Widian connects inspections, findings, remedial work, evidence and verification in one accountable Building Record.
 
-**Dominant visual:** A building identity surrounded by responsible parties and lifecycle gates. The record progresses as evidence and decisions are added.
+The core proposition must appear in or immediately after the opening scene:
+
+> **One building record. Every responsible party. Verified from inspection to closure.**
+
+**Dominant visual:** A restrained Ember thread establishes one building identity, exposes fragmentation and then carries a finding through remediation and verification.
 
 **Distinctive behaviour:** The visitor should see the record become more complete—not simply see elements move.
 
 **Narrative sections:**
 
-1. Category-defining hero
-2. Fragmented activity versus building truth
-3. “Reports record moments; Widian records responsibility”
-4. Short lifecycle preview
-5. Every responsible party
-6. Authentic product evidence
-7. Difference from reports and repositories
-8. Trust preview
-9. Demo CTA
+1. Category declaration
+2. Stop starting again
+3. Establish
+4. Identify
+5. Remediate
+6. Verify
+7. Return
+8. Authentic product evidence
+9. Every responsible party and trust
+10. Demo CTA
+
+The detailed scene specification is authoritative in `CIRCULAR_COMPLIANCE_WEBSITE_SPEC.md`.
 
 **Conversion:** Book a Demo
 

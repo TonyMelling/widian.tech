@@ -1,8 +1,8 @@
 # Widian Marketing Website — Progress Tracker
 
-**Last updated:** 24 August 2026  
-**Overall status:** Discovery and specification  
-**Current milestone:** New repository setup and copy development
+**Last updated:** 1 September 2026  
+**Overall status:** Implementation in progress across ten of thirteen release-one pages; Circular Compliance category strategy and experience specification now approved  
+**Current milestone:** Circular Compliance claims verification, homepage narrative alignment and the remaining page builds (New Market, Security & Trust, Resources content, lead capture)
 
 ## Status legend
 
@@ -18,18 +18,22 @@
 |---|---|---|
 | Primary proposition approved | 🟢 | “One building record. Every responsible party. Verified from inspection to closure.” |
 | Supporting promise approved | 🟢 | “Know what is true…” |
-| Category direction approved | 🟢 | Building Record platform for passive fire |
+| Category direction approved | 🟢 | Circular Compliance through the Building Record platform |
 | Creative platform selected | 🟢 | “One Record, Unbroken” |
 | Initial audience hierarchy | 🟢 | Recorded in context file |
 | First-release sitemap | 🟢 | Recorded in specification |
 | Domain separation decision | 🟢 | Marketing at apex; app and staging subdomains |
 | Marketplace story qualification | 🟡 | Needs copywriter and product review |
+| Circular Compliance definition | 🟢 | User-approved formal definition recorded |
+| Five-stage public lifecycle | 🟢 | Establish, Identify, Remediate, Verify, Return |
+| Arc'teryx-inspired experience boundary | 🟢 | Behavioural reference only; no copied code/assets/composition |
+| Circular Compliance claims | 🟡 | Product Truth P0 evidence required |
 
 ## 2. Repositories and infrastructure
 
 | Item | Status | Evidence / next action |
 |---|---|---|
-| Separate marketing repository | ⬜ | Create repository |
+| Separate marketing repository | 🟢 | Dedicated `widian.tech` repository exists |
 | Framework initialised | ⬜ | Use approved Next.js stack |
 | Branch protection | ⬜ | Define main and PR rules |
 | Vercel marketing project | ⬜ | Create separately from application |
@@ -51,6 +55,9 @@
 | Font licensing/hosting confirmed | 🟡 | Archivo and IBM Plex family |
 | Social-card templates | ⬜ | Graphic Designer |
 | Photography/imagery strategy | ⬜ | Creative Director |
+| Circular Compliance concept assets | 🟢 | PDF, two videos and supplied images reviewed as discovery material |
+| Production architectural imagery | ⬜ | Recreate with rights, accuracy and product-truth approval |
+| Widian Thread production asset | ⬜ | Storyboard, SVG/CSS design and static alternatives required |
 
 ## 4. Copy and content
 
@@ -98,6 +105,8 @@
 | Page differentiation plan | 🟡 | Visually demonstrated for Home/Platform/How It Works — vertical spine (Platform) vs horizontal gate track (How It Works) vs section rhythm (Home) are each genuinely distinct layouts, not the same template restyled |
 | Final design system | 🟡 | Draft written up at `docs/DESIGN_SYSTEM.md` and a visual component sheet added to the wireframe canvas (2026-08-24): https://claude.ai/code/artifact/ebb6b638-408e-410f-8e14-712691eae3c7. Several values proposed pending sign-off — see doc §11 "Open items" (on-navy contrast, link-on-Navy hover, motion timings, logo clear-space) |
 | Motion storyboard | 🟡 | Home, Platform, How It Works — captured as canvas annotations per section, not a separate document |
+| Parallax/motion specification | 🟢 | `PARALLAX_MOTION_AND_INTERACTION_SPEC.md` |
+| Circular Compliance page brief | 🟢 | `CIRCULAR_COMPLIANCE_WEBSITE_SPEC.md` |
 | Product-demo design | 🟡 | Home, Platform, How It Works — demo-plan notes in the canvas; actual screenshots still blocked on asset approval |
 | Accessibility design review | 🟡 | Home, Platform, How It Works — contrast/keyboard/target-size flags noted inline in the canvas; not yet a formal Accessibility Specialist review |
 
@@ -109,6 +118,9 @@
 | Tokens, fonts and approved logo | 🟡 | Design-system tokens implemented as Tailwind `@theme` values in `app/globals.css`; interim PNG logo wired via `components/brand/Logo.tsx`. Formal Brand review still pending |
 | Header, footer and navigation | 🟡 | Built and browser-tested at 320/390/768/1440px, keyboard and reduced-motion — see checks log. Formal Accessibility Specialist review still pending |
 | Homepage vertical slice | 🟡 | Full page built at `app/page.tsx` from `docs/copy/home.md`. All required gates run and passing. Section 6.6 still shows the asset-blocked placeholder; five-second-comprehension user testing not done (needs real users, not an automated check). §6.2's `FragmentDiagram` animated 2026-08-24 — implements the previously-unbuilt Home motion concept from `SPEC.md` §8 ("fragmented signals assemble into one current Building Record"), plus a visible caption; reduced-motion handled by the existing global CSS rule, no separate branch needed |
+| Circular Compliance semantic skeleton | ⬜ | Complete no-JS narrative and metadata |
+| Three-scene thread prototype | ⬜ | Establish, Remediate, Verify; mobile/desktop/reduced-motion |
+| `/circular-compliance` | ⬜ | Category definition, five moves, evidence and qualifications |
 | Platform | 🟡 | Full page built at `app/platform/page.tsx`, including a CSS-only conceptual record-assembly hero and accessible record spine. Automated gates and desktop/mobile browser QA pass; Creative, Motion and Accessibility sign-off remain outstanding |
 | Building Record | ⬜ | New page (D-022), currently a routing stub only. Copy/data-model work needed before build — see `docs/copy/building-record.md` |
 | How It Works | 🟡 | Ten-stage target interaction implemented with visible future-state qualification; Product Truth and accessibility review outstanding |
@@ -157,16 +169,44 @@
 8. Canonical lead store (D-007: isolated marketing database) and email provider (D-008: Resend) decided; named lead owner and retention schedule remain unresolved.
 9. Controller details, lawful bases, processor terms and rights-handling owner require approval — blocked, no privacy owner assigned (D-010, D-012).
 10. Keyword/SERP research (D-013) owned by user, to be completed outside this session; current indexed-URL inventory still outstanding.
+11. Circular Compliance P0 capability claims require current application evidence.
+12. Supplied AI visuals are not production assets and contain inaccurate or fabricated detail.
+13. Physical building QR signage depends on a separately specified, privacy-safe public record.
 
 ## Next five actions
 
-1. Create the new marketing repository and copy this documentation pack into `/docs` or the repository root.
-2. Export approved Widian SVG logo assets.
-3. Commission/assign the Senior Conversion Copywriter.
-4. Populate `CLAIMS_REGISTER.md` using deployed staging evidence.
-5. Produce mobile-first wireframes and a page-differentiation storyboard before production UI implementation.
+1. Verify Circular Compliance P0 claims against deployed application behaviour.
+2. Produce the mobile-first Circular Compliance scene storyboard and static reduced-motion sequence.
+3. Complete Security & Trust, New Market and Resources content, and the lead-capture/booking build.
+4. Export approved Widian SVG logo assets.
+5. Implement the Circular Compliance semantic narrative skeleton, then the three-scene thread prototype.
 
 ## Update log
+
+### 1 September 2026 — Circular Compliance agent foundation
+
+**Completed**
+
+- Added the approved Circular Compliance definition and five-stage lifecycle.
+- Added website experience, parallax/motion and product-truth specifications.
+- Added Claude Code routing and specialist role prompts.
+- Recorded concept assets as discovery references rather than production evidence.
+- Added claims and guardrails for automation, AI, public QR records and building-safety language.
+- Applied via `git am --3way` failing on typographic-character mismatches between the source patch and this branch's real content (curly quotes, and eight files that had genuinely diverged further than the patch's base — most notably `DECISIONS.md`, where the patch's D-014–D-019 would have collided with this branch's real D-014–D-039; renumbered to D-040–D-045 instead); reconciled by hand against actual file content via `git apply --reject` plus manual resolution of every rejected hunk, preserving all real implementation history (Home/Platform/Building Record/How It Works/Solutions/Resources builds, D-001–D-039) rather than reverting to the patch's stale base.
+
+**Checks**
+
+- Documentation source order and strategy reconciled.
+- No production code changed.
+- Automated application gates not applicable to documentation-only changes.
+
+**Open issues**
+
+- Product Truth evidence, approved SVG assets, final copy and production imagery remain outstanding.
+
+**Next**
+
+- Product Truth review followed by a mobile-first storyboard and semantic vertical slice.
 
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 

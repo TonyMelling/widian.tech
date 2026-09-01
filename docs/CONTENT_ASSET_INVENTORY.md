@@ -29,6 +29,13 @@
 | Trust evidence | Trust page | Current facts with owners and dates | Awaiting confirmation |
 | Case-study material | Proof | Permission, methodology and review | Future |
 | Email sender identity | Enquiry acknowledgement | Approved name, address and reply route via Resend (D-008), on a dedicated sending subdomain with SPF/DKIM/DMARC | Provider decided; sending subdomain and reply address still to configure |
+| Circular Compliance storyboard | Homepage and category narrative | Five-stage, mobile-first, claims-reviewed | Concept material received; recreate |
+| Architectural building imagery | Parallax scene foundation | Original/licensed, plausible and optimised | AI concepts received; not production-approved |
+| Widian Thread artwork | Chain-of-custody visual | Original SVG/CSS with static alternative | Specify and create |
+| Fragmented QR-label door | Market-problem scene | Professionally recreated; fictitious labels clearly illustrative | AI concept only |
+| Circular Compliance motion | Launch/social and website | Original production asset, captions/static alternative | Two 15-second concepts received |
+| Building QR plaque | Future public-record campaign | Legally reviewed wording and secure public route | Concept only; application dependency |
+| Product-proof sequence | Substantiation after concept story | Current, sanitised Widian UI and accurate data | Required; do not substitute control-room art |
 
 ## Asset rules
 
@@ -37,4 +44,5 @@
 - Optimise raster assets and set dimensions to avoid layout shift.
 - Provide alt text for informative assets; decorative motion is hidden from assistive technology.
 - Treat generated imagery as conceptual, never as evidence of a live feature.
-
+- Do not publish the supplied AI building cutaways, control hubs, fictional dashboards, duplicate door numbers or simulated statistics as real Widian capability.
+- Do not use social-app screenshots or capture controls in production media.
