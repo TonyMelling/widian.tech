@@ -206,7 +206,7 @@ export default function HomePage() {
               See Widian against your own buildings.
             </h2>
             <p className="mt-2.5 text-[15px] text-text-secondary md:text-base">
-              Book a time that works for you.
+              Arrange a demonstration with Widian.
             </p>
             <Button href="/book-a-demo" className="mt-5 md:mt-6">
               Book a Demo

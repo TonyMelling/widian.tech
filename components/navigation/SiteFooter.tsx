@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
+import { SITE_FACTS } from "@/lib/site-config";
 
 const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string }[] }[] = [
   {
@@ -28,7 +29,17 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string }[
   },
 ];
 
+/** Shown only from verified facts; nothing is displayed until the owner supplies them in lib/site-config.ts. */
+function legalLineFrom({ controllerName, companyNumber, registeredAddress } = SITE_FACTS): string | null {
+  if (!controllerName) return null;
+  const parts = [controllerName];
+  if (companyNumber) parts.push(`Company number ${companyNumber}`);
+  if (registeredAddress) parts.push(`Registered office: ${registeredAddress}`);
+  return parts.join(" · ");
+}
+
 export function SiteFooter() {
+  const legalLine = legalLineFrom();
   return (
     <footer className="bg-navy px-4 py-12 md:px-16 md:py-16">
       <div className="mx-auto max-w-280 md:grid md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10">
@@ -54,17 +65,11 @@ export function SiteFooter() {
         ))}
       </div>
 
-      <div className="mx-auto mt-8 flex max-w-280 flex-wrap items-center justify-between gap-3 border-t border-navy-hairline pt-6">
-        <a
-          href="https://staging.widian.tech"
-          className="font-mono text-xs text-on-navy-muted transition-colors hover:text-on-navy-secondary"
-        >
-          Staging login
-        </a>
-        <p className="font-mono text-xs text-on-navy-muted">
-          Company information pending confirmation.
-        </p>
-      </div>
+      {legalLine ? (
+        <div className="mx-auto mt-8 max-w-280 border-t border-navy-hairline pt-6">
+          <p className="font-mono text-xs text-on-navy-muted">{legalLine}</p>
+        </div>
+      ) : null}
     </footer>
   );
 }

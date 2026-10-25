@@ -41,7 +41,7 @@ export function ResponsibilityStages({ recordContext }: ResponsibilityStagesProp
   const [selected, setSelected] = useState(0);
   return (
     <div>
-      <div className="border border-amber bg-[#FFF8EB] px-4 py-3 text-sm leading-relaxed text-navy"><strong>Proposed target lifecycle.</strong> The ten-stage model is planned for the product and must be re-verified before launch. Current client verification remains limited to P1/P2 findings.</div>
+      <div className="border border-amber bg-[#FFF8EB] px-4 py-3 text-sm leading-relaxed text-navy"><strong>Proposed target lifecycle.</strong> The ten-stage model describes the intended lifecycle, not every step available today. Client verification currently applies to P1/P2 findings.</div>
       {recordContext ? (
         <div className="mt-4 flex flex-col gap-1 border-l-2 border-ember bg-white px-4 py-3 text-sm text-navy sm:flex-row sm:items-center sm:gap-3">
           <strong>{recordContext.finding}</strong>
