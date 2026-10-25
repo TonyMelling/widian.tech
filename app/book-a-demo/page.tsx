@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { SITE_FACTS } from "@/lib/site-config";
 
-const { contactEmail } = SITE_FACTS;
+const { contactEmail, supportEmail } = SITE_FACTS;
 
 export const metadata: Metadata = {
   title: "Book a Demo",
@@ -51,7 +51,14 @@ export default function BookADemoPage() {
             <h2 className="font-display text-xl font-bold text-navy">Already using Widian?</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-text-secondary">
               <a className="font-semibold text-navy underline" href="https://app.widian.tech/sign-in">Sign in</a>. If you
-              cannot sign in or something is not working, contact your organisation&rsquo;s Widian administrator.
+              cannot sign in or something is not working, contact your organisation&rsquo;s Widian administrator
+              {supportEmail ? (
+                <>
+                  {" "}or email{" "}
+                  <a className="font-semibold text-navy underline" href={`mailto:${supportEmail}`}>{supportEmail}</a>
+                </>
+              ) : null}
+              .
             </p>
           </div>
         </div>

@@ -40,6 +40,7 @@ function legalLineFrom({ controllerName, companyNumber, registeredAddress } = SI
 
 export function SiteFooter() {
   const legalLine = legalLineFrom();
+  const supportEmail = SITE_FACTS.supportEmail;
   return (
     <footer className="bg-navy px-4 py-12 md:px-16 md:py-16">
       <div className="mx-auto max-w-280 md:grid md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10">
@@ -61,6 +62,14 @@ export function SiteFooter() {
                 {link.label}
               </Link>
             ))}
+            {column.heading === "Company" && supportEmail ? (
+              <a
+                href={`mailto:${supportEmail}`}
+                className="text-sm text-on-navy-secondary transition-colors hover:text-white"
+              >
+                Support
+              </a>
+            ) : null}
           </div>
         ))}
       </div>

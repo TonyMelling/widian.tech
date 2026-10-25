@@ -15,6 +15,11 @@ describe("SecurityTrustPage", () => {
     expect(screen.getByText(/Current scope: inspections, evidence photographs/)).toBeInTheDocument();
   });
 
+  it("gives the security reporting mailbox", () => {
+    render(<SecurityTrustPage />);
+    expect(screen.getByRole("link", { name: "security@widian.tech" })).toHaveAttribute("href", "mailto:security@widian.tech");
+  });
+
   it("does not imply certifications or statutory compliance", () => {
     render(<SecurityTrustPage />);
 

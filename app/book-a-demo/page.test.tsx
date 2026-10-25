@@ -4,11 +4,14 @@ import BookADemoPage from "./page";
 import CookiesPage from "../cookies/page";
 
 describe("BookADemoPage", () => {
-  it("is a real contact page with no internal build text and no invented address", () => {
+  it("is a real contact page with no internal build text, using only the published mailboxes", () => {
     const { container } = render(<BookADemoPage />);
     expect(screen.getByRole("heading", { level: 1, name: "Talk to Widian." })).toBeInTheDocument();
     expect(container.textContent).not.toMatch(/docs\/|in development|open decision/i);
-    expect(container.querySelector('a[href^="mailto:"]')).toBeNull();
+    const mailtos = [...container.querySelectorAll('a[href^="mailto:"]')].map((a) => a.getAttribute("href"));
+    expect(mailtos).toContain("mailto:info@widian.tech");
+    expect(mailtos).toContain("mailto:support@widian.tech");
+    expect(mailtos.every((m) => /^mailto:(info|support|security)@widian\.tech$/.test(m ?? ""))).toBe(true);
     expect(screen.getByText(/contact your organisation.s Widian administrator/)).toBeInTheDocument();
   });
 

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { missingPrivacyFacts } from "@/lib/site-config";
-import PrivacyPage from "./page";
+import PrivacyPage, { metadata } from "./page";
 
 describe("PrivacyPage", () => {
   it("describes only processing that exists and does not promise unbuilt systems", () => {
@@ -18,6 +18,14 @@ describe("PrivacyPage", () => {
     expect(screen.queryByText(/Insert Widian/)).not.toBeInTheDocument();
   });
 
+  it("stays unindexed until the controller and wording are confirmed, and uses the privacy mailbox", () => {
+    expect(metadata.robots).toMatchObject({ index: false });
+    render(<PrivacyPage />);
+    expect(screen.getByText(/confirmation of the privacy notice wording/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "info@widian.tech" })).toHaveAttribute("href", "mailto:info@widian.tech");
+    expect(screen.queryByText(/Company number|Registered office/)).not.toBeInTheDocument();
+  });
+
   it("states the right to complain to Widian and to the ICO", () => {
     render(<PrivacyPage />);
     expect(screen.getByText(/acknowledge a complaint within 30 days/)).toBeInTheDocument();
@@ -27,15 +35,26 @@ describe("PrivacyPage", () => {
 });
 
 describe("missingPrivacyFacts", () => {
-  const base = { controllerName: null, registeredAddress: null, companyNumber: null, privacyEmail: null, contactEmail: null };
+  const base = {
+    controllerName: null,
+    registeredAddress: null,
+    companyNumber: null,
+    privacyEmail: null,
+    contactEmail: null,
+    supportEmail: null,
+    securityEmail: null,
+    privacyWordingApproved: false,
+  };
+  const ready = { ...base, controllerName: "X", privacyEmail: "p@example.com", privacyWordingApproved: true };
 
-  it("is empty only when the controller and privacy email are supplied", () => {
-    expect(missingPrivacyFacts(base)).toHaveLength(2);
-    expect(missingPrivacyFacts({ ...base, controllerName: "X", privacyEmail: "p@example.com" })).toEqual([]);
+  it("is empty only when the controller, privacy email and wording approval are all supplied", () => {
+    expect(missingPrivacyFacts(base)).toHaveLength(3);
+    expect(missingPrivacyFacts({ ...ready, privacyWordingApproved: false })).toHaveLength(1);
+    expect(missingPrivacyFacts(ready)).toEqual([]);
   });
 
   it("requires the address and company number together", () => {
-    const facts = { ...base, controllerName: "X", privacyEmail: "p@example.com", companyNumber: "123" };
+    const facts = { ...ready, companyNumber: "123" };
     expect(missingPrivacyFacts(facts)).toHaveLength(1);
     expect(missingPrivacyFacts({ ...facts, registeredAddress: "1 High Street" })).toEqual([]);
   });

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { Button } from "@/components/ui/Button";
+import { SITE_FACTS } from "@/lib/site-config";
+
+const { securityEmail } = SITE_FACTS;
 
 export const metadata: Metadata = {
   title: "Security & Trust",
@@ -186,6 +189,12 @@ export default function SecurityTrustPage() {
                 Use a focused demonstration to discuss permissions, evidence handling and the
                 boundaries that matter to your organisation.
               </p>
+              {securityEmail ? (
+                <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-text-secondary md:text-base">
+                  To report a security concern, email{" "}
+                  <a className="font-semibold text-navy underline" href={`mailto:${securityEmail}`}>{securityEmail}</a>.
+                </p>
+              ) : null}
             </div>
             <Button href="/book-a-demo">Book a Demo</Button>
           </div>
