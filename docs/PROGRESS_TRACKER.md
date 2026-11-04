@@ -199,6 +199,16 @@
 
 **Checks run.** Focused: 56 tests in the affected suites pass; `tsc` and `eslint` clean. No build or push.
 
+### 2026-11-04 (5) — Preview 0.5 deployed; account-level review
+
+**Preview.** `9464895` pushed; Vercel deployment `dpl_FJe25aXQhsTM2V9oddrJd3AeRvtT` READY on the protected Preview (HTTP 401 unauthenticated). Draft 0.5 verified: 12-month, 30-day, Supabase and Resend wording present, placeholder paragraph gone, controller placeholder and "Required before publication" panel still shown, `noindex`. Production still `de57529`: no form, `POST /api/walkthrough` 404.
+
+**Supabase (dashboard, read-only; project `widian_marketing`, org "Calderix", Pro plan).** Region `eu-west-2` (London). Daily scheduled backups running (latest 04 Nov 2026); point-in-time recovery add-on **not** enabled; 7-day retention is from Supabase's published docs, not shown in the dashboard. Org Legal Documents page: DPA "incorporated into our Terms of Service, so all organizations get its protections automatically; no separate signed DPA is needed"; a Transfer Impact Assessment is available to download (not downloaded or reviewed). Org-level points: the project shares the "Calderix" org with unrelated projects including `widian-production` and `widian-staging`, so D-007's isolation is at project level, not access level; an unaccepted Supabase Terms of Service update banner was showing.
+
+**Resend (published documents only — the Resend dashboard was not reviewable in this session).** Standard DPA pre-signed for every account, incorporating the EU SCCs with the UK Addendum; EU-US DPF with UK Extension; stored data held in the United States; 30-day retention for email content, metadata and logs on Free, Pro and Scale (confirms the notice); backups 7 days; deletion within 90 days after account termination. Not checked: plan, which team/account holds the domain and API key, and which DPA version applies.
+
+**Proposals recorded (not approved):** D-042.
+
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
 **Completed**
