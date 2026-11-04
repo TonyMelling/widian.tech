@@ -13,8 +13,8 @@ describe("RecordNavigator", () => {
   it("moves through ten lifecycle stages while retaining the finding and building", () => {
     render(<RecordNavigator />);
     expect(screen.getAllByRole("button").filter((button) => /stage \d/i.test(button.textContent ?? ""))).toHaveLength(10);
-    fireEvent.click(screen.getByRole("button", { name: /stage 04.*finding raised/i }));
-    expect(screen.getByRole("heading", { name: /finding raised/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /stage 04.*prioritise/i }));
+    expect(screen.getByRole("heading", { name: /prioritise/i })).toBeInTheDocument();
     expect(screen.getByText(/FND-207 · Harbour Court/)).toBeInTheDocument();
   });
 });

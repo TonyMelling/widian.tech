@@ -3,17 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 
 const STAGES = [
-  { label: "Issue identified", color: "bg-ember" },
-  { label: "Action assigned", color: "bg-ember" },
-  { label: "Work evidenced", color: "bg-ember" },
-  { label: "Independently reviewed", color: "bg-ember" },
+  { label: "Identified", color: "bg-ember" },
+  { label: "Assigned", color: "bg-ember" },
+  { label: "Remediated", color: "bg-ember" },
+  { label: "Re-inspected", color: "bg-ember" },
   { label: "Verified*", color: "bg-verified" },
   { label: "Closed", color: "bg-navy" },
 ] as const;
 
-/** Home §6.4 lifecycle preview. Deliberately six stages, not the blocked
- * 10-stage chain — see D-015 in docs/DECISIONS.md and
- * docs/copy/home.md §6.4. Nodes light up sequentially once in view; all
+/** Home §6.4 summary of one finding's path to closure. Deliberately six moments, a summary of the
+ * ten-stage compliance cycle explained on How It Works (Identify → Assign → Remediate → Re-inspect →
+ * Verify → closure), not a second ten-stage diagram. Nodes light up sequentially once in view; all
  * labels are always in the DOM (no content depends on the animation
  * running), and reduced-motion collapses the stagger to instant via the
  * global rule in globals.css. */
@@ -79,7 +79,11 @@ export function LifecycleThread() {
 
       <p className="mx-auto mt-9 max-w-md text-center text-sm text-text-secondary">
         * Verification by the client applies to priority findings. Lower-priority findings
-        close once independently reviewed.
+        close after re-inspection.
+      </p>
+      <p className="mx-auto mt-3 max-w-md text-center text-sm text-text-secondary">
+        Each verified outcome is added to the building record and informs the next inspection, so the
+        cycle repeats rather than ending at closure.
       </p>
     </div>
   );

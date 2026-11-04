@@ -4,16 +4,16 @@ import { useState } from "react";
 import { useHorizontalRail } from "@/components/ui/useHorizontalRail";
 
 const LEVELS = [
-  { type: "Stage 01", name: "Recorded", reference: "INS-081", description: "Inspection evidence is recorded against fire door FD-014 at Harbour Court.", context: "Surveyor · evidence saved" },
-  { type: "Stage 02", name: "Submitted", reference: "INS-081", description: "The inspection is submitted for review. Submission is not approval.", context: "Surveyor · awaiting review" },
-  { type: "Stage 03", name: "Reviewed", reference: "REV-044", description: "A permissioned reviewer approves the inspection or returns it for correction.", context: "Reviewer · decision recorded" },
-  { type: "Stage 04", name: "Finding raised", reference: "FND-207", description: "The P1 finding remains connected to its originating inspection, element and building.", context: "P1 · excessive perimeter gap" },
-  { type: "Stage 05", name: "Assigned", reference: "WO-031", description: "A defined remedial scope is assigned without separating it from the finding that prompted it.", context: "Compliance team · contractor assigned" },
-  { type: "Stage 06", name: "In progress", reference: "WO-031", description: "Work has started, but no completion or verification decision has been made.", context: "Contractor · work underway" },
-  { type: "Stage 07", name: "Remediated", reference: "WO-031", description: "The contractor submits completion evidence against the defined remedial scope.", context: "Evidence submitted · not closed" },
-  { type: "Stage 08", name: "Independently checked", reference: "CHK-018", description: "Someone other than the original submitter reviews the remedial evidence.", context: "Separate reviewer · check recorded" },
-  { type: "Stage 09", name: "Client verified", reference: "VER-009", description: "For this P1 finding, a client approver makes a separate acceptance decision.", context: "Client approver · P1/P2 scope" },
-  { type: "Stage 10", name: "Closed", reference: "CLS-009", description: "The outcome, responsible actor and time remain attached to the building record.", context: "Recorded decision · verified closure" },
+  { type: "Stage 01", name: "Know", reference: "BLD-012", description: "Harbour Court and its elements, including fire door FD-014, are established in the building record.", context: "Compliance team · building record established" },
+  { type: "Stage 02", name: "Inspect", reference: "INS-081", description: "The surveyor inspects FD-014 and captures evidence against it. A permissioned reviewer, not the person who submitted the inspection, approves it or returns it for correction.", context: "Surveyor · evidence saved" },
+  { type: "Stage 03", name: "Identify", reference: "FND-207", description: "The P1 finding remains connected to its originating inspection, element and building.", context: "P1 · excessive perimeter gap" },
+  { type: "Stage 04", name: "Prioritise", reference: "FND-207", description: "The client sets the remediation priority for the finding.", context: "Client · P1 priority set" },
+  { type: "Stage 05", name: "Assign", reference: "WO-031", description: "A defined remedial scope is assigned without separating it from the finding that prompted it.", context: "Compliance team · contractor assigned" },
+  { type: "Stage 06", name: "Remediate", reference: "WO-031", description: "The contractor completes the work and submits evidence against the defined scope. Completed work is not yet closure.", context: "Contractor · evidence submitted · not closed" },
+  { type: "Stage 07", name: "Re-inspect", reference: "CHK-018", description: "The completed remediation is checked on re-inspection before any verification decision is made.", context: "Reviewer · re-inspection recorded" },
+  { type: "Stage 08", name: "Verify", reference: "VER-009", description: "For this P1 finding, the client accepts or rejects the outcome. A rejection returns the work to the contractor.", context: "Client approver · P1/P2 scope" },
+  { type: "Stage 09", name: "Update", reference: "REC-009", description: "The verified outcome, with who acted and when, is added to the building record.", context: "Recorded decision · verified outcome" },
+  { type: "Stage 10", name: "Monitor", reference: "BLD-012", description: "The updated record informs the next inspection of FD-014, and the cycle begins again.", context: "Next inspection cycle · monitoring being introduced" },
 ] as const;
 
 export function RecordNavigator() {
@@ -29,7 +29,7 @@ export function RecordNavigator() {
         <p className="text-xs leading-relaxed text-on-navy-muted">Sample building and data, shown for illustration</p>
       </div>
       <div className="grid min-w-0 lg:grid-cols-[19rem_1fr]">
-        <nav className="relative min-w-0 overflow-hidden border-b border-navy-hairline lg:border-r lg:border-b-0" aria-label="Ten-stage lifecycle example">
+        <nav className="relative min-w-0 overflow-hidden border-b border-navy-hairline lg:border-r lg:border-b-0" aria-label="Ten-stage compliance cycle example">
           <ol ref={railRef} onScroll={updateRailPosition} className="flex max-w-full overflow-x-auto lg:block">
             {LEVELS.map((level, index) => {
               const active = index === selectedIndex;
@@ -54,9 +54,9 @@ export function RecordNavigator() {
             <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-on-navy-secondary md:text-base">{selected.description}</p>
             <dl className="mt-9 grid gap-5 border-t border-navy-hairline pt-5 sm:grid-cols-2">
               <div><dt className="font-mono text-[10px] tracking-[0.08em] text-on-navy-muted uppercase">Record context</dt><dd className="mt-1.5 text-sm text-white">{selected.context}</dd></div>
-              <div><dt className="font-mono text-[10px] tracking-[0.08em] text-on-navy-muted uppercase">Finding retained</dt><dd className="mt-1.5 text-sm text-white">FND-207 · Harbour Court · BLD-012</dd></div>
+              <div><dt className="font-mono text-[10px] tracking-[0.08em] text-on-navy-muted uppercase">{selectedIndex < 2 ? "Attached to" : "Finding retained"}</dt><dd className="mt-1.5 text-sm text-white">{selectedIndex < 2 ? "Harbour Court · BLD-012" : "FND-207 · Harbour Court · BLD-012"}</dd></div>
             </dl>
-            {selectedIndex < LEVELS.length - 1 && <button type="button" onClick={() => setSelectedIndex(selectedIndex + 1)} className="mt-9 border-b border-ember pb-1 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Continue to {LEVELS[selectedIndex + 1].name.toLowerCase()} →</button>}
+            {selectedIndex < LEVELS.length - 1 && <button type="button" onClick={() => setSelectedIndex(selectedIndex + 1)} className="mt-9 border-b border-ember pb-1 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Next: {LEVELS[selectedIndex + 1].name} →</button>}
           </div>
         </div>
       </div>

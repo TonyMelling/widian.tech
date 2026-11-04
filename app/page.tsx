@@ -111,14 +111,14 @@ export default function HomePage() {
           <section className="px-4 py-14 md:px-16 md:py-24">
             <div className="mx-auto max-w-280">
               <h2 className="text-center font-display text-2xl font-bold text-navy md:text-[32px]">
-                Six responsibility moments shape the path to closure.
+                Six responsibility moments take a finding to verified closure.
               </h2>
               <div className="mt-8 md:mt-16">
                 <LifecycleThread />
               </div>
               <div className="mt-5 text-center md:mt-5">
                 <Button href="/how-it-works" variant="secondary">
-                  See the full lifecycle
+                  See the full compliance cycle
                 </Button>
               </div>
             </div>
