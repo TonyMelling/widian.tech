@@ -52,12 +52,12 @@ export function SiteFooter() {
         </div>
 
         {FOOTER_COLUMNS.map((column) => (
-          <div key={column.heading} className="mt-7 flex flex-col gap-2.5 md:mt-0">
+          <div key={column.heading} className="mt-7 flex flex-col md:mt-0 md:gap-2.5">
             {column.links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-on-navy-secondary transition-colors hover:text-white"
+                className="flex min-h-11 items-center text-sm text-on-navy-secondary transition-colors hover:text-white md:min-h-0"
               >
                 {link.label}
               </Link>
@@ -65,7 +65,7 @@ export function SiteFooter() {
             {column.heading === "Company" && supportEmail ? (
               <a
                 href={`mailto:${supportEmail}`}
-                className="text-sm text-on-navy-secondary transition-colors hover:text-white"
+                className="flex min-h-11 items-center text-sm text-on-navy-secondary transition-colors hover:text-white md:min-h-0"
               >
                 Support
               </a>
