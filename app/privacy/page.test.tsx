@@ -33,7 +33,7 @@ describe("PrivacyPage", () => {
     expect(text).not.toMatch(/to be confirmed before this notice\s+is final/);
     // Nothing is asserted as verified that is not: no named transfer mechanism for Supabase/Resend, no agreements claim.
     expect(text).not.toMatch(/(Supabase|Resend)[^.]*(standard contractual clauses|Data Privacy Framework|signed|executed)/i);
-    expect(text).not.toMatch(/Widian Limited|company number|registered office/i);
+    expect(text).not.toMatch(/Widian (Tech )?Limited|company number|registered office/i);
   });
 
   it("keeps missing controller facts visible rather than inventing them", () => {

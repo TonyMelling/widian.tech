@@ -2,8 +2,9 @@
  * Facts the owner must supply before the matching public copy can be completed.
  * Leave a value `null` until it is verified; nothing is invented or defaulted.
  *
- * - controllerName: the legal entity that is the data controller. Fill only once it is confirmed
- *   (do not describe Widian Limited as incorporated before then).
+ * - controllerName: the legal entity that is the data controller. Intended to be Widian Tech Limited, whose
+ *   incorporation is pending (owner-confirmed 2026-11-04). Fill only once it is incorporated and confirmed; do not
+ *   describe it as incorporated before then, and do not invent a company number, registered office or date.
  * - registeredAddress / companyNumber: only if the entity is incorporated.
  * - privacyEmail: a monitored address for data-protection requests.
  * - contactEmail: general enquiries and demonstration requests.

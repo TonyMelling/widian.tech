@@ -195,7 +195,7 @@
 
 ### 2026-11-04 (4) — Privacy notice draft 0.5: owner-approved retention and processor facts
 
-**Completed.** Notice moved to draft 0.5 with the owner-approved 12-month retention for unsuccessful enquiries, Supabase (London, possible international operational processing) and Resend (US storage, 30-day retention) wording; unresolved processor/retention placeholders removed. D-010/D-012 updated. The notice stays draft and the Production gate stays closed because the controller (Widian Limited, incorporation pending) is unconfirmed; no registration details were added and nothing about agreements or Widian's transfer assessment is stated as verified.
+**Completed.** Notice moved to draft 0.5 with the owner-approved 12-month retention for unsuccessful enquiries, Supabase (London, possible international operational processing) and Resend (US storage, 30-day retention) wording; unresolved processor/retention placeholders removed. D-010/D-012 updated. The notice stays draft and the Production gate stays closed because the controller (Widian Tech Limited, incorporation pending) is unconfirmed; no registration details were added and nothing about agreements or Widian's transfer assessment is stated as verified.
 
 **Checks run.** Focused: 56 tests in the affected suites pass; `tsc` and `eslint` clean. No build or push.
 
@@ -208,6 +208,14 @@
 **Resend (published documents only — the Resend dashboard was not reviewable in this session).** Standard DPA pre-signed for every account, incorporating the EU SCCs with the UK Addendum; EU-US DPF with UK Extension; stored data held in the United States; 30-day retention for email content, metadata and logs on Free, Pro and Scale (confirms the notice); backups 7 days; deletion within 90 days after account termination. Not checked: plan, which team/account holds the domain and API key, and which DPA version applies.
 
 **Proposals recorded (not approved):** D-042.
+
+### 2026-11-04 (6) — Owner confirmations: entity name, account naming, D-042 approved
+
+**Recorded.** The intended controller is **Widian Tech Limited**; its incorporation is **pending**, with no company number, registered office or incorporation date (none invented). The Supabase organisation and the Resend account are both named Widian (owner-confirmed); the Supabase dashboard now shows "Widian", so the Calderix naming point in entry (5) is closed (the shared-organisation access point and the terms banner in that entry are separate and unchanged). D-042's five arrangements are owner-approved. Supabase AI data-sharing opt-in observed as Disabled.
+
+**Unchanged by design.** Notice draft 0.5 and its processor wording; `privacyWordingApproved: false`; `controllerName: null`; the Production collection gate. Nothing was pushed or deployed.
+
+**Checks run.** Focused: privacy and gate tests only.
 
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
