@@ -239,6 +239,10 @@
 
 **Retention reminder.** No calendar tool was available. Required: a recurring review owned by a named person, monthly from one month after Production go-live (no real enquiry can reach 12 months before launch plus 12 months). Documentation only; no tests run or required.
 
+### 2026-11-04 (10) — Supabase Privacy Team response recorded
+
+Confirmed: DPA automatically incorporated into Supabase's terms for standard-terms customers (from 1 Aug 2026, no signature); Supabase processor, Widian controller; sub-processor notifications and Legal Documents locations. Not answered: whether the current TIA covers Supabase Pte. Ltd.; which sub-processors can access database content. Low-risk conclusion, provisional acceptance and both limits unchanged. No new blocker; no further email planned. Remaining Supabase task: subscribe to sub-processor change notices. Documentation only; no tests.
+
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
 **Completed**

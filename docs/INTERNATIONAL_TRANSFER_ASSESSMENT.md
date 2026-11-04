@@ -1,12 +1,12 @@
 # International Transfer Assessment — Book a Demo enquiry processing
 
-**Status:** Evidence review completed 2026-11-04. **Provisionally accepted by the owner** (recorded 4 November 2026); **formal adoption by Widian Tech Limited pending incorporation** (section 7). This is an implementation record, not legal advice.
+**Status:** Evidence review completed 2026-11-04; Supabase Privacy Team response recorded the same day. **Provisionally accepted by the owner** (recorded 4 November 2026); **formal adoption by Widian Tech Limited pending incorporation** (section 7). This is an implementation record, not legal advice.
 **Controller:** Widian Tech Limited (incorporation pending; no registration details yet). Until it exists, the assessment is made for the business that will become the controller and must be adopted by the company once incorporated.
 **Related records:** `DECISIONS.md` D-010, D-012, D-034, D-042; `PRIVACY_AND_UK_GDPR_PLAN.md`; `LEAD_CAPTURE_AND_COMMUNICATIONS.md`; `PROGRESS_TRACKER.md` (entries 2026-11-04 (5)–(8)). Processor facts established in those records are relied on here, not repeated.
 
 ## 1. Conclusion
 
-Widian's use of Supabase and Resend for demo enquiries involves restricted transfers under UK GDPR Chapter V. Each has a valid transfer route, the data is low in volume and sensitivity, and the residual risk is **low and acceptable**, subject to the conditions in section 6. The evidence supports that conclusion, with two stated limits: the Singapore analysis rests on Supabase's own description of Singapore law and its practices, and Supabase's published TIA is older than its current contract documents (section 5). The owner has **provisionally accepted** the conclusion, including both limits (section 7); the confirmations in section 5 remain optional. It does not change the privacy notice, which says only that each provider publishes its safeguards.
+Widian's use of Supabase and Resend for demo enquiries involves restricted transfers under UK GDPR Chapter V. Each has a valid transfer route, the data is low in volume and sensitivity, and the residual risk is **low and acceptable**, subject to the conditions in section 6. The evidence supports that conclusion, with two stated limits: the Singapore analysis rests on Supabase's own description of Singapore law and its practices, and Supabase's published TIA is older than its current contract documents (section 5). The owner has **provisionally accepted** the conclusion, including both limits (section 7); Supabase's Privacy Team has since responded (section 5): it confirms the contractual footing and leaves the two limits unchanged. It does not change the privacy notice, which says only that each provider publishes its safeguards.
 
 **What the evidence review changed.** Supabase's DPA names **Supabase Pte. Ltd. (Singapore)** as the data importer, so Singapore is the principal transfer destination for Supabase, not an incidental one, and it is assessed in section 4. Resend's DPF listing is now verified.
 
@@ -49,14 +49,29 @@ Out of scope: **Vercel** (covered in the notice and D-034); the **enquiry mailbo
 | # | Item | Status | Detail |
 |---|---|---|---|
 | 1 | **Resend DPF listing** | **Closed 2026-11-04** | [DPF list](https://www.dataprivacyframework.gov/list) entry "Resend", San Francisco, CA: Active Participant. EU-U.S. DPF and UK Extension both "Active – Re-certification under Review"; original certification 20 Feb 2025; next certification due 3 Mar 2027; covered data Non-HR; no other covered entities. Business enquiry data is non-HR. Re-check on the day of sign-off and before 3 Mar 2027 |
-| 2 | **Supabase sub-processors** | **Reviewed** | [List](https://supabase.com/legal/subprocessor-list/October-12-2026.pdf), 12 Oct 2026 (a 1 Jun 2026 version is also published). Singapore appears only as Supabase Pte. Ltd., described there as support "in marketplace related activities". Singapore relevance is nonetheless established by the DPA, which names Pte. Ltd. as importer (section 3) |
-| 3 | **Supabase TIA** | **Reviewed; currency open** | [TIA](https://supabase.com/downloads/docs/Supabase+TIA+250314.pdf), dated 14 Mar 2025, importer Supabase, Inc., Module Two. It sets out the Singapore and US legal analysis and measures used above but has no overall conclusion section, the sign-off block is blank in the public copy, and its sub-processor table names vendors absent from the 2026 list (for example Fly.io, Stripe, Twilio, Atlassian, Stape). Supabase's FAQ says the TIA is reviewed annually |
+| 2 | **Supabase sub-processors** | **Reviewed** | [List](https://supabase.com/legal/subprocessor-list/October-12-2026.pdf), 12 Oct 2026 (a 1 Jun 2026 version is also published). Singapore appears only as Supabase Pte. Ltd., described there as support "in marketplace related activities". Singapore relevance is nonetheless established by the DPA, which names Pte. Ltd. as importer (section 3). Which listed sub-processors can access database content was put to Supabase and **not answered**, so it stays unverified |
+| 3 | **Supabase TIA** | **Reviewed; currency open — not answered by Supabase** | [TIA](https://supabase.com/downloads/docs/Supabase+TIA+250314.pdf), dated 14 Mar 2025, importer Supabase, Inc., Module Two. It sets out the Singapore and US legal analysis and measures used above but has no overall conclusion section, the sign-off block is blank in the public copy, and its sub-processor table names vendors absent from the 2026 list (for example Fly.io, Stripe, Twilio, Atlassian, Stape). Supabase's FAQ says the TIA is reviewed annually. Whether the current TIA covers Supabase Pte. Ltd. was put to Supabase and **not directly answered** |
 | 4 | **Supabase entity description** | **Inconsistent across documents** | DPA: importer is Pte. Ltd. FAQ: Pte. Ltd. is primary processor, Inc. provides support and operations. TIA: importer is Inc. Sub-processor list: both appear as support providers. The DPA is the contract, so it governs |
-| 5 | **Sub-processor change notice** | **Open (owner action)** | The DPA gives at least 30 days' notice of changes, with a 5-day objection window, to customers who subscribe to notifications; nothing is stated for those who do not |
+| 5 | **Sub-processor change notice** | **Open (owner action)** | The DPA gives at least 30 days' notice of changes, with a 5-day objection window, to customers who subscribe to notifications; nothing is stated for those who do not. Supabase confirmed notifications are available at its [sub-processor list page](https://supabase.com/legal/customer-resources/subprocessor-list); subscribing is still to be done |
 | 6 | **Adoption by Widian Tech Limited** | Open | The agreements and this assessment must sit with the legal controller once incorporated |
 | 7 | **Owner acceptance** | **Provisionally accepted** | Owner accepts the low residual-risk conclusion and both limits. Formal adoption by the controller is item 6; see section 7 |
 
-**Smallest actions.** One email to Supabase's privacy contact (privacy@supabase.io, named in the DPA) asking for its current TIA covering Pte. Ltd. as importer and confirmation of which sub-processors can access database content; the owner may accept the residual risk without waiting for the reply. Subscribe to sub-processor change notices. Record the sign-off.
+### Supabase Privacy Team response (relayed by the owner, recorded 2026-11-04)
+
+**Confirmed — contractual protections.**
+- Since 1 August 2026 Supabase's DPA is automatically incorporated into its Terms of Service for customers on standard terms; no separate signature is required. This matches the DPA's version date and the organisation's Legal Documents page.
+- Supabase acts as data processor and Widian as data controller.
+- Sub-processor change notifications are available at the [sub-processor list page](https://supabase.com/legal/customer-resources/subprocessor-list).
+- Legal documents are in Supabase Studio under Organisation Settings → Legal Documents.
+- Separately negotiated agreements, where they exist, remain binding. None is recorded for Widian; if one existed it would take precedence over the DPA terms relied on here.
+
+**Not answered.**
+- Whether Supabase's current TIA covers Supabase Pte. Ltd. (Singapore) as the importer named in the DPA.
+- Which sub-processors can access database content.
+
+**Effect.** The response settles that the DPA binds Widian without a signature and that the controller and processor roles are as assumed. It does not contradict anything in section 4. The two unanswered points are the same two limits the owner has accepted (the Singapore analysis rests on Supabase's own description, and the published TIA predates its 2026 documents), so the low residual-risk conclusion stands. Sub-processor access to database content remains unverified and is covered by the support-request rule in section 6, condition 3. No further request to Supabase is planned.
+
+**Smallest remaining actions.** Subscribe to sub-processor change notices (item 5), and record formal adoption once Widian Tech Limited exists (item 6).
 
 Not reopened, as instructed: Resend's DPA, safeguards and retention.
 
