@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { LifecycleLoop } from "./LifecycleLoop";
 
 const STAGES = [
-  ["Recorded", "Surveyor", "Inspection evidence is saved against a specific building element."],
-  ["Submitted", "Surveyor", "The inspection is submitted for review; submission is not approval."],
-  ["Reviewed", "Permissioned reviewer", "The inspection is approved or returned for correction."],
-  ["Finding raised", "Surveyor", "A prioritised finding remains connected to its originating inspection."],
-  ["Assigned", "Compliance team", "A defined remedial scope is routed to a contractor."],
-  ["In progress", "Contractor", "Work has started, but no completion decision has been made."],
-  ["Remediated", "Contractor", "Photographic evidence is submitted against the defined scope."],
-  ["Independently checked", "Separate reviewer", "Someone other than the original submitter reviews the evidence."],
-  ["Client verified", "Client approver", "For P1/P2 findings, the client makes a separate acceptance decision."],
-  ["Closed", "Recorded decision", "The outcome, actor and time remain attached to the record."],
+  ["Know", "Building owner or compliance team", "The building, its elements and what is already known about them are established in the building record."],
+  ["Inspect", "Surveyor", "A structured inspection assesses each element and captures findings and photographic evidence on site."],
+  ["Identify", "Surveyor", "Defects and risks are recorded as findings, each tied to the element and inspection that raised it."],
+  ["Prioritise", "Client", "The client determines which findings to remediate first and sets the remediation priorities."],
+  ["Assign", "Compliance team", "Remedial work is allocated to a contractor against a defined scope."],
+  ["Remediate", "Contractor", "The contractor completes the work and submits photographic evidence. Completed work is not yet proven compliant work."],
+  ["Re-inspect", "Reviewer", "The completed remediation is checked. If it does not pass, the work returns for corrective action."],
+  ["Verify", "Client approver", "For P1/P2 findings, the client accepts or rejects the outcome. A rejection returns the work to the contractor for corrective action. Lower-priority findings close after re-inspection."],
+  ["Update", "Recorded decision", "The verified outcome, with who acted and when, is added to the building record."],
+  ["Monitor", "Building owner or compliance team", "The record shows condition over time and informs the next inspection, which starts the cycle again."],
 ] as const;
 
 function StageDetail({ index }: { index: number }) {
@@ -25,7 +26,7 @@ function StageDetail({ index }: { index: number }) {
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">Accountable role</dt><dd className="mt-1 text-sm font-semibold text-navy">{role}</dd></div>
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">What changes</dt><dd className="mt-1 text-sm leading-relaxed text-text-secondary">{body}</dd></div>
       </dl>
-      {index === 8 ? <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-relaxed text-text-secondary">Client verification applies to P1/P2 findings. Lower-priority findings close after the applicable review path.</p> : null}
+      {index === 9 ? <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-relaxed text-text-secondary">Ongoing monitoring and planning of the next inspection cycle are being introduced.</p> : null}
     </div>
   );
 }
@@ -41,7 +42,8 @@ export function ResponsibilityStages({ recordContext }: ResponsibilityStagesProp
   const [selected, setSelected] = useState(0);
   return (
     <div>
-      <p className="text-sm leading-relaxed text-text-secondary">Widian is introducing the ten stages progressively. Ask us which are live for your portfolio.</p>
+      <LifecycleLoop stages={STAGES.map(([title]) => title)} selected={selected} />
+      <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-text-secondary">Widian is introducing the ten stages progressively. Ask us which are live for your portfolio.</p>
       {recordContext ? (
         <div className="mt-4 flex flex-col gap-1 border-l-2 border-ember bg-white px-4 py-3 text-sm text-navy sm:flex-row sm:items-center sm:gap-3">
           <strong>{recordContext.finding}</strong>

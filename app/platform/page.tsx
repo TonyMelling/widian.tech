@@ -79,12 +79,12 @@ export default function PlatformPage() {
                 What every building record holds.
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-center text-[15px] leading-relaxed text-on-navy-secondary md:text-base">
-                Nine layers, from the building’s identity to its issued history, stay connected to one another. Separately, the ten-stage lifecycle shows how each finding moves from recorded to closed.
+                Nine layers, from the building’s identity to its issued history, stay connected to one another. Separately, the ten-stage compliance cycle shows how each building moves from inspection through verification and back into the record.
               </p>
               <div className="mt-10 md:mt-16">
                 <RecordSpine />
               </div>
-              <div className="mt-8 text-center"><Button href="/how-it-works" variant="secondary-on-navy">Explore the ten lifecycle stages</Button></div>
+              <div className="mt-8 text-center"><Button href="/how-it-works" variant="secondary-on-navy">Explore the compliance cycle</Button></div>
             </div>
           </section>
         </ScrollReveal>

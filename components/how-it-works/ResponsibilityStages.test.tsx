@@ -5,10 +5,17 @@ import { ResponsibilityStages } from "./ResponsibilityStages";
 describe("ResponsibilityStages", () => {
   it("shows all ten lifecycle stages", () => {
     render(<ResponsibilityStages />);
-    for (const stage of ["Recorded", "Submitted", "Reviewed", "Finding raised", "Assigned", "In progress", "Remediated", "Independently checked", "Client verified", "Closed"]) {
+    for (const stage of ["Know", "Inspect", "Identify", "Prioritise", "Assign", "Remediate", "Re-inspect", "Verify", "Update", "Monitor"]) {
       expect(screen.getAllByRole("button", { name: new RegExp(stage, "i") }).length).toBeGreaterThan(0);
     }
     expect(screen.getByText(/introducing the ten stages progressively/i)).toBeInTheDocument();
+  });
+
+  it("shows the cycle, including the return to inspection and the rework path", () => {
+    render(<ResponsibilityStages />);
+    expect(screen.getByRole("img", { name: /Monitor returns to Inspect.*returns the work to Remediate/i })).toBeInTheDocument();
+    expect(screen.getByText(/Monitoring returns to inspection/i)).toBeInTheDocument();
+    expect(screen.getByText(/failed re-inspection or a rejected outcome returns the work to remediation/i)).toBeInTheDocument();
   });
 
   it("retains the supplied building and finding context", () => {
