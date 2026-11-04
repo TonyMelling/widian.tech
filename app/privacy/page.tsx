@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
-import { SITE_FACTS, missingPrivacyFacts } from "@/lib/site-config";
+import { PRIVACY_NOTICE, SITE_FACTS, missingPrivacyFacts } from "@/lib/site-config";
 
 const missing = missingPrivacyFacts();
 const complete = missing.length === 0;
@@ -23,9 +23,15 @@ const PROCESSING = [
   ],
   [
     "Enquiries you send us",
-    "Your name, email address, organisation and whatever you choose to write.",
+    "Your name, work email address, organisation, role, the size of your portfolio, your main challenge and whatever you choose to write, whether by email or through the Book a Demo form.",
     "To reply, arrange a demonstration and manage any resulting business relationship.",
     "Legitimate interests (responding to business enquiries) and steps taken at your request before entering a contract.",
+  ],
+  [
+    "Optional updates",
+    "Your choice to receive occasional updates from Widian, the wording you saw, the notice version and the time you chose.",
+    "To record your permission so that it can be honoured and withdrawn.",
+    "Consent. It is optional, never needed to request a demonstration, and you can withdraw it at any time.",
   ],
 ] as const;
 
@@ -67,7 +73,7 @@ export default function PrivacyPage() {
               is kept and what you can do about it.
             </p>
             <p className="mt-5 font-mono text-xs text-text-secondary">
-              {complete ? "Version 1.0" : "Draft 0.2"} · 25 October 2026
+              {complete ? `Version ${PRIVACY_NOTICE.finalVersion}` : `Draft ${PRIVACY_NOTICE.draftVersion}`} · {PRIVACY_NOTICE.date}
             </p>
           </div>
         </header>
@@ -101,8 +107,8 @@ export default function PrivacyPage() {
                   administrator can tell you how your data is used there.
                 </p>
                 <p className="mt-4">
-                  widian.tech has no accounts, sign-up forms, contact forms, analytics or advertising. It does not set
-                  cookies; see the <Link className="font-semibold text-navy underline" href="/cookies">Cookie Notice</Link>.
+                  widian.tech has no accounts, sign-up forms, analytics or advertising. Its only form is the Book a Demo
+                  enquiry form. It does not set cookies; see the <Link className="font-semibold text-navy underline" href="/cookies">Cookie Notice</Link>.
                 </p>
               </section>
 
@@ -153,6 +159,17 @@ export default function PrivacyPage() {
                 <p className="mt-4">
                   Widian does not sell personal data. The site is hosted by Vercel Inc., which processes request data on
                   Widian&rsquo;s behalf. Enquiries sent by email are handled by Widian&rsquo;s email provider.
+                </p>
+                <p className="mt-4">
+                  Enquiries made through the Book a Demo form are stored in a database operated for Widian by Supabase,
+                  separate from the Widian application, and are delivered by email through Resend. Both act on
+                  Widian&rsquo;s behalf. Provider regions, terms and transfer safeguards are to be confirmed before this
+                  notice is final.
+                </p>
+                <p className="mt-4">
+                  After you send an enquiry, Widian may show a link to choose a time on Cal.com. Widian does not send
+                  your enquiry details to Cal.com; if you follow the link and book, Cal.com handles what you enter there
+                  under its own terms and privacy notice.
                 </p>
                 <p className="mt-4">
                   Vercel is a US company and may process request data outside the UK. Vercel states that it relies on the

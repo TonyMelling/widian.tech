@@ -6,9 +6,17 @@ import PrivacyPage, { metadata } from "./page";
 describe("PrivacyPage", () => {
   it("describes only processing that exists and does not promise unbuilt systems", () => {
     render(<PrivacyPage />);
-    expect(screen.getByText(/has no accounts, sign-up forms, contact forms, analytics or advertising/)).toBeInTheDocument();
-    expect(screen.queryByText(/Supabase/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/demo form/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/has no accounts, sign-up forms, analytics or advertising/)).toBeInTheDocument();
+    expect(screen.queryByText(/advertising cookies|google analytics/i)).not.toBeInTheDocument();
+  });
+
+  it("describes the enquiry form's storage, delivery and separate optional-updates consent", () => {
+    render(<PrivacyPage />);
+    expect(screen.getByText(/stored in a database operated for Widian by Supabase/)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Optional updates" })).toBeInTheDocument();
+    expect(screen.getByText(/never needed to request a demonstration/)).toBeInTheDocument();
+    expect(screen.getByText(/Draft 0\.3/)).toBeInTheDocument();
+    expect(screen.getByText(/Widian does not send\s+your enquiry details to Cal\.com/)).toBeInTheDocument();
   });
 
   it("keeps missing controller facts visible rather than inventing them", () => {

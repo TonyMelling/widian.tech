@@ -32,6 +32,9 @@ export const SITE_FACTS: {
   privacyWordingApproved: false,
 };
 
+/** Version and date of the privacy notice. Stored with every enquiry as the notice shown at submission. */
+export const PRIVACY_NOTICE = { draftVersion: "0.3", finalVersion: "1.0", date: "4 November 2026" } as const;
+
 /** Names of the privacy-notice facts that are still missing (empty once the notice can be published). */
 export function missingPrivacyFacts(facts = SITE_FACTS): string[] {
   const missing: string[] = [];

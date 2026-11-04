@@ -116,10 +116,11 @@
 | New Market | ⬜ | Direction is bold but supportable |
 | Security & Trust | ⬜ | All claims approved |
 | Resources (`/resources`, `/resources/[slug]`) | 🟡 | Built 2026-08-24 (D-027) — file-based Markdown pipeline (`lib/resources.ts`, `content/resources/*.md`), index + article pages, sitemap/robots wired to only index once real articles exist. Automated gates pass. No real articles published yet — user is writing them now |
-| Book a Demo form | ⬜ | Success/error journey verified |
-| Lead API, storage and outbox | ⬜ | Durable, idempotent and recoverable |
-| Acknowledgement and internal routing | ⬜ | Delivery, bounce and failure paths tested |
-| Privacy/cookies/analytics | ⬜ | Privacy approval |
+| Book a Demo form | 🟡 | Built 2026-11-04 (`components/book-a-demo/DemoRequestForm.tsx`), config-gated: shown only when lead capture is configured, otherwise `/book-a-demo` keeps its email-only layout. Success/error/retry journeys covered by component tests; not yet exercised against live Supabase/Resend. Visual/browser QA outstanding |
+| Lead API, storage and outbox | 🟡 | `POST /api/walkthrough` + `supabase/marketing/001_demo_enquiries.sql` (D-007). Durable-before-success, idempotent, delivery status recorded per lead; route tests pass. No retry worker, dead-letter job or lead console, by decision. Failed emails are logged (`notify_failed`/`ack_failed`) and recoverable with `npm run leads:attention` / `leads:resend` (`scripts/lead-ops.ts`). Table not yet applied; no credentials set |
+| Acknowledgement and internal routing | 🟡 | Resend plain-text acknowledgement + owner notification implemented and unit-tested with mocked Resend. Sending domain, SPF/DKIM/DMARC, bounce/complaint webhooks not done |
+| Cal.com booking (D-039/D-040) | 🟡 | Scoped to an optional Cal.com Cloud link shown after the enquiry is stored (`CAL_BOOKING_URL`). No API/webhook booking, so no "You're booked" state, by decision (D-040) |
+| Privacy/cookies/analytics | 🟡 | Privacy notice draft 0.3 (2026-11-04) now describes the enquiry form, Supabase and Resend. Wording still unapproved (D-010/D-012); analytics/consent banner not built |
 | SEO foundations | ⬜ | Canonicals, metadata, sitemap, robots and structured data verified |
 
 ## 8. Quality and launch
@@ -167,6 +168,22 @@
 5. Produce mobile-first wireframes and a page-differentiation storyboard before production UI implementation.
 
 ## Update log
+
+### 2026-11-04 — Book a Demo lead capture (branch `launch/website-prep`)
+
+**Audit finding.** Before this slice `/book-a-demo` was a static page with `mailto:` links only: no form, no API route, no persistence, no notifications, no booking, and the privacy notice stated the site had no contact forms. The "⬜" rows in §7 above were accurate; the Next.js app, tests and build were otherwise healthy.
+
+**Completed.** Config-gated enquiry form; `POST /api/walkthrough` (same-origin check, body cap, per-instance rate limit, honeypot + minimum-fill-time, server validation, idempotency key, durable insert before success, plain-text acknowledgement and owner notification via Resend, per-lead delivery status, generic public errors, logs without form content); SQL for the isolated marketing database; privacy notice draft 0.3; `.env.example`.
+
+**Gates run.** `vitest run` 73/73 pass (incl. new route, schema, form, page and privacy tests); `tsc --noEmit` clean; `eslint` clean; `next build --webpack` passes. `next build` (Turbopack) fails in this worktree only because `node_modules` is a junction to the sibling checkout. Built-server smoke test: unconfigured → email-only page and `503`; configured with an unreachable host → form shown and `500` generic error (no false success); cross-origin → `403`.
+
+**Not verified.** Live Supabase insert, live Resend delivery, Cal.com, browser/visual/keyboard/screen-reader QA, Lighthouse.
+
+### 2026-11-04 (2) — Preview-readiness pass on Book a Demo
+
+**Completed.** Owner notifications default to `info@widian.tech` (message included; `LEAD_NOTIFY_TO` is now an optional override). D-038/D-039 imported from `docs/website-foundation` (decision rows and lead-capture ownership text only; the unrelated Fasthosts DNS note was not imported) plus new D-040 recording the narrowed Cal.com scope. Minimal recovery tooling: `notify_failed`/`ack_failed` error logs and `scripts/lead-ops.ts` (`leads:attention`, `leads:resend`). Form wording: building-size label now "Buildings you manage, inspect or work on"; "Just exploring Widian" added to the challenge options. Privacy notice discloses the Cal.com link. Runtime imports in `lib/lead-capture` now carry `.ts` extensions (`allowImportingTsExtensions`) so the ops script can reuse the real email/storage code under Node 22.18+.
+
+**Collection remains disabled everywhere** until D-010/D-012 are approved and credentials are set; nothing was pushed, merged, deployed or configured.
 
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 

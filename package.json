@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "leads:attention": "node --env-file-if-exists=.env.local scripts/lead-ops.ts list",
+    "leads:resend": "node --env-file-if-exists=.env.local scripts/lead-ops.ts resend"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

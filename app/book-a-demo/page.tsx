@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import Link from "next/link";
+import { DemoRequestForm } from "@/components/book-a-demo/DemoRequestForm";
 import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
+import { getLeadCaptureConfig } from "@/lib/lead-capture/config";
 import { SITE_FACTS } from "@/lib/site-config";
 
 const { contactEmail, supportEmail } = SITE_FACTS;
@@ -13,7 +16,12 @@ export const metadata: Metadata = {
   robots: { index: Boolean(contactEmail), follow: true },
 };
 
-export default function BookADemoPage() {
+export default async function BookADemoPage() {
+  // Read at request time so the form appears only when lead capture is actually configured on this deployment.
+  // Unconfigured, the page keeps its email-only layout instead of offering a form that cannot store anything.
+  await connection();
+  const captureConfig = getLeadCaptureConfig();
+
   return (
     <>
       <SiteHeader />
@@ -28,24 +36,41 @@ export default function BookADemoPage() {
             verification together in one Building Record.
           </p>
 
-          {contactEmail ? (
-            <p className="mt-8 text-base text-navy">
-              Email{" "}
-              <a className="font-semibold underline decoration-ember underline-offset-4" href={`mailto:${contactEmail}`}>
-                {contactEmail}
-              </a>{" "}
-              and tell us your organisation and what you would like to see.
-            </p>
+          {captureConfig ? (
+            <div className="mt-10">
+              <DemoRequestForm bookingUrl={captureConfig.bookingUrl} contactEmail={contactEmail} />
+              <p className="mt-8 text-sm leading-relaxed text-text-secondary">
+                {contactEmail ? (
+                  <>
+                    Prefer email? Write to{" "}
+                    <a className="font-semibold text-navy underline" href={`mailto:${contactEmail}`}>{contactEmail}</a>.{" "}
+                  </>
+                ) : null}
+                Please do not send resident information, special-category data, defect evidence or incident details.
+              </p>
+            </div>
           ) : (
-            <p className="mt-8 border-l-2 border-amber bg-grey p-5 text-base text-navy">
-              A public enquiry address is not published yet. Please use the contact details you were given by Widian.
-            </p>
-          )}
+            <>
+              {contactEmail ? (
+                <p className="mt-8 text-base text-navy">
+                  Email{" "}
+                  <a className="font-semibold underline decoration-ember underline-offset-4" href={`mailto:${contactEmail}`}>
+                    {contactEmail}
+                  </a>{" "}
+                  and tell us your organisation and what you would like to see.
+                </p>
+              ) : (
+                <p className="mt-8 border-l-2 border-amber bg-grey p-5 text-base text-navy">
+                  A public enquiry address is not published yet. Please use the contact details you were given by Widian.
+                </p>
+              )}
 
-          <p className="mt-6 text-sm leading-relaxed text-text-secondary">
-            Please do not send resident information, special-category data, defect evidence or incident details in an
-            enquiry. See the <Link className="font-semibold text-navy underline" href="/privacy">Privacy Notice</Link>.
-          </p>
+              <p className="mt-6 text-sm leading-relaxed text-text-secondary">
+                Please do not send resident information, special-category data, defect evidence or incident details in an
+                enquiry. See the <Link className="font-semibold text-navy underline" href="/privacy">Privacy Notice</Link>.
+              </p>
+            </>
+          )}
 
           <div className="mt-12 border-t border-hairline pt-8">
             <h2 className="font-display text-xl font-bold text-navy">Already using Widian?</h2>

@@ -4,6 +4,18 @@
 
 Define how enquiries from `widian.tech` become owned, traceable sales activity without turning email into the system of record or mixing marketing data into the operational Widian product by default.
 
+## Implementation status (2026-11-04)
+
+Built on `launch/website-prep`: `app/api/walkthrough/route.ts`, `lib/lead-capture/*`, `components/book-a-demo/DemoRequestForm.tsx`, `supabase/marketing/001_demo_enquiries.sql`. It follows the architecture below with these deliberate simplifications, each a gap to close before volume grows:
+
+- Emails are sent inline after the durable write, not from an outbox/queue. A failure is recorded on the lead (`ack_status` / `notify_status` / `last_error`) and logged as `notify_failed` / `ack_failed`; it is not retried automatically. Recovery is manual via `npm run leads:attention` / `leads:resend` (see Operational recovery). There is no dead-letter job or alert wiring.
+- Rate limiting is per serverless instance. Add Vercel WAF rate limiting for a hard limit.
+- Attribution (referrer, UTM) is not captured; only `source_page`.
+- No lead console, suppression/unsubscribe processing, bounce/complaint webhooks or retention job. The optional-updates checkbox records permission only; no marketing mailing process exists.
+- Qualification bands and challenge values in `lib/lead-capture/schema.ts` are a proposal awaiting owner approval.
+- Nothing is switched on until the required environment variables in `.env.example` are set; until then `/book-a-demo` shows its email-only layout and the API returns `503`.
+- Cal.com (D-039) is not integrated; an optional `CAL_BOOKING_URL` is shown as a link after the enquiry is stored.
+
 ## Recommended first-release architecture
 
 1. The walkthrough form posts to a same-origin endpoint such as `POST /api/walkthrough`.
@@ -13,6 +25,21 @@ Define how enquiries from `widian.tech` become owned, traceable sales activity w
 5. Delivery metadata and subsequent lifecycle changes are attached to the lead record.
 
 Email is a notification channel, not the canonical lead database. Do not place leads in the operational Widian Supabase project unless a documented data-boundary decision approves it.
+
+## Ownership
+
+Named lead owner: Tony Melling. Backup owners: Ricky, Priya (D-038). Owner notifications are delivered to the shared `info@widian.tech` mailbox (D-040), which the owner and backups must monitor. Reassign by updating this section and `DECISIONS.md`'s D-038 row — no code or schema change is required unless `LEAD_NOTIFY_TO` is used to override the mailbox.
+
+## Operational recovery
+
+A stored lead whose email did not go out must be findable and recoverable by a person, without a console or background job:
+
+1. **Detect.** The API logs `notify_failed` / `ack_failed` at error level with the lead reference (no personal data) — alert on those strings in the Vercel log drain. The lead row also keeps `ack_status`, `notify_status` and `last_error`.
+2. **List.** `npm run leads:attention` prints references, ages and statuses of leads whose acknowledgement or owner notification is not marked sent (rows under two minutes old are skipped as still in flight). A row stuck at `pending` for longer means the request died mid-send.
+3. **Resend.** `npm run leads:resend -- WD-XXXXXXXX` resends whichever email is not marked sent and updates the row; add `notify`, `ack` or `both` to force. It never creates a lead, so it cannot duplicate one.
+4. **Mailbox unavailable.** If `info@widian.tech` itself is the problem, the lead still exists in `demo_enquiries`; fix the mailbox and resend.
+
+The tool reads the same server-side variables as the site (for example from `.env.local`), prints no names, email addresses or messages, and requires Node 22.18+. Someone must run step 2 on a regular schedule until alerting is in place — that is an operating duty to assign.
 
 ## Canonical storage decision
 
@@ -136,7 +163,8 @@ Do not send names, emails, organisation names or free text to analytics.
 ## Decisions required
 
 - ~~Canonical CRM/database and data region~~ — isolated marketing database (D-007); data region still to confirm
-- Named lead owner and backup owner
+- ~~Named lead owner and backup owner~~ — Tony Melling (owner), Ricky and Priya (backup owners) (D-038)
+- ~~Calendar provider~~ — Cal.com (D-039); first release is an optional Cloud booking link only (D-040); API/webhook booking not built
 - Response target and escalation path
 - ~~Transactional email provider and sending subdomain~~ — Resend (D-008); subdomain and SPF/DKIM/DMARC configuration still to complete
 - Approved form fields and qualification bands
