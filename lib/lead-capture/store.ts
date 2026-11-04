@@ -26,10 +26,15 @@ export type DeliveryUpdate = {
 
 type Fetch = typeof fetch;
 
+/**
+ * Legacy `service_role` keys are JWTs and go in both headers. Newer `sb_secret_…` keys are not JWTs: sent as a
+ * Bearer token they are rejected ("Invalid JWT"), so they go in `apikey` only.
+ */
 function headers(config: LeadCaptureConfig, extra: Record<string, string> = {}) {
+  const isJwt = config.supabaseServiceKey.startsWith("eyJ");
   return {
     apikey: config.supabaseServiceKey,
-    Authorization: `Bearer ${config.supabaseServiceKey}`,
+    ...(isJwt ? { Authorization: `Bearer ${config.supabaseServiceKey}` } : {}),
     "Content-Type": "application/json",
     ...extra,
   };

@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { getLeadCaptureConfig } from "./config";
-import { getLeadByReference, listNeedingAttention } from "./store";
+import { getLeadByReference, insertLead, listNeedingAttention } from "./store";
 
 const config = getLeadCaptureConfig({
   MARKETING_SUPABASE_URL: "https://marketing.supabase.co",
@@ -38,6 +38,36 @@ describe("operational lead lookups", () => {
   it("surfaces storage failures instead of reporting an empty list", async () => {
     const fetchMock = vi.fn(async () => new Response("x", { status: 500 }));
     await expect(listNeedingAttention(config, {}, fetchMock as unknown as typeof fetch)).rejects.toThrow("storage_500");
+  });
+});
+
+describe("Supabase key formats", () => {
+  const lead = {
+    idempotencyKey: "5b0f3f3e-8f6d-4c0e-9b53-7f4f3f0c1a11",
+    correlationId: "5b0f3f3e-8f6d-4c0e-9b53-7f4f3f0c1a12",
+    reference: "WD-0A1B2C3D",
+    privacyNoticeVersion: "draft-0.3",
+    enquiry: {
+      name: "A", email: "a@example.com", organisation: "O", role: "R",
+      buildingBand: "1-5", challenge: "other", message: "", marketingOptIn: false,
+    },
+  };
+  const sentHeaders = async (key: string) => {
+    const fetchMock = vi.fn(async () => Response.json([{ id: "1" }]));
+    await insertLead({ ...config, supabaseServiceKey: key }, lead, fetchMock as unknown as typeof fetch);
+    return new Headers((fetchMock.mock.calls[0] as unknown as [string, RequestInit])[1].headers);
+  };
+
+  it("sends a new-style sb_secret_ key in apikey only (it is not a JWT)", async () => {
+    const h = await sentHeaders("sb_secret_abc123");
+    expect(h.get("apikey")).toBe("sb_secret_abc123");
+    expect(h.get("authorization")).toBeNull();
+  });
+
+  it("sends a legacy JWT service_role key in both headers", async () => {
+    const h = await sentHeaders("eyJhbGciOi.payload.sig");
+    expect(h.get("apikey")).toBe("eyJhbGciOi.payload.sig");
+    expect(h.get("authorization")).toBe("Bearer eyJhbGciOi.payload.sig");
   });
 });
 
