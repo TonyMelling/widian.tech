@@ -223,6 +223,14 @@
 
 **Open evidence.** (1) Live DPF status for Resend on the sign-off date; (2) Supabase's sub-processor list and TIA, including any Singapore access; (3) adoption by Widian Tech Limited once incorporated; (4) owner sign-off and review date.
 
+### 2026-11-04 (8) — Transfer assessment evidence closed
+
+**Resend.** DPF listing verified: Active Participant; EU-U.S. DPF and UK Extension both "Active – Re-certification under Review"; original certification 20 Feb 2025; next due 3 Mar 2027; Non-HR data. Data bridge applies.
+
+**Supabase.** Sub-processor list (12 Oct 2026) and TIA (14 Mar 2025) read in full. Material finding: the DPA names **Supabase Pte. Ltd. (Singapore)** as data importer, so Singapore is the principal destination and is now assessed (low residual risk; database and backups stay in London, support access only on request or incident). The TIA was written for Supabase, Inc., has no overall conclusion section, and lists vendors absent from the 2026 list; Supabase's own documents describe the entities inconsistently. Low-risk conclusion retained, with those limits stated.
+
+**Still open.** Owner sign-off; adoption by Widian Tech Limited; optional email to Supabase for a current TIA covering Pte. Ltd.; subscribe to sub-processor change notices. New condition: no enquiry data in Supabase support requests. Documentation only; no tests run or required.
+
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
 **Completed**
