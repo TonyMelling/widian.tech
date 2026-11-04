@@ -7,13 +7,13 @@ const STAGES = [
   ["Know", "Building owner or compliance team", "The building, its elements and what is already known about them are established in the building record."],
   ["Inspect", "Surveyor", "A structured inspection assesses each element and captures findings and photographic evidence on site."],
   ["Identify", "Surveyor", "Defects and risks are recorded as findings, each tied to the element and inspection that raised it."],
-  ["Prioritise", "Client", "The client determines which findings to remediate first and sets the remediation priorities."],
+  ["Prioritise", "Client", "The client sets the remediation priority for each finding. New actions stay unprioritised until the client decides."],
   ["Assign", "Compliance team", "Remedial work is allocated to a contractor against a defined scope."],
   ["Remediate", "Contractor", "The contractor completes the work and submits photographic evidence. Completed work is not yet proven compliant work."],
-  ["Re-inspect", "Reviewer", "The completed remediation is checked. If it does not pass, the work returns for corrective action."],
-  ["Verify", "Client approver", "For P1/P2 findings, the client accepts or rejects the outcome. A rejection returns the work to the contractor for corrective action. Lower-priority findings close after re-inspection."],
-  ["Update", "Recorded decision", "The verified outcome, with who acted and when, is added to the building record."],
-  ["Monitor", "Building owner or compliance team", "The record shows condition over time and informs the next inspection, which starts the cycle again."],
+  ["Re-inspect", "Reviewer", "The completed work is checked on re-inspection and signed off, with a note and photo evidence, by someone other than the original inspector. It does not reach the client until that sign-off is recorded."],
+  ["Verify", "Client approver", "The owning client accepts or rejects the outcome, for every priority from P1 to P5. A rejection needs a note and returns the work to the contractor for corrective action."],
+  ["Update", "Recorded decision", "An accepted outcome closes the finding, and the decision, who made it and when are added to the building record."],
+  ["Monitor", "Building owner or compliance team", "Every action is tracked on a status board — Open, In Progress, Completed / Re-inspect, Awaiting Client Verification, Client Rejected and Verified Closed — with overview figures for open, awaiting-priority and verified-closed actions. The updated record informs your next inspection, which starts the cycle again."],
 ] as const;
 
 function StageDetail({ index }: { index: number }) {
@@ -26,7 +26,7 @@ function StageDetail({ index }: { index: number }) {
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">Accountable role</dt><dd className="mt-1 text-sm font-semibold text-navy">{role}</dd></div>
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">What changes</dt><dd className="mt-1 text-sm leading-relaxed text-text-secondary">{body}</dd></div>
       </dl>
-      {index === 9 ? <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-relaxed text-text-secondary">Ongoing monitoring and planning of the next inspection cycle are being introduced.</p> : null}
+      {index === 9 ? <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-relaxed text-text-secondary">Your team starts each new inspection. Automated scheduling of the next inspection is not yet available.</p> : null}
     </div>
   );
 }
@@ -43,7 +43,6 @@ export function ResponsibilityStages({ recordContext }: ResponsibilityStagesProp
   return (
     <div>
       <LifecycleLoop stages={STAGES.map(([title]) => title)} selected={selected} />
-      <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-text-secondary">Widian is introducing the ten stages progressively. Ask us which are live for your portfolio.</p>
       {recordContext ? (
         <div className="mt-4 flex flex-col gap-1 border-l-2 border-ember bg-white px-4 py-3 text-sm text-navy sm:flex-row sm:items-center sm:gap-3">
           <strong>{recordContext.finding}</strong>

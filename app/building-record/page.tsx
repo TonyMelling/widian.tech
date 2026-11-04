@@ -30,7 +30,6 @@ export default function BuildingRecordPage() {
       <section className="bg-grey px-4 py-14 md:px-16 md:py-24"><div className="mx-auto max-w-280">
         <div className="grid gap-5 md:grid-cols-[0.75fr_1.25fr] md:items-end"><div><p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">The same finding over time</p><h2 className="mt-3 font-display text-2xl leading-tight font-bold text-navy md:text-[34px]">One finding through the ten-stage cycle.</h2></div><p className="max-w-2xl text-[15px] leading-relaxed text-text-secondary md:justify-self-end md:text-base">Follow one P1 finding through each stage of the compliance cycle. The building, the fire door and the finding stay attached throughout.</p></div>
         <div className="mt-8 md:mt-12"><RecordNavigator /></div>
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-text-secondary">Widian is introducing the ten stages progressively. Ask us which are live for your portfolio.</p>
       </div></section>
       <ScrollReveal><section className="px-4 py-14 md:px-16 md:py-24"><div className="mx-auto max-w-280"><div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-20">
         <div><p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">What stays attached</p><h2 className="mt-3 font-display text-2xl leading-tight font-bold text-navy md:text-[34px]">Context travels with every step.</h2></div>

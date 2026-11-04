@@ -16,7 +16,7 @@ const ROLES = [
   },
   {
     name: "Client",
-    description: "Makes the final acceptance call on the findings that matter most.",
+    description: "Sets remediation priorities and makes the final acceptance decision on completed work.",
     path: "M4 4h16v16H4z M8 10h8 M8 14h5",
   },
 ] as const;

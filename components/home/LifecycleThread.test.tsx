@@ -15,16 +15,15 @@ describe("LifecycleThread", () => {
     ]) {
       expect(screen.getAllByText(label).length).toBeGreaterThan(0);
     }
-    expect(screen.getAllByText("Verified*").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Verified").length).toBeGreaterThan(0);
     expect(screen.queryByText("Client verified")).not.toBeInTheDocument();
     expect(screen.queryByText("Recorded")).not.toBeInTheDocument();
     expect(screen.queryByText("Independently reviewed")).not.toBeInTheDocument();
   });
 
-  it("keeps the priority-scoping footnote visible near the thread", () => {
+  it("explains that verified outcomes feed the next inspection", () => {
     render(<LifecycleThread />);
-    expect(
-      screen.getByText(/Verification by the client applies to priority findings/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/informs the next inspection/)).toBeInTheDocument();
+    expect(screen.queryByText(/applies to priority findings/)).not.toBeInTheDocument();
   });
 });

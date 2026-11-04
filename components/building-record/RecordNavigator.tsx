@@ -10,10 +10,10 @@ const LEVELS = [
   { type: "Stage 04", name: "Prioritise", reference: "FND-207", description: "The client sets the remediation priority for the finding.", context: "Client · P1 priority set" },
   { type: "Stage 05", name: "Assign", reference: "WO-031", description: "A defined remedial scope is assigned without separating it from the finding that prompted it.", context: "Compliance team · contractor assigned" },
   { type: "Stage 06", name: "Remediate", reference: "WO-031", description: "The contractor completes the work and submits evidence against the defined scope. Completed work is not yet closure.", context: "Contractor · evidence submitted · not closed" },
-  { type: "Stage 07", name: "Re-inspect", reference: "CHK-018", description: "The completed remediation is checked on re-inspection before any verification decision is made.", context: "Reviewer · re-inspection recorded" },
-  { type: "Stage 08", name: "Verify", reference: "VER-009", description: "For this P1 finding, the client accepts or rejects the outcome. A rejection returns the work to the contractor.", context: "Client approver · P1/P2 scope" },
+  { type: "Stage 07", name: "Re-inspect", reference: "CHK-018", description: "The completed work is checked on re-inspection and signed off, with a note and photo evidence, by someone other than the original inspector.", context: "Reviewer · sign-off recorded" },
+  { type: "Stage 08", name: "Verify", reference: "VER-009", description: "The client accepts or rejects the outcome, as for every priority. A rejection returns the work to the contractor.", context: "Client approver · decision recorded" },
   { type: "Stage 09", name: "Update", reference: "REC-009", description: "The verified outcome, with who acted and when, is added to the building record.", context: "Recorded decision · verified outcome" },
-  { type: "Stage 10", name: "Monitor", reference: "BLD-012", description: "The updated record informs the next inspection of FD-014, and the cycle begins again.", context: "Next inspection cycle · monitoring being introduced" },
+  { type: "Stage 10", name: "Monitor", reference: "BLD-012", description: "The action is tracked on the status board and the updated record informs the next inspection of FD-014, which your team starts.", context: "Status board · next inspection led by your team" },
 ] as const;
 
 export function RecordNavigator() {

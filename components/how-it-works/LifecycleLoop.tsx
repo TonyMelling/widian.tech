@@ -43,7 +43,7 @@ function innerCurve(from: number, to: number, control: { x: number; y: number })
  * and the rework path back to Remediate. Decorative; the stage list beside it is the control.
  */
 export function LifecycleLoop({ stages, selected }: LifecycleLoopProps) {
-  const label = `Cycle of ten stages: ${stages.join(", ")}. Monitor returns to Inspect to start the next cycle. A failed re-inspection or a rejected outcome returns the work to Remediate.`;
+  const label = `Cycle of ten stages: ${stages.join(", ")}. Monitor returns to Inspect to start the next cycle. A rejected outcome returns the work to Remediate.`;
   return (
     <figure className="mx-auto max-w-lg">
       <svg viewBox="0 20 400 360" role="img" aria-label={label} className="h-auto w-full">
@@ -99,11 +99,11 @@ export function LifecycleLoop({ stages, selected }: LifecycleLoopProps) {
       <figcaption className="mt-4 space-y-2 text-sm leading-relaxed text-text-secondary">
         <p className="flex items-start gap-3">
           <span className="mt-2 h-0.5 w-6 shrink-0 bg-ember-hover" aria-hidden="true" />
-          <span><strong className="text-navy">Next cycle.</strong> Monitoring returns to inspection, with the updated record to hand.</span>
+          <span><strong className="text-navy">Next cycle.</strong> Monitoring leads back to inspection, with the updated record to hand.</span>
         </p>
         <p className="flex items-start gap-3">
           <span className="mt-2 w-6 shrink-0 border-t-2 border-dashed border-amber" aria-hidden="true" />
-          <span><strong className="text-navy">Rework.</strong> A failed re-inspection or a rejected outcome returns the work to remediation.</span>
+          <span><strong className="text-navy">Rework.</strong> A rejected outcome returns the work to remediation.</span>
         </p>
       </figcaption>
     </figure>

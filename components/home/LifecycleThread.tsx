@@ -7,7 +7,7 @@ const STAGES = [
   { label: "Assigned", color: "bg-ember" },
   { label: "Remediated", color: "bg-ember" },
   { label: "Re-inspected", color: "bg-ember" },
-  { label: "Verified*", color: "bg-verified" },
+  { label: "Verified", color: "bg-verified" },
   { label: "Closed", color: "bg-navy" },
 ] as const;
 
@@ -78,10 +78,6 @@ export function LifecycleThread() {
       </ol>
 
       <p className="mx-auto mt-9 max-w-md text-center text-sm text-text-secondary">
-        * Verification by the client applies to priority findings. Lower-priority findings
-        close after re-inspection.
-      </p>
-      <p className="mx-auto mt-3 max-w-md text-center text-sm text-text-secondary">
         Each verified outcome is added to the building record and informs the next inspection, so the
         cycle repeats rather than ending at closure.
       </p>

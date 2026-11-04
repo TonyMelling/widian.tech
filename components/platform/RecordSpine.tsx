@@ -39,7 +39,7 @@ const LAYERS: Layer[] = [
   },
   {
     title: "Findings",
-    records: "A defect or finding raised from an inspection, with a priority from P1 to P5.",
+    records: "A defect or finding raised from an inspection, with a P1 to P5 remediation priority set by the client.",
     persistsBecause:
       "A finding stays open until it is properly closed, not simply marked “fixed” and forgotten.",
     contributesToTruth: "Priority makes what matters most easy to see.",
@@ -73,10 +73,9 @@ const LAYERS: Layer[] = [
   {
     title: "Client verification",
     records:
-      "For priority (P1/P2) findings, the client's own nominated approver accepting the evidence before the record closes.",
+      "The owning client accepting or rejecting the evidence before any finding closes, for every priority from P1 to P5.",
     persistsBecause: "It records an explicit, attributable acceptance decision, separate from independent review.",
     contributesToTruth: "Separates contractor-reported completion from client-accepted closure.",
-    claim: { scope: "P1/P2 findings only" },
   },
   {
     title: "History and issued records",
