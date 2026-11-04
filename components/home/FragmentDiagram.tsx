@@ -150,7 +150,7 @@ export function FragmentDiagram() {
       </svg>
       <figcaption className="mt-3">
         <ConceptLabel>
-          scattered activity converges into one connected building record
+          Illustration: scattered reports, evidence and actions come together in one building record.
         </ConceptLabel>
       </figcaption>
     </figure>

@@ -81,9 +81,6 @@ export function LifecycleThread() {
         * Verification by the client applies to priority findings. Lower-priority findings
         close once independently reviewed.
       </p>
-      <p className="mx-auto mt-3 max-w-lg text-center font-mono text-[10px] leading-relaxed tracking-wide text-text-secondary uppercase">
-        Conceptual responsibility summary · the proposed product lifecycle uses ten explicit stages
-      </p>
     </div>
   );
 }

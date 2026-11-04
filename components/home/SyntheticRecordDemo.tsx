@@ -13,7 +13,7 @@ export function SyntheticRecordDemo() {
       <div className="grid border-b border-hairline md:grid-cols-[0.72fr_1.28fr]">
         <div className="bg-navy p-6 text-white md:p-8">
           <p className="font-mono text-[10px] tracking-[0.12em] text-ember-on-navy uppercase">
-            Synthetic demonstration
+            Example record
           </p>
           <p className="mt-5 font-display text-2xl font-bold">Harbour Court</p>
           <dl className="mt-8 space-y-5 text-sm">
@@ -44,7 +44,7 @@ export function SyntheticRecordDemo() {
         </ol>
       </div>
       <figcaption className="border-t border-hairline bg-grey px-6 py-4">
-        <ConceptLabel>synthetic names and values; demonstrates record continuity, not a live product screen</ConceptLabel>
+        <ConceptLabel>Example record with sample names and values, showing how one finding stays connected from first record to next action.</ConceptLabel>
       </figcaption>
     </figure>
   );

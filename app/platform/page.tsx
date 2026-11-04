@@ -21,14 +21,14 @@ export const metadata: Metadata = {
 
 const OBJECTIONS = [
   {
-    question: "Isn't this just a set of separate module screens?",
+    question: "Isn't this just a set of separate modules?",
     answer:
-      "Each layer is explicitly framed by what it persists and how it connects back to the building, not as an independent feature.",
+      "No. Every layer is recorded against the building, so an inspection, a finding and its remedial evidence stay connected rather than sitting in separate tools.",
   },
   {
     question: "Why not just keep using reports and spreadsheets?",
     answer:
-      "Each layer's persistence is the direct answer: nothing here is a one-off snapshot that goes stale the day it's issued.",
+      "Reports and spreadsheets are snapshots that go stale the day they are issued. Widian keeps the record open, so you can see what is outstanding and who owns the next action.",
   },
   {
     question: "Can I trust that evidence hasn't been altered?",
@@ -76,10 +76,10 @@ export default function PlatformPage() {
           <section className="bg-navy px-4 py-14 md:px-16 md:py-24">
             <div className="mx-auto max-w-280">
               <h2 className="mx-auto max-w-xl text-center font-display text-2xl font-bold text-white md:text-[32px]">
-                Nine record layers. Ten lifecycle stages.
+                What every building record holds.
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-center text-[15px] leading-relaxed text-on-navy-secondary md:text-base">
-                These nine accordions describe what the record contains. The separate ten-stage lifecycle describes how one finding moves from recorded to closed.
+                Nine layers, from the building’s identity to its issued history, stay connected to one another. Separately, the ten-stage lifecycle shows how each finding moves from recorded to closed.
               </p>
               <div className="mt-10 md:mt-16">
                 <RecordSpine />

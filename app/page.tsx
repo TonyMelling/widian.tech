@@ -54,7 +54,7 @@ export default function HomePage() {
               <div className="parallax-frame relative aspect-[3/2] overflow-hidden border border-navy-hairline bg-navy-800">
                 <Image
                   src="/images/building-record-cutaway.webp"
-                  alt="Conceptual cutaway of a residential building connected by one evidence thread from inspection to closure."
+                  alt="Cutaway illustration of a residential building connected by one evidence thread from inspection to closure."
                   fill
                   priority
                   sizes="(min-width: 768px) 46vw, 100vw"
@@ -62,7 +62,7 @@ export default function HomePage() {
                 />
               </div>
               <figcaption className="mt-3 [&_p]:text-on-navy-muted">
-                <ConceptLabel>the thread represents connected evidence and decisions</ConceptLabel>
+                <ConceptLabel>Illustration: one evidence thread connects each stage, from inspection to closure.</ConceptLabel>
               </figcaption>
             </figure>
           </div>

@@ -6,7 +6,7 @@ describe("SecurityTrustPage", () => {
   it("states verified controls with their limits", () => {
     render(<SecurityTrustPage />);
 
-    expect(screen.getByRole("heading", { name: "What we can evidence today." })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "How Widian protects the record." })).toBeInTheDocument();
     expect(screen.getByText(/Hashing is not external notarisation/)).toBeInTheDocument();
     expect(screen.getByText(/issued reports, not every record/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "What the hash can prove." })).toBeInTheDocument();

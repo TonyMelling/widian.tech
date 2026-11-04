@@ -25,7 +25,7 @@ function StageDetail({ index }: { index: number }) {
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">Accountable role</dt><dd className="mt-1 text-sm font-semibold text-navy">{role}</dd></div>
         <div><dt className="font-mono text-[10px] tracking-wide text-text-secondary uppercase">What changes</dt><dd className="mt-1 text-sm leading-relaxed text-text-secondary">{body}</dd></div>
       </dl>
-      {index === 8 ? <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-relaxed text-text-secondary">Current product scope: client verification applies to P1/P2 findings. Lower-priority findings close after the applicable review path.</p> : null}
+      {index === 8 ? <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-relaxed text-text-secondary">Client verification applies to P1/P2 findings. Lower-priority findings close after the applicable review path.</p> : null}
     </div>
   );
 }
@@ -41,7 +41,7 @@ export function ResponsibilityStages({ recordContext }: ResponsibilityStagesProp
   const [selected, setSelected] = useState(0);
   return (
     <div>
-      <div className="border border-amber bg-[#FFF8EB] px-4 py-3 text-sm leading-relaxed text-navy"><strong>Proposed target lifecycle.</strong> The ten-stage model describes the intended lifecycle, not every step available today. Client verification currently applies to P1/P2 findings.</div>
+      <p className="text-sm leading-relaxed text-text-secondary">Widian is introducing the ten stages progressively. Ask us which are live for your portfolio.</p>
       {recordContext ? (
         <div className="mt-4 flex flex-col gap-1 border-l-2 border-ember bg-white px-4 py-3 text-sm text-navy sm:flex-row sm:items-center sm:gap-3">
           <strong>{recordContext.finding}</strong>

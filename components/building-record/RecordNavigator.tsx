@@ -12,7 +12,7 @@ const LEVELS = [
   { type: "Stage 06", name: "In progress", reference: "WO-031", description: "Work has started, but no completion or verification decision has been made.", context: "Contractor · work underway" },
   { type: "Stage 07", name: "Remediated", reference: "WO-031", description: "The contractor submits completion evidence against the defined remedial scope.", context: "Evidence submitted · not closed" },
   { type: "Stage 08", name: "Independently checked", reference: "CHK-018", description: "Someone other than the original submitter reviews the remedial evidence.", context: "Separate reviewer · check recorded" },
-  { type: "Stage 09", name: "Client verified", reference: "VER-009", description: "For this synthetic P1 finding, a client approver makes a separate acceptance decision.", context: "Client approver · P1/P2 scope" },
+  { type: "Stage 09", name: "Client verified", reference: "VER-009", description: "For this P1 finding, a client approver makes a separate acceptance decision.", context: "Client approver · P1/P2 scope" },
   { type: "Stage 10", name: "Closed", reference: "CLS-009", description: "The outcome, responsible actor and time remain attached to the building record.", context: "Recorded decision · verified closure" },
 ] as const;
 
@@ -25,11 +25,11 @@ export function RecordNavigator() {
   return (
     <div className="border border-navy-hairline bg-navy text-white">
       <div className="flex flex-col gap-2 border-b border-navy-hairline px-5 py-4 sm:flex-row sm:items-center sm:justify-between md:px-7">
-        <p className="font-mono text-[11px] tracking-[0.09em] text-ember-on-navy uppercase">Synthetic demonstration</p>
-        <p className="text-xs leading-relaxed text-on-navy-muted">Proposed target lifecycle · not a live product screen</p>
+        <p className="font-mono text-[11px] tracking-[0.09em] text-ember-on-navy uppercase">Worked example</p>
+        <p className="text-xs leading-relaxed text-on-navy-muted">Sample building and data, shown for illustration</p>
       </div>
       <div className="grid min-w-0 lg:grid-cols-[19rem_1fr]">
-        <nav className="relative min-w-0 overflow-hidden border-b border-navy-hairline lg:border-r lg:border-b-0" aria-label="Synthetic ten-stage building record lifecycle">
+        <nav className="relative min-w-0 overflow-hidden border-b border-navy-hairline lg:border-r lg:border-b-0" aria-label="Ten-stage lifecycle example">
           <ol ref={railRef} onScroll={updateRailPosition} className="flex max-w-full overflow-x-auto lg:block">
             {LEVELS.map((level, index) => {
               const active = index === selectedIndex;

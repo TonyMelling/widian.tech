@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useHorizontalRail } from "@/components/ui/useHorizontalRail";
 
 const STEPS = [
-  { title: "Separate tools", status: "Current condition", body: "Each organisation keeps its own report, task list or evidence store. The information stops at organisational boundaries." },
-  { title: "Persistent building", status: "Operating principle", body: "The building remains the subject even when the organisations responsible for it change." },
-  { title: "Controlled contribution", status: "Verified foundation", body: "Permissioned parties can contribute to connected records within their own role and organisation." },
-  { title: "Useful history", status: "Expected value", body: "Connected inspection, work and decision history should be more useful than a record that restarts with each appointment. This value is not yet quantified." },
-  { title: "Potential network effects", status: "Strategic hypothesis", body: "Repeated participation may make the building record a natural coordination point. This is a hypothesis, not a measured network effect." },
-  { title: "Future services", status: "Future possibility", body: "Trusted workflow infrastructure could support future commercial services. None is presented here as an existing offering or roadmap commitment." },
+  { title: "Separate tools", status: "Today", body: "Each organisation keeps its own report, task list or evidence store. The information stops at organisational boundaries." },
+  { title: "Persistent building", status: "How Widian works", body: "The building remains the subject even when the organisations responsible for it change." },
+  { title: "Controlled contribution", status: "Available now", body: "Permissioned parties can contribute to connected records within their own role and organisation." },
+  { title: "Useful history", status: "Our aim", body: "Connected inspection, work and decision history should be more useful than a record that restarts with each appointment." },
+  { title: "Shared coordination", status: "Looking ahead", body: "As more of the parties responsible for a building work from the same record, it could become the natural place to coordinate." },
+  { title: "Future services", status: "Looking ahead", body: "Trusted workflow infrastructure could in future support additional services. These are possibilities, not current offerings." },
 ] as const;
 
 export function MarketRoadmap() {

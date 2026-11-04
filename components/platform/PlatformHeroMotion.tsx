@@ -16,7 +16,7 @@ export function PlatformHeroMotion() {
       <div
         className="relative min-h-[340px] overflow-hidden bg-white sm:min-h-[390px]"
         role="img"
-        aria-label="Conceptual animation showing nine kinds of building information connecting to one persistent Building Record."
+        aria-label="Animation showing nine kinds of building information connecting to one persistent building record."
       >
         <div className="absolute top-0 right-0 left-0 flex items-center justify-between border-b border-hairline px-4 py-3 font-mono text-[10px] tracking-[0.1em] text-text-secondary uppercase">
           <span>Record assembly</span>
@@ -65,7 +65,7 @@ export function PlatformHeroMotion() {
         </div>
       </div>
       <figcaption className="mt-3 font-mono text-[10px] leading-relaxed tracking-[0.08em] text-text-secondary uppercase">
-        Conceptual platform model · illustrates connected record layers, not a product screen
+        Illustration: nine kinds of building information connected to one building record.
       </figcaption>
     </figure>
   );

@@ -3,12 +3,12 @@ import { describe, expect, it } from "vitest";
 import { ResponsibilityStages } from "./ResponsibilityStages";
 
 describe("ResponsibilityStages", () => {
-  it("shows all ten proposed lifecycle stages", () => {
+  it("shows all ten lifecycle stages", () => {
     render(<ResponsibilityStages />);
     for (const stage of ["Recorded", "Submitted", "Reviewed", "Finding raised", "Assigned", "In progress", "Remediated", "Independently checked", "Client verified", "Closed"]) {
       expect(screen.getAllByRole("button", { name: new RegExp(stage, "i") }).length).toBeGreaterThan(0);
     }
-    expect(screen.getByText(/proposed target lifecycle/i)).toBeInTheDocument();
+    expect(screen.getByText(/introducing the ten stages progressively/i)).toBeInTheDocument();
   });
 
   it("retains the supplied building and finding context", () => {

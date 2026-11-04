@@ -7,8 +7,8 @@ describe("MarketRoadmap", () => {
     render(<MarketRoadmap />);
     expect(screen.getAllByRole("button").filter((button) => /^0\d/.test(button.textContent ?? ""))).toHaveLength(6);
     expect(screen.getByRole("button", { name: "Show more market direction options" })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /potential network effects/i }));
-    expect(screen.getByText("Strategic hypothesis")).toBeInTheDocument();
-    expect(screen.getByText(/not a measured network effect/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /shared coordination/i }));
+    expect(screen.getByText("Looking ahead")).toBeInTheDocument();
+    expect(screen.getByText(/it could become the natural place to coordinate/i)).toBeInTheDocument();
   });
 });

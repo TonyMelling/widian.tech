@@ -3,7 +3,7 @@ import { RoleSolutionPage } from "@/components/solutions/RoleSolutionPage";
 
 export const metadata: Metadata = {
   title: "Solutions for Building Owners",
-  robots: { index: false, follow: true },
+  description: "See open findings, outstanding actions and accountable decisions across every building in your portfolio, held in one Widian building record.",
 };
 
 export default function BuildingOwnersPage() {
@@ -12,7 +12,7 @@ export default function BuildingOwnersPage() {
       { title: "Portfolio truth", body: "See open findings and outstanding actions across the buildings you are responsible for." },
       { title: "Accountable delegation", body: "The record shows who received an action and which evidenced decision follows." },
       { title: "Management activity", body: "Reviews, delegations and decisions remain attached to the operational record." },
-      { title: "Qualified closure", body: "For P1/P2 findings, the client acceptance decision remains distinct from contractor completion." },
+      { title: "Client-accepted closure", body: "For P1/P2 findings, the client acceptance decision remains distinct from contractor completion." },
     ]} />
   );
 }

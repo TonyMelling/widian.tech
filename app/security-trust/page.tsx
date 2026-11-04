@@ -10,30 +10,29 @@ export const metadata: Metadata = {
   title: "Security & Trust",
   description:
     "See what Widian can currently evidence about attribution, permissions and record integrity, including the limits of those claims.",
-  robots: { index: false, follow: true },
 };
 
 const ASSURANCE_ITEMS = [
   {
     title: "Identity and attribution",
-    status: "Verified",
-    statusClass: "text-verified",
+    status: "Accountability",
+    statusClass: "text-ember-hover",
     summary:
-      "Implemented audit events, work-order transitions and review records retain the account and timestamp associated with the action.",
-    scope: "Scoped to implemented events and actor fields on core records.",
+      "Audit events, work-order transitions and review records retain the account and timestamp associated with the action.",
+    scope: "Applies to the events and actor fields Widian records on core records.",
   },
   {
     title: "Organisation and role boundaries",
-    status: "Verified",
-    statusClass: "text-verified",
+    status: "Access control",
+    statusClass: "text-ember-hover",
     summary:
-      "Access is scoped by organisation and implemented role. Database row-level security enforces those boundaries rather than relying on interface labels alone.",
-    scope: "Verified roles include Widian administrators, surveyors, suppliers and client users.",
+      "Access is scoped by organisation and user role. Database row-level security enforces those boundaries rather than relying on interface labels alone.",
+    scope: "Roles include surveyors, contractors, client users and Widian administrators.",
   },
   {
     title: "Evidence integrity checking",
-    status: "Qualified",
-    statusClass: "text-amber",
+    status: "Evidence integrity",
+    statusClass: "text-ember-hover",
     summary:
       "SHA-256 hashes support integrity checking for inspections, evidence photographs, signatures, work orders and issued reports.",
     scope:
@@ -41,8 +40,8 @@ const ASSURANCE_ITEMS = [
   },
   {
     title: "Issued-report controls",
-    status: "Verified · issued reports only",
-    statusClass: "text-verified",
+    status: "Issued reports",
+    statusClass: "text-ember-hover",
     summary:
       "Once a report is issued, its original bytes, hash and template version are frozen. It cannot be deleted and can only move one way to superseded or withdrawn.",
     scope: "This control applies to issued reports, not every record in Widian.",
@@ -69,8 +68,7 @@ export default function SecurityTrustPage() {
               Trust is not a badge. It is a provable record.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-on-navy-secondary md:text-lg">
-              We would rather state exactly what the current evidence supports than imply more
-              than we can prove.
+              We would rather say exactly what Widian does than imply more than we can show.
             </p>
           </div>
         </section>
@@ -80,15 +78,14 @@ export default function SecurityTrustPage() {
             <div className="grid gap-6 border-b border-hairline pb-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
               <div>
                 <p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">
-                  Evidence register
+                  Security controls
                 </p>
                 <h2 id="assurance-register" className="mt-3 font-display text-2xl font-bold text-navy md:text-[34px]">
-                  What we can evidence today.
+                  How Widian protects the record.
                 </h2>
               </div>
               <p className="max-w-2xl text-[15px] leading-relaxed text-text-secondary md:justify-self-end md:text-base">
-                Each statement carries its own scope. A qualified claim is not a weaker label;
-                it is the boundary that keeps the statement accurate.
+                Each control is described with its scope, so you can see exactly what it covers.
               </p>
             </div>
 
@@ -117,7 +114,7 @@ export default function SecurityTrustPage() {
           <div className="mx-auto grid max-w-280 gap-10 md:grid-cols-[0.75fr_1.25fr] md:gap-20">
             <div>
               <p className="font-mono text-[11px] tracking-[0.1em] text-ember-hover uppercase">
-                Limits kept visible
+                Being clear about limits
               </p>
               <h2 id="not-claimed" className="mt-3 font-display text-2xl font-bold text-navy md:text-[34px]">
                 What we do not claim.

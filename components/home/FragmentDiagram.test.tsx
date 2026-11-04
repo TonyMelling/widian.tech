@@ -6,7 +6,7 @@ describe("FragmentDiagram", () => {
   it("renders the decorative diagram and a visible, readable caption", () => {
     render(<FragmentDiagram />);
     expect(
-      screen.getByText(/scattered activity converges into one connected building record/i),
+      screen.getByText(/scattered reports, evidence and actions come together in one building record/i),
     ).toBeInTheDocument();
   });
 

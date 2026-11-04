@@ -2,62 +2,57 @@
 
 import { useState } from "react";
 
-type ClaimStatus = "Verified" | "Qualified";
-
 type Layer = {
   title: string;
   records: string;
   persistsBecause: string;
   contributesToTruth: string;
-  claim?: { label: string; status: ClaimStatus; scope?: string };
+  claim?: { scope?: string };
 };
 
-// Nine record layers from docs/copy/platform.md §6 — draft, pending
-// Brand Strategist / Senior Copywriter / Product Truth review per that
-// file's header. Claim statuses mirror the §8 proof-points table, which
-// mirrors CLAIMS_REGISTER.md (2026-08-24 version).
+// Nine record layers. Each `claim.scope` is a limitation that must stay visible beside the layer.
 const LAYERS: Layer[] = [
   {
     title: "Building identity",
     records: "The building itself, as the permanent anchor everything else attaches to.",
     persistsBecause:
-      "Every layer below is created against a specific building and cannot exist independently of it.",
+      "Inspections, findings and evidence are all recorded against a specific building, so nothing sits unattached.",
     contributesToTruth:
-      "Nothing in the record is ever “homeless” — a finding always traces back to one building.",
-    claim: { label: "One structured building record", status: "Qualified" },
+      "Every finding traces back to one building.",
+    
   },
   {
     title: "Element register",
     records:
       "Individual elements — the specific fire doors, compartmentation lines or assets that make up the building's compliance surface, identifiable by QR scan on site.",
-    persistsBecause: "An element outlives any single inspection of it.",
+    persistsBecause: "An element outlives any single inspection of it, so its history stays in one place.",
     contributesToTruth:
       "A finding traces to one specific element, not a vague reference to “the building.”",
-    claim: { label: "QR scanning, photo evidence and P1–P5 priorities", status: "Verified" },
+    
   },
   {
     title: "Inspections",
     records:
       "A structured inspection against a specific element, reviewed and either confirmed or returned for correction.",
-    persistsBecause: "It forms the base evidence trail everything else builds on.",
-    contributesToTruth: "Shows what was actually checked, by whom, and when.",
+    persistsBecause: "It forms the evidence trail that everything else builds on.",
+    contributesToTruth: "Shows what was checked, by whom and when.",
   },
   {
     title: "Findings",
     records: "A defect or finding raised from an inspection, with a priority from P1 to P5.",
     persistsBecause:
-      "A finding stays open until it is properly closed — not simply marked “fixed” and forgotten.",
-    contributesToTruth: "Priority makes what matters most visible without digging.",
-    claim: { label: "QR scanning, photo evidence and P1–P5 priorities", status: "Verified" },
+      "A finding stays open until it is properly closed, not simply marked “fixed” and forgotten.",
+    contributesToTruth: "Priority makes what matters most easy to see.",
+    
   },
   {
     title: "Remediation",
     records:
       "The work order assigned to a contractor against a specific finding, including work completed via a secure guest link where a contractor has no full account.",
     persistsBecause:
-      "It shows exactly what was done, by whom, against which finding — not just that “the issue was addressed.”",
+      "It shows what was done, by whom and against which finding, not just that “the issue was addressed.”",
     contributesToTruth: "Separates “assigned” from “done.”",
-    claim: { label: "Guest contractor completion", status: "Verified" },
+    
   },
   {
     title: "Evidence",
@@ -65,114 +60,63 @@ const LAYERS: Layer[] = [
       "Photographs and signatures submitted against a finding or work order, each integrity-checked.",
     persistsBecause:
       "Evidence stays attached to the exact record it was submitted against, not filed separately.",
-    contributesToTruth: "Supports later review without needing to revisit site.",
-    claim: { label: "Evidence hashing", status: "Qualified", scope: "integrity checking, not external notarisation" },
+    contributesToTruth: "Supports later review without another site visit.",
+    claim: { scope: "integrity checking, not external notarisation" },
   },
   {
     title: "Independent checking",
     records: "A review carried out by someone other than the person who submitted the original inspection.",
-    persistsBecause: "It creates a second, separate confirmation — not a note added by the same account.",
-    contributesToTruth: "The record does not rely on a single person's word.",
-    claim: { label: "Independent inspection", status: "Qualified", scope: "a reviewer other than the original submitter" },
+    persistsBecause: "It gives a second, separate confirmation rather than a note added by the same account.",
+    contributesToTruth: "The record does not rely on one person’s word.",
+    claim: { scope: "a reviewer other than the original submitter" },
   },
   {
     title: "Client verification",
     records:
       "For priority (P1/P2) findings, the client's own nominated approver accepting the evidence before the record closes.",
-    persistsBecause: "It creates an explicit, attributable acceptance decision, distinct from independent review.",
+    persistsBecause: "It records an explicit, attributable acceptance decision, separate from independent review.",
     contributesToTruth: "Separates contractor-reported completion from client-accepted closure.",
-    claim: { label: "Client verification and closure", status: "Qualified", scope: "P1/P2 findings only" },
+    claim: { scope: "P1/P2 findings only" },
   },
   {
     title: "History and issued records",
     records: "Issued reports and doorset records, frozen once issued.",
     persistsBecause:
-      "Once issued, a record cannot be edited or deleted — only marked superseded or withdrawn, with the original preserved.",
-    contributesToTruth: "Nothing gets quietly rewritten after the fact.",
-    claim: { label: "Immutable issued records", status: "Verified", scope: "issued reports only" },
+      "Once issued, a report cannot be edited or deleted, only marked superseded or withdrawn, with the original preserved.",
+    contributesToTruth: "Nothing is quietly rewritten after the fact.",
+    claim: { scope: "issued reports only" },
   },
 ];
 
-function ClaimBadge({ claim }: { claim: NonNullable<Layer["claim"]> }) {
-  // Both states use a filled pill (bg + white text), not amber-outline
-  // text-on-navy — that combination was 3.59:1, failing WCAG AA's 4.5:1
-  // for normal text (2026-08-24 accessibility review). Filled amber +
-  // white text passes at 5.32:1, matching how "Verified" already works.
-  const pillClasses = claim.status === "Verified" ? "bg-verified text-white" : "bg-amber text-white";
-  return (
-    <div>
-      <span
-        className={`inline-flex items-center rounded-full px-3 py-1 font-mono text-[11px] font-medium tracking-wide uppercase ${pillClasses}`}
-      >
-        {claim.status}
-      </span>
-      <p className="mt-2 text-[13px] leading-relaxed text-on-navy-muted">
-        {claim.label}
-        {claim.scope ? ` — ${claim.scope}` : ""}
-      </p>
-    </div>
-  );
-}
-
-function LayerVisual({ layer, index }: { layer: Layer; index: number }) {
-  return (
-    <div
-      className="mt-6 border border-navy-hairline bg-navy-800 p-5"
-      role="img"
-      aria-label={`Conceptual diagram showing ${layer.title} connected to the persistent building record.`}
-    >
-      <div className="flex items-center gap-3" aria-hidden="true">
-        <span className="flex h-11 w-11 items-center justify-center border border-ember font-mono text-xs text-white">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <span className="h-px flex-1 bg-ember" />
-        <span className="border border-navy-hairline bg-navy px-3 py-2 font-mono text-[10px] text-on-navy-secondary uppercase">
-          Building record
-        </span>
-      </div>
-      <p className="mt-4 font-mono text-[10px] tracking-[0.08em] text-on-navy-muted uppercase">
-        Conceptual record relationship · not a product screen
-      </p>
-    </div>
-  );
-}
-
-function LayerDetail({ layer, index }: { layer: Layer; index: number }) {
+function LayerDetail({ layer }: { layer: Layer }) {
   return (
     <div>
       <h3 className="font-display text-xl font-bold text-white md:text-2xl">{layer.title}</h3>
       <dl className="mt-6 space-y-5">
         <div>
-          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Records</dt>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">What it holds</dt>
           <dd className="mt-1.5 text-[15px] leading-relaxed text-white">{layer.records}</dd>
         </div>
         <div>
-          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Persists because</dt>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Why it matters</dt>
           <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">{layer.persistsBecause}</dd>
         </div>
         <div>
-          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">Contributes to present truth</dt>
+          <dt className="font-mono text-[11px] tracking-[0.1em] text-ember-on-navy uppercase">What you get</dt>
           <dd className="mt-1.5 text-[15px] leading-relaxed text-on-navy-secondary">{layer.contributesToTruth}</dd>
         </div>
       </dl>
-      {layer.claim ? (
-        <div className="mt-6 border-t border-navy-hairline pt-5">
-          <ClaimBadge claim={layer.claim} />
-        </div>
+      {layer.claim?.scope ? (
+        <p className="mt-6 border-t border-navy-hairline pt-5 text-[13px] leading-relaxed text-on-navy-muted">
+          <span className="font-semibold text-on-navy-secondary">Scope:</span>{" "}
+          {layer.claim.scope.charAt(0).toUpperCase() + layer.claim.scope.slice(1)}.
+        </p>
       ) : null}
-      <LayerVisual layer={layer} index={index} />
     </div>
   );
 }
 
-/** Platform's dominant interaction (SPEC §7.2, "architectural cutaway /
- * vertical record spine — not marketing cards"): select one of nine
- * record layers to reveal what it records, why it persists, and how it
- * contributes to present truth. Selection state is plain React state,
- * not a native disclosure element, because desktop shows the list and
- * detail side by side rather than stacking. Every layer's full detail
- * is reachable by keyboard via the button list; only the associated
- * panel content changes, not the available layers. */
+/** Select one of nine record layers to see what it holds, why it matters and what it gives you. */
 export function RecordSpine() {
   const [selected, setSelected] = useState(0);
   const active = LAYERS[selected];
@@ -209,7 +153,7 @@ export function RecordSpine() {
               </button>
               {isActive ? (
                 <div id={mobilePanelId} className="border-x border-b border-navy-hairline bg-navy-800 p-5">
-                  <LayerDetail layer={layer} index={i} />
+                  <LayerDetail layer={layer} />
                 </div>
               ) : null}
             </li>
@@ -256,7 +200,7 @@ export function RecordSpine() {
       </ol>
 
       <div id={panelId} aria-live="polite" className="min-w-0">
-        <LayerDetail layer={active} index={selected} />
+        <LayerDetail layer={active} />
       </div>
       </div>
     </>

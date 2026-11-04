@@ -5,9 +5,9 @@ import { RoleSwitcher } from "./RoleSwitcher";
 describe("RoleSwitcher", () => {
   it("changes the conceptual image with the selected role", () => {
     render(<RoleSwitcher />);
-    expect(screen.getByRole("img", { name: /conceptual cutaway/i })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /cutaway illustration/i })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("tab", { name: /surveyor/i }));
     expect(screen.getByRole("img", { name: /surveyor capturing structured evidence/i })).toBeInTheDocument();
-    expect(screen.getByText(/synthetic scenario, not product evidence/i)).toBeInTheDocument();
+    expect(screen.getByText(/illustration of a sample scenario/i)).toBeInTheDocument();
   });
 });

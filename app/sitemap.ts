@@ -7,25 +7,33 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://widian.tech";
 
 // Only canonical, fully-built, indexable routes belong here — per
 // SEO_STRATEGY_AND_TECHNICAL_PLAN.md ("Sitemap contains only canonical
-// production URLs"). Every other route currently declares
-// `robots: { index: false }` and is deliberately excluded until it has
-// real content, not just a stub. Add entries here as each page ships.
+// production URLs"). Deliberately excluded: /privacy (draft until approved),
+// /cookies (legal), /new-market (direct access only) and /resources (listed
+// below only once an article is published). Add entries as each page ships.
+const PAGES: { path: string; changeFrequency: "weekly" | "monthly"; priority: number }[] = [
+  { path: "", changeFrequency: "weekly", priority: 1 },
+  { path: "/platform", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/how-it-works", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/building-record", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/solutions/building-owners", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions/compliance-teams", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions/surveyors", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/solutions/contractors", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/security-trust", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/book-a-demo", changeFrequency: "monthly", priority: 0.9 },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const resources = getPublishedResources();
 
   return [
-    {
-      url: siteUrl,
+    ...PAGES.map(({ path, changeFrequency, priority }) => ({
+      url: `${siteUrl}${path}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/platform`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+      changeFrequency,
+      priority,
+    })),
     // /resources itself is only indexable once it has real content — see
     // that route's own metadata — but the sitemap always lists it once
     // at least one article exists, matching that same condition.
