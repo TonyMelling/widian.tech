@@ -235,7 +235,7 @@
 
 **Recorded.** The owner provisionally accepted the International Transfer Assessment (low residual risk, including both limits) and the rule that enquiry data stays out of Supabase support requests, screenshots and shared logs. Formal adoption by Widian Tech Limited is pending incorporation; no signature or approval date was added. Notice draft 0.5 and the Production gate are unchanged.
 
-**Test enquiries.** A read-only query of `public.demo_enquiries` in the `widian_marketing` project (org "Widian", `main`) returned exactly two rows, both fictional: `WD-E21BC6FE` and `WD-C46F5013`. Deletion is left to the owner. Deleted rows remain in Supabase backups until they expire (D-042).
+**Test enquiries.** A read-only query of `public.demo_enquiries` in the `widian_marketing` project (org "Widian", `main`) returned exactly two rows, both fictional: `WD-E21BC6FE` and `WD-C46F5013`. **Update, 2026-11-04:** the owner deleted both records from `widian_marketing`, and a read-only count afterwards verified that `public.demo_enquiries` contains zero rows. Deleted rows remain in Supabase backups until they expire (D-042).
 
 **Retention reminder.** No calendar tool was available. Required: a recurring review owned by a named person, monthly from one month after Production go-live (no real enquiry can reach 12 months before launch plus 12 months). Documentation only; no tests run or required.
 
