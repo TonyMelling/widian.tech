@@ -41,7 +41,7 @@ Is Widian relevant to my buildings and operating model?
 - Approximate number of buildings (controlled bands, not free text)
 - Primary challenge (controlled values, per `LEAD_CAPTURE_AND_COMMUNICATIONS.md`)
 - Optional message — with inline microcopy: *"Please don't include specific building, resident or incident details here."*
-- Consent acknowledgement — privacy notice link beside the submit action; marketing-permission checkbox kept separate, unticked, optional (never a condition of booking)
+- Privacy notice link beside the submit action, with a plain statement that details are used only to respond and that the visitor is not added to a mailing list. No marketing checkbox (D-041); any future marketing permission would be separate, unticked and optional.
 - Calendar slot selection
 
 **Note on flow — reconciling `SPEC.md` with D-009:** `SPEC.md` §7.7's "Success state" language ("Confirm receipt, expected response time and next step") assumes a human-qualification-first model. Per D-009, the actual flow is immediate calendar booking — the visitor picks a slot as part of this same form submission, not after a follow-up. Copy below reflects D-009.

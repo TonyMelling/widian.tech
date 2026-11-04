@@ -66,7 +66,6 @@ export function DemoRequestForm({ bookingUrl, contactEmail }: Props) {
       buildingBand: text("buildingBand"),
       challenge: text("challenge"),
       message: text("message"),
-      marketingOptIn: data.get("marketingOptIn") === "on",
     };
 
     const check = validateEnquiry(payload);
@@ -308,21 +307,8 @@ export function DemoRequestForm({ bookingUrl, contactEmail }: Props) {
       </div>
 
       <div className="border-t border-hairline pt-6">
-        <label className="flex items-start gap-3 text-[15px] leading-relaxed text-navy">
-          <input
-            type="checkbox" name="marketingOptIn"
-            className="mt-1 size-5 shrink-0 accent-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-          />
-          <span>
-            Optional: I would also like to receive occasional updates from Widian. You do not need to tick this to
-            request a demonstration, and you can withdraw at any time.
-          </span>
-        </label>
-      </div>
-
-      <div>
         <p id="form-privacy" className="text-sm leading-relaxed text-text-secondary">
-          We use these details to respond to your request. See the{" "}
+          We use these details only to respond to your request, and we do not add you to a mailing list. See the{" "}
           <Link className="font-semibold text-navy underline" href="/privacy">Privacy Notice</Link>.
         </p>
         <button

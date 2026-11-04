@@ -1,4 +1,4 @@
-import { SITE_FACTS } from "../site-config.ts";
+import { SITE_FACTS, missingPrivacyFacts } from "../site-config.ts";
 
 /**
  * Server-side configuration for demo-enquiry capture. Every value comes from environment variables; none is
@@ -52,6 +52,37 @@ export function getLeadCaptureConfig(env: Record<string, string | undefined> = p
     bookingUrl: httpsUrl(env.CAL_BOOKING_URL),
     siteUrl: httpsUrl(env.NEXT_PUBLIC_SITE_URL) ?? "https://widian.tech",
   };
+}
+
+/** Same definition of "production" as app/robots.ts. */
+export function isProductionDeployment(env: Record<string, string | undefined> = process.env): boolean {
+  return env.VERCEL_ENV === "production" || env.DEPLOYMENT_ENV === "production";
+}
+
+export type EnabledLeadCapture = {
+  config: LeadCaptureConfig;
+  /** False while the privacy notice is unapproved: only possible outside Production, where the form is test-only. */
+  noticeApproved: boolean;
+};
+
+/**
+ * Whether the public form and API may accept enquiries in this deployment. Requires full configuration, and in
+ * Production additionally requires the privacy notice and controller details to be approved (see SITE_FACTS and
+ * missingPrivacyFacts), so real enquiries cannot be collected under an unapproved notice. Outside Production an
+ * unapproved notice still allows the form, for acceptance testing with fictional data only.
+ *
+ * The recovery tool (scripts/lead-ops.ts) deliberately uses getLeadCaptureConfig, not this: stored leads must stay
+ * recoverable even while collection is switched off.
+ */
+export function getEnabledLeadCapture(
+  env: Record<string, string | undefined> = process.env,
+  facts = SITE_FACTS,
+): EnabledLeadCapture | null {
+  const config = getLeadCaptureConfig(env);
+  if (!config) return null;
+  const noticeApproved = missingPrivacyFacts(facts).length === 0;
+  if (!noticeApproved && isProductionDeployment(env)) return null;
+  return { config, noticeApproved };
 }
 
 export function limitsFromEnv(env: Record<string, string | undefined> = process.env) {

@@ -50,6 +50,25 @@ describe("BookADemoPage with lead capture configured", () => {
   });
 });
 
+describe("BookADemoPage privacy-approval gate", () => {
+  it("labels the form as test-only while the notice is unapproved (non-Production)", async () => {
+    for (const [key, value] of Object.entries(CAPTURE_ENV)) vi.stubEnv(key, value);
+    vi.stubEnv("VERCEL_ENV", "preview");
+    render(await BookADemoPage());
+    expect(screen.getByRole("note")).toHaveTextContent(/Test environment.*fictional details only/);
+    expect(screen.getByRole("link", { name: "Privacy Notice" })).toHaveAttribute("href", "/privacy");
+  });
+
+  it("shows no form at all in Production while the notice is unapproved, even if fully configured", async () => {
+    for (const [key, value] of Object.entries(CAPTURE_ENV)) vi.stubEnv(key, value);
+    vi.stubEnv("VERCEL_ENV", "production");
+    const { container } = render(await BookADemoPage());
+    expect(container.querySelector("form")).toBeNull();
+    expect(screen.queryByRole("note")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "info@widian.tech" })).toHaveAttribute("href", "mailto:info@widian.tech");
+  });
+});
+
 describe("CookiesPage", () => {
   it("is a real notice rather than a stub", () => {
     render(<CookiesPage />);

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { DemoRequestForm } from "@/components/book-a-demo/DemoRequestForm";
 import { SiteFooter } from "@/components/navigation/SiteFooter";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
-import { getLeadCaptureConfig } from "@/lib/lead-capture/config";
+import { getEnabledLeadCapture } from "@/lib/lead-capture/config";
 import { SITE_FACTS } from "@/lib/site-config";
 
 const { contactEmail, supportEmail } = SITE_FACTS;
@@ -20,7 +20,8 @@ export default async function BookADemoPage() {
   // Read at request time so the form appears only when lead capture is actually configured on this deployment.
   // Unconfigured, the page keeps its email-only layout instead of offering a form that cannot store anything.
   await connection();
-  const captureConfig = getLeadCaptureConfig();
+  const capture = getEnabledLeadCapture();
+  const captureConfig = capture?.config ?? null;
 
   return (
     <>
@@ -38,6 +39,12 @@ export default async function BookADemoPage() {
 
           {captureConfig ? (
             <div className="mt-10">
+              {!capture?.noticeApproved && (
+                <p role="note" className="mb-8 border-l-2 border-amber bg-grey p-5 text-base text-navy">
+                  <strong>Test environment.</strong> The privacy notice has not been approved yet, so please do not submit
+                  a genuine enquiry here. Use fictional details only.
+                </p>
+              )}
               <DemoRequestForm bookingUrl={captureConfig.bookingUrl} contactEmail={contactEmail} />
               <p className="mt-8 text-sm leading-relaxed text-text-secondary">
                 {contactEmail ? (

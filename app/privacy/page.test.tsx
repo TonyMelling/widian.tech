@@ -10,12 +10,14 @@ describe("PrivacyPage", () => {
     expect(screen.queryByText(/advertising cookies|google analytics/i)).not.toBeInTheDocument();
   });
 
-  it("describes the enquiry form's storage, delivery and separate optional-updates consent", () => {
-    render(<PrivacyPage />);
-    expect(screen.getByText(/stored in a database operated for Widian by Supabase/)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "Optional updates" })).toBeInTheDocument();
-    expect(screen.getByText(/never needed to request a demonstration/)).toBeInTheDocument();
-    expect(screen.getByText(/Draft 0\.3/)).toBeInTheDocument();
+  it("describes what the enquiry form collects and who handles it, with no marketing purpose", () => {
+    const { container } = render(<PrivacyPage />);
+    expect(screen.getByText(/stored in a database operated for Widian by Supabase, in\s+a project separate from the Widian application and hosted in London/)).toBeInTheDocument();
+    expect(screen.getByText(/the size of your portfolio, your main challenge/)).toBeInTheDocument();
+    expect(screen.getByText(/not added to a mailing list or used for promotional marketing/)).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3, name: "Optional updates" })).not.toBeInTheDocument();
+    expect(container.textContent).not.toMatch(/consent\.|withdraw it/i);
+    expect(screen.getByText(/Draft 0\.4/)).toBeInTheDocument();
     expect(screen.getByText(/Widian does not send\s+your enquiry details to Cal\.com/)).toBeInTheDocument();
   });
 

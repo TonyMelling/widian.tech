@@ -1,6 +1,5 @@
 import type { LeadCaptureConfig } from "./config";
 import type { EnquiryInput } from "./schema.ts";
-import { MARKETING_WORDING_VERSION } from "./schema.ts";
 
 /**
  * Durable lead storage in the isolated marketing Supabase project (D-007), over PostgREST with the service-role
@@ -50,7 +49,6 @@ export async function insertLead(
   fetchImpl: Fetch = fetch,
 ): Promise<{ created: boolean; id: string | null }> {
   const { enquiry } = lead;
-  const now = new Date().toISOString();
   const response = await fetchImpl(
     `${config.supabaseUrl}/rest/v1/demo_enquiries?on_conflict=idempotency_key&select=id`,
     {
@@ -69,9 +67,8 @@ export async function insertLead(
         message: enquiry.message || null,
         source_page: "/book-a-demo",
         privacy_notice_version: lead.privacyNoticeVersion,
-        marketing_opt_in: enquiry.marketingOptIn,
-        marketing_wording_version: enquiry.marketingOptIn ? MARKETING_WORDING_VERSION : null,
-        marketing_opt_in_at: enquiry.marketingOptIn ? now : null,
+        // The marketing_* columns stay in the table for compatibility but are no longer collected; they keep
+        // their defaults (false / null).
       }),
       cache: "no-store",
     },
@@ -94,14 +91,13 @@ export type LeadRow = {
   building_band: string;
   challenge: string;
   message: string | null;
-  marketing_opt_in: boolean;
   ack_status: string;
   notify_status: string;
   last_error: string | null;
 };
 
 const LEAD_COLUMNS =
-  "id,reference,idempotency_key,correlation_id,created_at,name,email,organisation,role,building_band,challenge,message,marketing_opt_in,ack_status,notify_status,last_error";
+  "id,reference,idempotency_key,correlation_id,created_at,name,email,organisation,role,building_band,challenge,message,ack_status,notify_status,last_error";
 
 export const REFERENCE_PATTERN = /^WD-[0-9A-F]{8}$/;
 

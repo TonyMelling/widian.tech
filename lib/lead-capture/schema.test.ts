@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { getLeadCaptureConfig, limitsFromEnv } from "./config";
+import { getEnabledLeadCapture, getLeadCaptureConfig, limitsFromEnv } from "./config";
+import { SITE_FACTS } from "../site-config";
 import { rateLimited, resetRateLimits } from "./rate-limit";
 import { LIMITS, validateEnquiry } from "./schema";
 
@@ -11,18 +12,18 @@ const valid = {
   buildingBand: "6-25",
   challenge: "scattered-records",
   message: "",
-  marketingOptIn: false,
 };
 
 describe("validateEnquiry", () => {
-  it("normalises valid input (trim, lower-case email) and never defaults marketing consent to true", () => {
+  it("normalises valid input (trim, lower-case email)", () => {
     const result = validateEnquiry(valid);
-    expect(result).toMatchObject({ ok: true, data: { name: "Ada Lovelace", email: "ada@example.com", marketingOptIn: false } });
+    expect(result).toMatchObject({ ok: true, data: { name: "Ada Lovelace", email: "ada@example.com" } });
   });
 
-  it("treats marketing opt-in as true only for a literal boolean true", () => {
-    expect(validateEnquiry({ ...valid, marketingOptIn: "true" })).toMatchObject({ data: { marketingOptIn: false } });
-    expect(validateEnquiry({ ...valid, marketingOptIn: true })).toMatchObject({ data: { marketingOptIn: true } });
+  it("collects no marketing permission: a stale client sending marketingOptIn has it ignored", () => {
+    const result = validateEnquiry({ ...valid, marketingOptIn: true });
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(Object.keys(result.data)).not.toContain("marketingOptIn");
   });
 
   it("reports an error for each missing or invalid field", () => {
@@ -94,6 +95,36 @@ describe("getLeadCaptureConfig", () => {
   it("falls back to sensible rate-limit defaults", () => {
     expect(limitsFromEnv({})).toEqual({ max: 5, windowMs: 600_000 });
     expect(limitsFromEnv({ RATE_LIMIT_MAX_REQUESTS: "2", RATE_LIMIT_WINDOW_SECONDS: "60" })).toEqual({ max: 2, windowMs: 60_000 });
+  });
+});
+
+describe("getEnabledLeadCapture (privacy-approval gate)", () => {
+  const env = {
+    MARKETING_SUPABASE_URL: "https://abc.supabase.co",
+    MARKETING_SUPABASE_SERVICE_ROLE_KEY: "service",
+    RESEND_API_KEY: "re_key",
+    LEAD_EMAIL_FROM: "Widian <demo@mail.widian.tech>",
+  };
+  const approved = { ...SITE_FACTS, controllerName: "Widian Test Ltd", privacyWordingApproved: true };
+  const unapproved = { ...SITE_FACTS, privacyWordingApproved: false };
+
+  it("is off in Production until the notice is approved, however complete the configuration", () => {
+    expect(getEnabledLeadCapture({ ...env, VERCEL_ENV: "production" }, unapproved)).toBeNull();
+    expect(getEnabledLeadCapture({ ...env, DEPLOYMENT_ENV: "production" }, unapproved)).toBeNull();
+  });
+
+  it("is available outside Production for testing, flagged as unapproved", () => {
+    expect(getEnabledLeadCapture({ ...env, VERCEL_ENV: "preview" }, unapproved)).toMatchObject({ noticeApproved: false });
+    expect(getEnabledLeadCapture(env, unapproved)).toMatchObject({ noticeApproved: false });
+  });
+
+  it("turns on in Production once the controller and wording are approved", () => {
+    expect(getEnabledLeadCapture({ ...env, VERCEL_ENV: "production" }, approved)).toMatchObject({ noticeApproved: true });
+  });
+
+  it("is off everywhere when unconfigured, and the recovery tool's config is independent of approval", () => {
+    expect(getEnabledLeadCapture({ VERCEL_ENV: "preview" }, approved)).toBeNull();
+    expect(getLeadCaptureConfig({ ...env, VERCEL_ENV: "production" })).not.toBeNull();
   });
 });
 

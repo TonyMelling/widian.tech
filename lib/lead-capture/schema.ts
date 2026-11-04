@@ -31,9 +31,6 @@ export const LIMITS = {
   message: 1500,
 } as const;
 
-/** Version of the optional-updates wording shown beside the checkbox. Bump whenever that wording changes. */
-export const MARKETING_WORDING_VERSION = "2026-11-v1";
-
 export type EnquiryField =
   | "name"
   | "email"
@@ -51,7 +48,6 @@ export type EnquiryInput = {
   buildingBand: string;
   challenge: string;
   message: string;
-  marketingOptIn: boolean;
 };
 
 export type FieldErrors = Partial<Record<EnquiryField, string>>;
@@ -81,7 +77,6 @@ export function validateEnquiry(raw: unknown): ValidationResult {
     buildingBand: clean(source.buildingBand),
     challenge: clean(source.challenge),
     message: clean(source.message, true),
-    marketingOptIn: source.marketingOptIn === true,
   };
 
   const errors: FieldErrors = {};

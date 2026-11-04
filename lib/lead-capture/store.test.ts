@@ -49,7 +49,7 @@ describe("Supabase key formats", () => {
     privacyNoticeVersion: "draft-0.3",
     enquiry: {
       name: "A", email: "a@example.com", organisation: "O", role: "R",
-      buildingBand: "1-5", challenge: "other", message: "", marketingOptIn: false,
+      buildingBand: "1-5", challenge: "other", message: "",
     },
   };
   const sentHeaders = async (key: string) => {

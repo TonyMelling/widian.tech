@@ -1,5 +1,5 @@
 import { createHash, randomUUID } from "node:crypto";
-import { getLeadCaptureConfig, limitsFromEnv } from "@/lib/lead-capture/config";
+import { getEnabledLeadCapture, limitsFromEnv } from "@/lib/lead-capture/config";
 import { rateLimited } from "@/lib/lead-capture/rate-limit";
 import { UUID_PATTERN, validateEnquiry } from "@/lib/lead-capture/schema";
 import { sendAcknowledgement, sendInternalNotification } from "@/lib/lead-capture/email";
@@ -72,11 +72,13 @@ export async function POST(request: Request) {
     return json({ status: "error" }, 403);
   }
 
-  const config = getLeadCaptureConfig();
-  if (!config) {
-    log(correlationId, "unavailable", { reason: "not_configured" });
+  // Not configured, or Production with an unapproved privacy notice: refuse rather than collect.
+  const enabled = getEnabledLeadCapture();
+  if (!enabled) {
+    log(correlationId, "unavailable", { reason: "not_enabled" });
     return json({ status: "unavailable" }, 503);
   }
+  const { config } = enabled;
 
   const { max, windowMs } = limitsFromEnv();
   if (rateLimited(clientKey(request), max, windowMs)) {

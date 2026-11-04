@@ -94,7 +94,6 @@ export function sendInternalNotification(
     `Role: ${oneLine(enquiry.role)}`,
     `Portfolio: ${labelFor(BUILDING_BANDS, enquiry.buildingBand)}`,
     `Main challenge: ${labelFor(CHALLENGES, enquiry.challenge)}`,
-    `Optional updates requested: ${enquiry.marketingOptIn ? "yes" : "no"}`,
     "",
     "Message:",
     enquiry.message || "(none)",

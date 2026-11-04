@@ -18,7 +18,7 @@ const body = {
   buildingBand: "6-25",
   challenge: "closure-evidence",
   message: "Private context 12345",
-  marketingOptIn: true,
+  marketingOptIn: true, // a stale client may still send this; it must be ignored
   idempotencyKey: KEY,
   website: "",
   elapsedMs: 15_000,
@@ -87,10 +87,9 @@ describe("POST /api/walkthrough", () => {
       idempotency_key: KEY,
       email: "ada@example.com",
       building_band: "6-25",
-      marketing_opt_in: true,
-      marketing_wording_version: expect.any(String),
-      privacy_notice_version: expect.stringContaining("draft-0.3"),
+      privacy_notice_version: expect.stringContaining("draft-0.4"),
     });
+    expect(Object.keys(stored).filter((k) => k.startsWith("marketing_"))).toEqual([]); // columns keep their defaults
     expect(new Headers(calls[0].init.headers).get("apikey")).toBe("service-key");
 
     const emails = where("api.resend.com").map((c) => JSON.parse(String(c.init.body)));
@@ -101,7 +100,7 @@ describe("POST /api/walkthrough", () => {
     expect(ack.text).not.toMatch(/GDPR|compliant|certif|secure|guarantee/i);
     expect(notify.reply_to).toBe("ada@example.com");
     expect(notify.text).toContain("Private context 12345");
-    expect(notify.text).toContain("Optional updates requested: yes");
+    expect(notify.text).not.toMatch(/optional updates|updates requested|opt-in/i);
 
     const patch = where("id=eq.row-1")[0];
     expect(JSON.parse(String(patch.init.body))).toMatchObject({ ack_status: "sent", notify_status: "sent", last_error: null });
@@ -193,6 +192,15 @@ describe("POST /api/walkthrough", () => {
     expect(response.status).toBe(503);
     expect(await response.json()).toEqual({ status: "unavailable" });
     expect(calls).toHaveLength(0);
+  });
+
+  it("refuses real enquiries in Production while the privacy notice is unapproved, but allows Preview testing", async () => {
+    vi.stubEnv("VERCEL_ENV", "production");
+    const blocked = await post(body);
+    expect(blocked.status).toBe(503);
+    expect(calls).toHaveLength(0);
+    vi.stubEnv("VERCEL_ENV", "preview");
+    expect((await post(body)).status).toBe(201);
   });
 
   it("does not leak providers or storage details in public errors, nor submitted data in logs", async () => {

@@ -62,7 +62,6 @@ async function main() {
       buildingBand: row.building_band,
       challenge: row.challenge,
       message: row.message ?? "",
-      marketingOptIn: row.marketing_opt_in,
     };
     // A fresh idempotency suffix per manual run, so Resend sends again rather than replaying the failed attempt.
     const attempt = `${row.idempotency_key}:manual-${Date.now()}`;

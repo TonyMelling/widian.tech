@@ -11,7 +11,7 @@ Built on `launch/website-prep`: `app/api/walkthrough/route.ts`, `lib/lead-captur
 - Emails are sent inline after the durable write, not from an outbox/queue. A failure is recorded on the lead (`ack_status` / `notify_status` / `last_error`) and logged as `notify_failed` / `ack_failed`; it is not retried automatically. Recovery is manual via `npm run leads:attention` / `leads:resend` (see Operational recovery). There is no dead-letter job or alert wiring.
 - Rate limiting is per serverless instance. Add Vercel WAF rate limiting for a hard limit.
 - Attribution (referrer, UTM) is not captured; only `source_page`.
-- No lead console, suppression/unsubscribe processing, bounce/complaint webhooks or retention job. The optional-updates checkbox records permission only; no marketing mailing process exists.
+- No lead console, suppression/unsubscribe processing, bounce/complaint webhooks or retention job. There is no marketing consent capture or mailing process (D-041); the `marketing_*` columns in `demo_enquiries` are retained but unused.
 - Qualification bands and challenge values in `lib/lead-capture/schema.ts` are a proposal awaiting owner approval.
 - Nothing is switched on until the required environment variables in `.env.example` are set; until then `/book-a-demo` shows its email-only layout and the API returns `503`.
 - Cal.com (D-039) is not integrated; an optional `CAL_BOOKING_URL` is shown as a link after the enquiry is stored.

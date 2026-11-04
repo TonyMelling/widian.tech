@@ -23,15 +23,9 @@ const PROCESSING = [
   ],
   [
     "Enquiries you send us",
-    "Your name, work email address, organisation, role, the size of your portfolio, your main challenge and whatever you choose to write, whether by email or through the Book a Demo form.",
-    "To reply, arrange a demonstration and manage any resulting business relationship.",
+    "Through the Book a Demo form: your name, work email address, organisation, role, the size of your portfolio, your main challenge and anything you choose to write, plus a reference number, the date and time, the version of this notice, and records of the emails sent about your enquiry. By email: whatever you send.",
+    "To reply, arrange a demonstration and manage any resulting business relationship. Enquiry details are not added to a mailing list or used for promotional marketing.",
     "Legitimate interests (responding to business enquiries) and steps taken at your request before entering a contract.",
-  ],
-  [
-    "Optional updates",
-    "Your choice to receive occasional updates from Widian, the wording you saw, the notice version and the time you chose.",
-    "To record your permission so that it can be honoured and withdrawn.",
-    "Consent. It is optional, never needed to request a demonstration, and you can withdraw it at any time.",
   ],
 ] as const;
 
@@ -142,6 +136,10 @@ export default function PrivacyPage() {
                   without giving us any. We do not make decisions about you by automated means. Please do not send resident
                   information, special-category data, defect evidence or incident details in an enquiry.
                 </p>
+                <p className="mt-4">
+                  On the Book a Demo form, every field except the message is required, because we cannot reply or prepare
+                  for a demonstration without them.
+                </p>
                 <div className="mt-7 divide-y divide-hairline border-y border-hairline">
                   {PROCESSING.map(([activity, data, purpose, basis]) => (
                     <div key={activity} className="grid gap-3 py-6 md:grid-cols-[10rem_1fr_1fr_1fr] md:gap-6">
@@ -161,10 +159,15 @@ export default function PrivacyPage() {
                   Widian&rsquo;s behalf. Enquiries sent by email are handled by Widian&rsquo;s email provider.
                 </p>
                 <p className="mt-4">
-                  Enquiries made through the Book a Demo form are stored in a database operated for Widian by Supabase,
-                  separate from the Widian application, and are delivered by email through Resend. Both act on
-                  Widian&rsquo;s behalf. Provider regions, terms and transfer safeguards are to be confirmed before this
-                  notice is final.
+                  Enquiries made through the Book a Demo form are stored in a database operated for Widian by Supabase, in
+                  a project separate from the Widian application and hosted in London, and are delivered by email through
+                  Resend. A notification of each enquiry is sent to Widian&rsquo;s enquiry mailbox. Supabase and Resend act
+                  on Widian&rsquo;s behalf, and enquiries are seen only by the people at Widian who respond to them.
+                </p>
+                <p className="mt-4">
+                  Resend may process email data outside the UK. Resend&rsquo;s processing location, the safeguards for any
+                  transfer, and the data-processing terms with Supabase and Resend are to be confirmed before this notice
+                  is final.
                 </p>
                 <p className="mt-4">
                   After you send an enquiry, Widian may show a link to choose a time on Cal.com. Widian does not send
@@ -181,7 +184,8 @@ export default function PrivacyPage() {
               <section id="retention">
                 <h2 className="font-display text-2xl font-bold text-navy">5. How long we keep it</h2>
                 <p className="mt-4">
-                  Technical request data is kept by Vercel for the periods set in its service terms. Enquiries are kept
+                  Technical request data is kept by Vercel, and emails about an enquiry by Resend, for the periods set in
+                  their service terms. Enquiries are kept
                   for as long as needed to deal with them and any resulting business relationship, and then only as long
                   as legal, accounting or dispute-handling obligations require. We do not keep an unsuccessful enquiry
                   longer than is necessary.

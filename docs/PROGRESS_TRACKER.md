@@ -185,6 +185,14 @@
 
 **Collection remains disabled everywhere** until D-010/D-012 are approved and credentials are set; nothing was pushed, merged, deployed or configured.
 
+### 2026-11-04 (3) — Marketing checkbox removed; privacy notice 0.4; approval gate
+
+**Context.** Preview `4ecb2ef` passed technical acceptance: both fictional enquiries stored, acknowledgement and owner notification delivered, statuses `sent`.
+
+**Completed.** Removed the marketing-updates checkbox and wording (D-041); stored data and the `marketing_*` columns are untouched. Privacy notice draft 0.4 reflects the data actually collected, Supabase (London) and Resend, and states enquiries are not used for marketing. D-010/D-012 updated with the specific approvals still needed. Added a Production gate: the form and API stay off until the notice and controller details are approved (`getEnabledLeadCapture`); Preview shows a test-only banner.
+
+**Checks run.** Focused: 61 tests across the six affected suites pass; `tsc` and `eslint` clean; `next build --webpack` passes. Full suite not repeated.
+
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
 **Completed**

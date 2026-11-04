@@ -30,11 +30,11 @@ describe("DemoRequestForm", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("keeps marketing permission optional and unticked, separate from the request, with the privacy notice beside submit", () => {
-    render(<DemoRequestForm bookingUrl={null} contactEmail={null} />);
-    const optIn = screen.getByRole("checkbox");
-    expect(optIn).not.toBeChecked();
-    expect(optIn).not.toBeRequired();
+  it("offers no marketing opt-in, states the single purpose, and links the privacy notice beside submit", () => {
+    const { container } = render(<DemoRequestForm bookingUrl={null} contactEmail={null} />);
+    expect(screen.queryByRole("checkbox")).not.toBeInTheDocument();
+    expect(container.textContent).not.toMatch(/occasional updates|withdraw at any time|marketing opt/i);
+    expect(screen.getByText(/only to respond to your request, and we do not add you to a mailing list/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Privacy Notice" })).toHaveAttribute("href", "/privacy");
   });
 
@@ -50,7 +50,8 @@ describe("DemoRequestForm", () => {
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe("/api/walkthrough");
     const sent = JSON.parse(init.body);
-    expect(sent).toMatchObject({ email: "ada@example.com", buildingBand: "6-25", marketingOptIn: false, website: "" });
+    expect(sent).toMatchObject({ email: "ada@example.com", buildingBand: "6-25", website: "" });
+    expect(sent).not.toHaveProperty("marketingOptIn");
     expect(sent.idempotencyKey).toMatch(/^[0-9a-f-]{36}$/);
   });
 
