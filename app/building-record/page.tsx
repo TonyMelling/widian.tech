@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Building Record Navigation | Widian",
+  title: "Building Record Navigation",
   description: "Follow a synthetic Widian Building Record from organisation and building to element, inspection, finding and remedial work.",
   robots: { index: false, follow: true },
 };

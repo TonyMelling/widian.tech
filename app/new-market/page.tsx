@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Market Direction | Widian",
+  title: "Market Direction",
   description: "See the strategic direction behind Widian: shared Building Record infrastructure that can connect responsible organisations.",
   robots: { index: false, follow: true },
 };
