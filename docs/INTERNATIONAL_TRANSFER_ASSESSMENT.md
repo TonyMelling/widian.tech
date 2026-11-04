@@ -1,12 +1,12 @@
 # International Transfer Assessment — Book a Demo enquiry processing
 
-**Status:** Draft, evidence review completed 2026-11-04, for owner approval. **Not approved.** This is an implementation record, not legal advice.
+**Status:** Evidence review completed 2026-11-04. **Provisionally accepted by the owner** (recorded 4 November 2026); **formal adoption by Widian Tech Limited pending incorporation** (section 7). This is an implementation record, not legal advice.
 **Controller:** Widian Tech Limited (incorporation pending; no registration details yet). Until it exists, the assessment is made for the business that will become the controller and must be adopted by the company once incorporated.
 **Related records:** `DECISIONS.md` D-010, D-012, D-034, D-042; `PRIVACY_AND_UK_GDPR_PLAN.md`; `LEAD_CAPTURE_AND_COMMUNICATIONS.md`; `PROGRESS_TRACKER.md` (entries 2026-11-04 (5)–(8)). Processor facts established in those records are relied on here, not repeated.
 
 ## 1. Conclusion
 
-Widian's use of Supabase and Resend for demo enquiries involves restricted transfers under UK GDPR Chapter V. Each has a valid transfer route, the data is low in volume and sensitivity, and the residual risk is **low and acceptable**, subject to the conditions in section 6. The evidence supports that conclusion, with two stated limits: the Singapore analysis rests on Supabase's own description of Singapore law and its practices, and Supabase's published TIA is older than its current contract documents (section 5). The assessment is **ready for owner approval** provided the owner accepts those limits or first obtains the confirmations listed in section 5. It does not change the privacy notice, which says only that each provider publishes its safeguards.
+Widian's use of Supabase and Resend for demo enquiries involves restricted transfers under UK GDPR Chapter V. Each has a valid transfer route, the data is low in volume and sensitivity, and the residual risk is **low and acceptable**, subject to the conditions in section 6. The evidence supports that conclusion, with two stated limits: the Singapore analysis rests on Supabase's own description of Singapore law and its practices, and Supabase's published TIA is older than its current contract documents (section 5). The owner has **provisionally accepted** the conclusion, including both limits (section 7); the confirmations in section 5 remain optional. It does not change the privacy notice, which says only that each provider publishes its safeguards.
 
 **What the evidence review changed.** Supabase's DPA names **Supabase Pte. Ltd. (Singapore)** as the data importer, so Singapore is the principal transfer destination for Supabase, not an incidental one, and it is assessed in section 4. Resend's DPF listing is now verified.
 
@@ -54,7 +54,7 @@ Out of scope: **Vercel** (covered in the notice and D-034); the **enquiry mailbo
 | 4 | **Supabase entity description** | **Inconsistent across documents** | DPA: importer is Pte. Ltd. FAQ: Pte. Ltd. is primary processor, Inc. provides support and operations. TIA: importer is Inc. Sub-processor list: both appear as support providers. The DPA is the contract, so it governs |
 | 5 | **Sub-processor change notice** | **Open (owner action)** | The DPA gives at least 30 days' notice of changes, with a 5-day objection window, to customers who subscribe to notifications; nothing is stated for those who do not |
 | 6 | **Adoption by Widian Tech Limited** | Open | The agreements and this assessment must sit with the legal controller once incorporated |
-| 7 | **Owner approval and review date** | Open | Section 7 is blank |
+| 7 | **Owner acceptance** | **Provisionally accepted** | Owner accepts the low residual-risk conclusion and both limits. Formal adoption by the controller is item 6; see section 7 |
 
 **Smallest actions.** One email to Supabase's privacy contact (privacy@supabase.io, named in the DPA) asking for its current TIA covering Pte. Ltd. as importer and confirmation of which sub-processors can access database content; the owner may accept the residual risk without waiting for the reply. Subscribe to sub-processor change notices. Record the sign-off.
 
@@ -64,16 +64,17 @@ Not reopened, as instructed: Resend's DPA, safeguards and retention.
 
 1. Only the fields in section 2 are collected; no special-category data is solicited; no marketing or analytics use without a new assessment.
 2. The Supabase project stays in London and the Resend account stays on its current DPA terms.
-3. **Enquiry data is not placed in Supabase support requests, screenshots or logs shared with Supabase.** If support access to the project is needed, use test or redacted data where possible.
+3. **Operational rule, accepted by the owner (provisional):** enquiry data must not be included in Supabase support requests, screenshots or shared logs. If support access to the project is needed, use test or redacted data where possible.
 4. Reassess on: a new or changed provider or sub-processor; a change to what is collected or why; a DPF or data-bridge change; Supabase issuing a new TIA; or annually, whichever is first.
 
 ## 7. Sign-off
 
 | | |
 |---|---|
-| Approved by | *Not yet approved* |
-| Date | |
-| Next review due | |
+| Provisional owner acceptance | Given by the owner and recorded on 4 November 2026. Accepts the low residual-risk conclusion, including the two documented limits: the Singapore legal analysis relies on Supabase's description of Singapore law and practice, and Supabase's published TIA (14 March 2025, written for Supabase, Inc.) is older than its 2026 contract documents. Not a signed approval |
+| Operational rule accepted | Enquiry data must not be included in Supabase support requests, screenshots or shared logs (section 6, condition 3) |
+| Formal adoption by Widian Tech Limited | **Pending incorporation.** No signature, approver name or approval date is recorded, and none is to be added until the company exists and adopts this assessment |
+| Next review due | On a trigger in section 6, or 12 months after formal adoption, whichever is first |
 
 ## Sources (accessed 2026-11-04)
 
