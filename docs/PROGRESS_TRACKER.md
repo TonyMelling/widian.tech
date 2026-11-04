@@ -217,6 +217,12 @@
 
 **Checks run.** Focused: privacy and gate tests only.
 
+### 2026-11-04 (7) — International transfer assessment drafted
+
+**Completed.** `INTERNATIONAL_TRANSFER_ASSESSMENT.md` (draft, pending owner approval) covers Supabase and Resend under UK GDPR Chapter V. Supabase: EU SCCs with the UK Addendum via its DPA, so a transfer risk assessment applies; US risk assessed low by relying on the UK government's analysis as the ICO permits. Resend: UK data bridge (DPF with UK Extension), fallback SCCs and UK Addendum. Conclusion: low, acceptable residual risk, subject to conditions. No code, wording, account, infrastructure or Production change; no tests required.
+
+**Open evidence.** (1) Live DPF status for Resend on the sign-off date; (2) Supabase's sub-processor list and TIA, including any Singapore access; (3) adoption by Widian Tech Limited once incorporated; (4) owner sign-off and review date.
+
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
 **Completed**

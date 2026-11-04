@@ -12,6 +12,7 @@ This documentation pack is the authoritative starting point for creating the sep
 6. `CONTENT_AND_COPY_PLAN.md` — page-level copy development workflow
 7. `CLAIMS_REGISTER.md` — public claim control
 8. `PRIVACY_AND_UK_GDPR_PLAN.md` — data protection and privacy controls
+   - `INTERNATIONAL_TRANSFER_ASSESSMENT.md` — UK transfer assessment for Supabase and Resend (draft, pending owner approval)
 9. `LEAD_CAPTURE_AND_COMMUNICATIONS.md` — lead storage, routing and recovery
 10. `SEO_STRATEGY_AND_TECHNICAL_PLAN.md` — search architecture, content and measurement
 11. `CONTENT_ASSET_INVENTORY.md` — required assets and ownership
