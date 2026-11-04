@@ -17,8 +17,23 @@ describe("PrivacyPage", () => {
     expect(screen.getByText(/not added to a mailing list or used for promotional marketing/)).toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 3, name: "Optional updates" })).not.toBeInTheDocument();
     expect(container.textContent).not.toMatch(/consent\.|withdraw it/i);
-    expect(screen.getByText(/Draft 0\.4/)).toBeInTheDocument();
+    expect(screen.getByText(/Draft 0\.5/)).toBeInTheDocument();
     expect(screen.getByText(/Widian does not send\s+your enquiry details to Cal\.com/)).toBeInTheDocument();
+  });
+
+  it("states the approved retention and transfer facts, with no unresolved processor or retention placeholders", () => {
+    const { container } = render(<PrivacyPage />);
+    const text = container.textContent ?? "";
+    expect(text).toMatch(/up to 12 months\s+after our last meaningful contact/);
+    expect(text).toMatch(/justified reason/);
+    expect(text).toMatch(/30 days under its standard\s+retention/);
+    expect(text).toMatch(/Resend stores the content and\s+delivery records of emails about enquiries in the United States/);
+    expect(text).toMatch(/Supabase may in limited cases process data outside the UK/);
+    expect(text).toMatch(/publishes the safeguards/);
+    expect(text).not.toMatch(/to be confirmed before this notice\s+is final/);
+    // Nothing is asserted as verified that is not: no named transfer mechanism for Supabase/Resend, no agreements claim.
+    expect(text).not.toMatch(/(Supabase|Resend)[^.]*(standard contractual clauses|Data Privacy Framework|signed|executed)/i);
+    expect(text).not.toMatch(/Widian Limited|company number|registered office/i);
   });
 
   it("keeps missing controller facts visible rather than inventing them", () => {

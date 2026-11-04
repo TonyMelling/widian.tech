@@ -165,9 +165,10 @@ export default function PrivacyPage() {
                   on Widian&rsquo;s behalf, and enquiries are seen only by the people at Widian who respond to them.
                 </p>
                 <p className="mt-4">
-                  Resend may process email data outside the UK. Resend&rsquo;s processing location, the safeguards for any
-                  transfer, and the data-processing terms with Supabase and Resend are to be confirmed before this notice
-                  is final.
+                  Supabase may in limited cases process data outside the UK for operational purposes such as support and
+                  maintenance, and publishes the safeguards it uses for those transfers. Resend stores the content and
+                  delivery records of emails about enquiries in the United States, and publishes the safeguards it uses
+                  for transfers of UK personal data.
                 </p>
                 <p className="mt-4">
                   After you send an enquiry, Widian may show a link to choose a time on Cal.com. Widian does not send
@@ -184,11 +185,18 @@ export default function PrivacyPage() {
               <section id="retention">
                 <h2 className="font-display text-2xl font-bold text-navy">5. How long we keep it</h2>
                 <p className="mt-4">
-                  Technical request data is kept by Vercel, and emails about an enquiry by Resend, for the periods set in
-                  their service terms. Enquiries are kept
-                  for as long as needed to deal with them and any resulting business relationship, and then only as long
-                  as legal, accounting or dispute-handling obligations require. We do not keep an unsuccessful enquiry
-                  longer than is necessary.
+                  An enquiry that does not lead to a demonstration or business relationship is kept for up to 12 months
+                  after our last meaningful contact with you, and is then deleted or anonymised. We may keep it longer
+                  where there is a justified reason, for example to deal with a complaint, a dispute or a legal
+                  obligation.
+                </p>
+                <p className="mt-4">
+                  An enquiry that leads to a business relationship is kept for as long as needed for that relationship,
+                  and then only as long as legal, accounting or dispute-handling obligations require.
+                </p>
+                <p className="mt-4">
+                  Resend keeps the content and delivery records of emails about an enquiry for 30 days under its standard
+                  retention. Vercel keeps technical request data for the periods set in its service terms.
                 </p>
               </section>
 

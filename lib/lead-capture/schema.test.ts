@@ -122,6 +122,12 @@ describe("getEnabledLeadCapture (privacy-approval gate)", () => {
     expect(getEnabledLeadCapture({ ...env, VERCEL_ENV: "production" }, approved)).toMatchObject({ noticeApproved: true });
   });
 
+  it("keeps Production closed with the real site facts (controller not yet confirmed, wording unapproved)", () => {
+    expect(getEnabledLeadCapture({ ...env, VERCEL_ENV: "production" })).toBeNull();
+    expect(SITE_FACTS.privacyWordingApproved).toBe(false);
+    expect(SITE_FACTS.controllerName).toBeNull();
+  });
+
   it("is off everywhere when unconfigured, and the recovery tool's config is independent of approval", () => {
     expect(getEnabledLeadCapture({ VERCEL_ENV: "preview" }, approved)).toBeNull();
     expect(getLeadCaptureConfig({ ...env, VERCEL_ENV: "production" })).not.toBeNull();

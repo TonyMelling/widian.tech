@@ -193,6 +193,12 @@
 
 **Checks run.** Focused: 61 tests across the six affected suites pass; `tsc` and `eslint` clean; `next build --webpack` passes. Full suite not repeated.
 
+### 2026-11-04 (4) — Privacy notice draft 0.5: owner-approved retention and processor facts
+
+**Completed.** Notice moved to draft 0.5 with the owner-approved 12-month retention for unsuccessful enquiries, Supabase (London, possible international operational processing) and Resend (US storage, 30-day retention) wording; unresolved processor/retention placeholders removed. D-010/D-012 updated. The notice stays draft and the Production gate stays closed because the controller (Widian Limited, incorporation pending) is unconfirmed; no registration details were added and nothing about agreements or Widian's transfer assessment is stated as verified.
+
+**Checks run.** Focused: 56 tests in the affected suites pass; `tsc` and `eslint` clean. No build or push.
+
 ### 2026-08-24 — Imagery, lifecycle and differentiated role experiences
 
 **Completed**

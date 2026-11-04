@@ -87,7 +87,7 @@ describe("POST /api/walkthrough", () => {
       idempotency_key: KEY,
       email: "ada@example.com",
       building_band: "6-25",
-      privacy_notice_version: expect.stringContaining("draft-0.4"),
+      privacy_notice_version: expect.stringContaining("draft-0.5"),
     });
     expect(Object.keys(stored).filter((k) => k.startsWith("marketing_"))).toEqual([]); // columns keep their defaults
     expect(new Headers(calls[0].init.headers).get("apikey")).toBe("service-key");
